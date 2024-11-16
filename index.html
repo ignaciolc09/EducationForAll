@@ -2,6 +2,7 @@
 <html>
 <head>
     <style>
+        /* Previous styles remain the same until header-image */
         * {
             margin: 0;
             padding: 0;
@@ -17,9 +18,23 @@
         .header {
             background-color: #2c3e50;
             color: white;
-            text-align: center;
             padding: 2rem 0;
             margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-text {
+            text-align: left;
+            flex: 1;
         }
 
         .header h1 {
@@ -30,10 +45,46 @@
         .header h2 {
             font-size: 1.3rem;
             color: #ecf0f1;
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 600px;
         }
 
+        .header-image {
+            margin-left: 2rem;
+            flex-shrink: 0;
+        }
+
+        .header-image img {
+            width: 200px;
+            height: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text {
+                text-align: center;
+                margin-bottom: 1.5rem;
+            }
+
+            .header-image {
+                margin-left: 0;
+            }
+
+            .header-image img {
+                width: 150px;
+            }
+
+            .header h2 {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+        }
+
+        /* Rest of the styles remain the same */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -53,6 +104,32 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .features {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 991px) and (min-width: 768px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .feature-card:last-child {
+                grid-column: 1 / -1;
+                width: 50%;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+            .feature-card {
+                width: 100%;
+            }
         }
 
         .feature-card {
@@ -102,8 +179,15 @@
 </head>
 <body>
     <div class="header">
-        <h1>EDUCATION FOR ALL</h1>
-        <h2>Empowering minds across borders, cultures, and backgrounds</h2>
+        <div class="header-content">
+            <div class="header-text">
+                <h1>EDUCATION FOR ALL</h1>
+                <h2>Empowering minds across borders, cultures, and backgrounds</h2>
+            </div>
+            <div class="header-image">
+                <img src="/api/placeholder/200/80" alt="Hour of Code Logo">
+            </div>
+        </div>
     </div>
 
     <div class="container">
