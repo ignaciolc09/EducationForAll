@@ -30,21 +30,46 @@
             overflow: hidden; /* Hide the floating shapes outside the header */
         }
 
-        /* Background shapes added using background-image */
+        /* Dynamic Background Shapes */
         .header::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/dots.png'), rgba(255, 255, 255, 0.1);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 200px 200px;
-            z-index: 1; /* Ensures the pattern stays in the background */
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 1;
+            animation: floatShape 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            right: -150px;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
             filter: blur(80px);
-            pointer-events: none; /* Prevent the background from interfering with clicks */
+            z-index: 1;
+            animation: floatShape 6s ease-in-out infinite;
+        }
+
+        /* Animation to make the shapes move */
+        @keyframes floatShape {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(30px, 30px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
         }
 
         /* Header Text Styles */
@@ -56,7 +81,7 @@
         }
 
         .header-text h1 {
-            font-size: 4rem; /* Larger size */
+            font-size: 3rem; /* Same size as original */
             font-weight: bold;
             margin-bottom: 1rem;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
@@ -124,6 +149,7 @@
             animation: fadeIn 1.5s ease-out;
         }
 
+        /* Uniform Styles for Information Boxes */
         .mission-section, .feature-card {
             background-color: white;
             border-radius: 8px;
@@ -137,15 +163,15 @@
             animation: fadeIn 1s ease-out;
         }
 
-        /* "Our Mission" Text */
-        .mission-section h2 {
-            font-size: 1.3rem; /* Same size as feature cards */
-            color: #2c3e50; /* Dark gray, consistent with other headings */
+        /* Titles for Information Boxes */
+        .mission-section h2, .feature-card h3 {
+            font-size: 1.3rem; /* Match the size of text */
+            color: #2c3e50; /* Same dark gray as other titles */
             margin-bottom: 1rem;
         }
 
-        /* "Our Mission" Text Paragraph */
-        .mission-section p {
+        /* Text for Information Boxes */
+        .mission-section p, .feature-card p {
             color: #7f8c8d;
             font-size: 1rem;
         }
