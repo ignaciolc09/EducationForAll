@@ -31,7 +31,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            max-width: 1400px; /* Increased page width */
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -43,7 +43,7 @@
         }
 
         .header h1 {
-            font-size: 3rem; /* Larger title */
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
@@ -64,7 +64,6 @@
             filter: brightness(0) invert(1);
         }
 
-        /* Buttons in the Header */
         .header-buttons {
             display: flex;
             justify-content: center;
@@ -90,7 +89,7 @@
 
         /* Containers for Content Sections */
         .container {
-            max-width: 1400px; /* Increased page width */
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -100,7 +99,6 @@
             flex-wrap: wrap;
         }
 
-        /* Section with Mission */
         .mission-section {
             background-color: white;
             border-radius: 8px;
@@ -109,20 +107,19 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             flex: 1;
-            max-width: 450px; /* Uniform size */
-            text-align: center; /* Centered text */
+            max-width: 450px;
+            text-align: center;
         }
 
-        /* Ensure the title and text in "Our Mission" match the other cards */
         .mission-section h2 {
-            font-size: 1.3rem;  /* Match title size */
-            color: #2c3e50; /* Match title color */
+            font-size: 1.3rem;
+            color: #2c3e50;
             margin-bottom: 1rem;
         }
 
         .mission-section p {
-            color: #7f8c8d;  /* Match text color */
-            font-size: 1rem; /* Match text size */
+            color: #7f8c8d;
+            font-size: 1rem;
         }
 
         .mission-section:hover {
@@ -130,17 +127,16 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Feature Cards (Information Boxes) */
         .feature-card {
             background-color: white;
-            padding: 2rem; /* Increased padding for consistent size */
+            padding: 2rem;
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             flex: 1;
-            max-width: 450px; /* Ensure same size for all cards */
-            margin-bottom: 2rem; /* Ensure some space between cards */
+            max-width: 450px;
+            margin-bottom: 2rem;
         }
 
         .feature-card:hover {
@@ -158,7 +154,6 @@
             font-size: 1rem;
         }
 
-        /* CTA Section */
         .cta-section {
             text-align: center;
             padding: 3rem 0;
@@ -183,7 +178,6 @@
             background-color: #27ae60;
         }
 
-        /* Footer Section */
         footer {
             text-align: center;
             padding: 2rem;
@@ -192,9 +186,15 @@
         }
 
         /* Table Styling */
-        table {
+        .education-rates-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .education-rates-table {
+            max-width: 80%;  /* Adjust the table width as desired */
             width: 100%;
-            margin: 2rem 0 3rem; /* Add margin bottom for space between table and info boxes */
             border-collapse: collapse;
             border-radius: 8px;
             overflow: hidden;
@@ -219,7 +219,6 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Hover effect for table rows */
         table tbody tr:hover {
             background-color: #bdc3c7;
         }
@@ -233,7 +232,6 @@
             color: #2c3e50;
         }
 
-        /* Table borders */
         table, th, td {
             border: 1px solid #ddd;
         }
@@ -258,11 +256,17 @@
             .feature-card {
                 max-width: 100%;
             }
+
+            .education-rates-table {
+                max-width: 95%; /* Adjust for smaller screens */
+            }
         }
 
     </style>
 </head>
 <body>
+    <!-- Content Structure -->
+
     <div class="header">
         <div class="header-content">
             <div class="header-text">
@@ -270,7 +274,6 @@
                 <h2>Empowering minds across borders, cultures, and backgrounds</h2>
             </div>
 
-            <!-- Header Buttons Section -->
             <div class="header-buttons">
                 <a href="whoweare.html" class="header-button">Who We Are</a>
                 <a href="whatwedo.html" class="header-button">What We Do</a>
@@ -280,31 +283,30 @@
     </div>
 
     <div class="container">
-        <!-- Mission Section -->
         <div class="mission-section">
             <h2>Our Mission</h2>
             <p>We are a community dedicated to making quality education accessible to everyone on Earth, regardless of their country, language, or circumstances. We believe that education is a fundamental right and a powerful tool for positive change in the world.</p>
         </div>
 
-        <!-- Info Boxes (Feature Cards) -->
         <div class="feature-card">
             <h3>Global Access</h3>
-            <p>Breaking down geographical barriers to provide educational resources to learners worldwide, ensuring that regardless of location, anyone can access the knowledge they need. Through online platforms, we deliver resources that anyone, anywhere, can access at their convenience.</p>
+            <p>Breaking down geographical barriers to provide educational resources to learners worldwide, ensuring that regardless of location, anyone can access the knowledge they need.</p>
         </div>
+
         <div class="feature-card">
             <h3>Inclusive Learning</h3>
-            <p>Creating content that respects and embraces diverse cultural perspectives, learning styles, and experiences. We aim to cater to learners of all backgrounds, ensuring everyone feels represented and included in their educational journey.</p>
+            <p>Creating content that respects and embraces diverse cultural perspectives, learning styles, and experiences. We aim to cater to learners of all backgrounds.</p>
         </div>
+
         <div class="feature-card">
             <h3>Quality Education</h3>
-            <p>Delivering high-quality educational content that meets international standards. We collaborate with experts from various fields to ensure that our materials are informative, engaging, and effective in facilitating learning outcomes.</p>
+            <p>Delivering high-quality educational content that meets international standards, ensuring that our materials are informative and effective in facilitating learning outcomes.</p>
         </div>
     </div>
 
-    <!-- Rate of People Without Primary Education Table -->
+    <!-- Centered Table -->
     <div class="education-rates-section">
-        <h2>Rate of People Without Primary Education (2020-2024)</h2>
-        <table>
+        <table class="education-rates-table">
             <thead>
                 <tr>
                     <th>Year</th>
@@ -336,14 +338,12 @@
         </table>
     </div>
 
-    <!-- Call to Action Section -->
     <div class="cta-section">
         <h2>Join Our Educational Community</h2>
         <p>Be part of our mission to make quality education accessible to all!</p>
         <a href="GetInvolved.html" class="cta-button">Get Involved</a>
     </div>
 
-    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Education for All. All Rights Reserved.</p>
     </footer>
