@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         body {
@@ -19,39 +19,39 @@
 
         /* Header Styles */
         .header {
-            background-color: #2980b9;
+            background: linear-gradient(135deg, #2980b9, #3498db); /* Sutil gradiente azul */
             color: white;
-            padding: 3rem 0;
+            padding: 4rem 0; /* Aumentar el padding para más espacio */
             margin-bottom: 2rem;
             position: relative;
+            text-align: center; /* Centrado de texto */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #2980b9; /* Línea sutil en la parte inferior */
+            animation: fadeIn 1s ease-out;
         }
 
         .header-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .header-text {
-            text-align: center;
-            flex: 1;
+        .header-text h1 {
+            font-size: 4rem; /* Hacer el título más grande */
+            font-weight: bold;
             margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); /* Sombra suave para el texto */
+            letter-spacing: 1px; /* Espaciado de letras para más estilo */
         }
 
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: white; /* White color for the title */
-        }
-
-        .header h2 {
-            font-size: 1.5rem;
+        .header-text h2 {
+            font-size: 1.6rem;
             color: #ecf0f1;
             max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+            line-height: 1.5;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .header-buttons {
@@ -59,25 +59,40 @@
             justify-content: center;
             gap: 2rem;
             margin-top: 2rem;
-            width: 100%;
         }
 
         .header-button {
-            background-color: #3498db;
+            background-color: #2ecc71;
             color: white;
             padding: 1rem 2rem;
-            border-radius: 4px;
+            border-radius: 25px; /* Botones con bordes más redondeados */
             text-decoration: none;
             font-size: 1.1rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase; /* Para los botones más estilo */
+            transition: all 0.3s ease;
         }
 
         .header-button:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
+            background-color: #27ae60;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Content and Footer Styles */
+        /* Animation for fade-in */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Containers for Content Sections */
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -87,6 +102,7 @@
             gap: 2rem;
             margin-top: 3rem;
             flex-wrap: wrap;
+            animation: fadeIn 1.5s ease-out;
         }
 
         .mission-section, .feature-card {
@@ -99,22 +115,12 @@
             flex: 1;
             max-width: 450px;
             text-align: center;
+            animation: fadeIn 1s ease-out;
         }
 
-        .feature-card h3, .mission-section h2 {
-            font-size: 1.3rem;
+        .feature-card h3 {
             color: #2c3e50;
             margin-bottom: 1rem;
-        }
-
-        .feature-card p, .mission-section p {
-            color: #7f8c8d;
-            font-size: 1rem;
-        }
-
-        .feature-card:hover, .mission-section:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .cta-section {
@@ -124,6 +130,7 @@
             color: white;
             border-radius: 8px;
             margin-top: 2rem;
+            animation: fadeIn 1.5s ease-out;
         }
 
         .cta-button {
@@ -147,58 +154,33 @@
             background-color: #2c3e50;
             color: white;
             margin-top: 0;
+            animation: fadeIn 1.5s ease-out;
         }
 
-        /* Table Styling */
-        .education-rates-section {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-            margin-bottom: 3rem;
-        }
+        /* Responsive Styling for Small Screens */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
 
-        .education-rates-table {
-            max-width: 80%;
-            width: 100%;
-            border-collapse: collapse;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+            .header-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
 
-        table th, table td {
-            padding: 12px 20px;
-            text-align: left;
-            font-size: 16px;
-        }
+            .container {
+                flex-direction: column;
+                gap: 2rem;
+            }
 
-        table th {
-            background-color: #2980b9;
-            color: white;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+            .feature-card {
+                max-width: 100%;
+            }
 
-        table tbody tr {
-            background-color: #ecf0f1;
-            transition: background-color 0.3s ease;
-        }
-
-        table tbody tr:hover {
-            background-color: #bdc3c7;
-        }
-
-        table tbody tr:nth-child(odd) {
-            background-color: #f9f9f9;
-        }
-
-        table td {
-            font-size: 14px;
-            color: #2c3e50;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
+            .education-rates-table {
+                max-width: 95%;
+            }
         }
     </style>
 </head>
