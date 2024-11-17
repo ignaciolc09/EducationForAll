@@ -115,11 +115,15 @@
             }
         }
 
-        /* Rest of the styles remain the same */
+        /* Container for the mission and information sections */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            display: flex;
+            justify-content: space-between; /* Align sections side by side */
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         /* Mission section with hover animation */
@@ -129,7 +133,8 @@
             padding: 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth effect */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1;
         }
 
         /* Hover effect to scale the mission-section */
@@ -138,39 +143,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add more shadow for emphasis */
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        @media (min-width: 992px) {
-            .features {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 991px) and (min-width: 768px) {
-            .features {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .feature-card:last-child {
-                grid-column: 1 / -1;
-                width: 50%;
-                margin: 0 auto;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .features {
-                grid-template-columns: 1fr;
-            }
-            .feature-card {
-                width: 100%;
-            }
-        }
-
+        /* Feature Cards (used for the three info boxes) */
         .feature-card {
             background-color: white;
             padding: 1.5rem;
@@ -178,6 +151,7 @@
             text-align: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1;
         }
 
         /* Hover effect to scale the feature-card */
@@ -191,35 +165,8 @@
             margin-bottom: 1rem;
         }
 
-        .cta-section {
-            text-align: center;
-            padding: 3rem 0;
-            background-color: #3498db;
-            color: white;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: #2ecc71;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-top: 1rem;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #27ae60;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #2c3e50;
-            color: white;
+        .feature-card p {
+            color: #7f8c8d;
         }
 
         /* Table Styling */
@@ -288,49 +235,35 @@
     </div>
 
     <div class="container">
+        <!-- Mission Section -->
         <div class="mission-section">
             <h2>Our Mission</h2>
             <p>We are a community dedicated to making quality education accessible to everyone on Earth, regardless of their country, language, or circumstances. We believe that education is a fundamental right and a powerful tool for positive change in the world.</p>
         </div>
 
-        <!-- Rate of People Without Primary Education Table -->
-        <div class="education-rates-section">
-            <h2>Rate of People Without Primary Education (2020-2024)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Year</th>
-                        <th>Rate of People Without Primary Education (%)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2020</td>
-                        <td>15.3</td>
-                    </tr>
-                    <tr>
-                        <td>2021</td>
-                        <td>14.8</td>
-                    </tr>
-                    <tr>
-                        <td>2022</td>
-                        <td>14.1</td>
-                    </tr>
-                    <tr>
-                        <td>2023</td>
-                        <td>13.7</td>
-                    </tr>
-                    <tr>
-                        <td>2024</td>
-                        <td>13.2 (Estimate)</td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- Info Boxes (Global Access, Inclusive Learning, Quality Education) -->
+        <div class="feature-card">
+            <h3>Global Access</h3>
+            <p>Breaking down geographical barriers to provide educational resources to learners worldwide.</p>
         </div>
-
-        <footer>
-            <p>&copy; 2024 Education for All. All Rights Reserved.</p>
-        </footer>
+        <div class="feature-card">
+            <h3>Inclusive Learning</h3>
+            <p>Creating content that respects and embraces diverse cultural perspectives and learning styles.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Quality Education</h3>
+            <p>Delivering high-quality educational content that meets international standards.</p>
+        </div>
     </div>
+
+    <div class="cta-section">
+        <h2>Join Our Educational Community</h2>
+        <p>Be part of our mission to make quality education accessible to all!</p>
+        <a href="GetInvolved.html" class="cta-button">Get Involved</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Education for All. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
