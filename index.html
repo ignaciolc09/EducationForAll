@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         /* General Reset */
         * {
@@ -122,13 +124,14 @@
         /* Feature Cards (Information Boxes) */
         .feature-card {
             background-color: white;
-            padding: 1.5rem;
+            padding: 2rem; /* Increased padding for consistent size */
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             flex: 1;
             max-width: 450px; /* Ensure same size for all cards */
+            margin-bottom: 2rem; /* Ensure some space between cards */
         }
 
         .feature-card:hover {
@@ -182,7 +185,7 @@
         /* Table Styling */
         table {
             width: 100%;
-            margin: 2rem 0;
+            margin: 2rem 0 3rem; /* Add margin bottom for space between table and info boxes */
             border-collapse: collapse;
             border-radius: 8px;
             overflow: hidden;
@@ -274,22 +277,23 @@
             <p>We are a community dedicated to making quality education accessible to everyone on Earth, regardless of their country, language, or circumstances. We believe that education is a fundamental right and a powerful tool for positive change in the world.</p>
         </div>
 
-        <!-- Info Boxes -->
+        <!-- Info Boxes (Feature Cards) -->
         <div class="feature-card">
             <h3>Global Access</h3>
-            <p>Breaking down geographical barriers to provide educational resources to learners worldwide, ensuring no one is left behind.</p>
+            <p>Breaking down geographical barriers to provide educational resources to learners worldwide, ensuring that regardless of location, anyone can access the knowledge they need. Through online platforms, we deliver resources that anyone, anywhere, can access at their convenience.</p>
         </div>
         <div class="feature-card">
             <h3>Inclusive Learning</h3>
-            <p>Creating content that respects and embraces diverse cultural perspectives and learning styles, making education truly inclusive.</p>
+            <p>Creating content that respects and embraces diverse cultural perspectives, learning styles, and languages. We aim to cater to learners of all backgrounds, ensuring everyone feels represented and included in their educational journey.</p>
         </div>
         <div class="feature-card">
             <h3>Quality Education</h3>
-            <p>Delivering high-quality educational content that meets international standards, ensuring a robust and effective learning experience for all.</p>
+            <p>Delivering high-quality educational content that meets international standards. We collaborate with experts from various fields to ensure that our materials are informative, engaging, and effective in facilitating learning outcomes.</p>
         </div>
+
     </div>
 
-    <!-- Table: People Without Primary Education -->
+    <!-- Rate of People Without Primary Education Table -->
     <div class="education-rates-section">
         <h2>Rate of People Without Primary Education (2020-2024)</h2>
         <table>
@@ -331,7 +335,7 @@
         <a href="GetInvolved.html" class="cta-button">Get Involved</a>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Education for All. All Rights Reserved.</p>
     </footer>
