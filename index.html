@@ -27,49 +27,56 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             border-bottom: 4px solid #2980b9;
             animation: fadeIn 1s ease-out;
-            overflow: hidden; /* Hide the floating shapes outside the header */
+            overflow: hidden; /* Hide any floating shapes outside the header */
         }
 
-        /* Dynamic Background Shapes */
+        /* Dynamic Shapes Inside Header */
         .header::before {
             content: '';
             position: absolute;
-            top: -100px;
-            left: -100px;
-            width: 300px;
-            height: 300px;
-            background-color: rgba(255, 255, 255, 0.2);
+            top: 30%;
+            left: 10%;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(0, 0, 0, 0.1);
             border-radius: 50%;
-            filter: blur(40px);
             z-index: 1;
-            animation: floatShape 6s ease-in-out infinite;
         }
 
         .header::after {
             content: '';
             position: absolute;
-            bottom: -150px;
-            right: -150px;
-            width: 400px;
-            height: 400px;
-            background-color: rgba(255, 255, 255, 0.2);
+            bottom: 10%;
+            right: 15%;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.15);
             border-radius: 50%;
-            filter: blur(80px);
             z-index: 1;
-            animation: floatShape 6s ease-in-out infinite;
         }
 
-        /* Animation to make the shapes move */
-        @keyframes floatShape {
-            0% {
-                transform: translate(0, 0);
-            }
-            50% {
-                transform: translate(30px, 30px);
-            }
-            100% {
-                transform: translate(0, 0);
-            }
+        .header .shape-triangle {
+            content: '';
+            position: absolute;
+            top: 15%;
+            right: 20%;
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 150px solid rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .header .shape-rect {
+            content: '';
+            position: absolute;
+            bottom: 20%;
+            left: 10%;
+            width: 150px;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.12);
+            z-index: 1;
         }
 
         /* Header Text Styles */
@@ -77,13 +84,14 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
-            z-index: 2; /* Ensure text and buttons are above background */
+            z-index: 2; /* Ensure text and buttons are above background shapes */
         }
 
         .header-text h1 {
-            font-size: 3rem; /* Same size as original */
+            font-size: 3rem; /* Title size */
             font-weight: bold;
             margin-bottom: 1rem;
+            color: white; /* White color for title */
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
             letter-spacing: 1px;
         }
