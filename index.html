@@ -2,7 +2,7 @@
 <html>
 <head>
     <style>
-        /* Previous styles remain the same until header-image */
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -15,6 +15,7 @@
             line-height: 1.6;
         }
 
+        /* Header Styles */
         .header {
             background-color: #2c3e50;
             color: white;
@@ -25,10 +26,10 @@
 
         .header-content {
             display: flex;
-            flex-direction: column; /* Stack header content vertically */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1400px; /* Increased page width */
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -40,7 +41,7 @@
         }
 
         .header h1 {
-            font-size: 3rem; /* Make the title slightly bigger */
+            font-size: 3rem; /* Larger title */
             margin-bottom: 1rem;
         }
 
@@ -61,107 +62,75 @@
             filter: brightness(0) invert(1);
         }
 
-        /* New buttons section in header */
+        /* Buttons in the Header */
         .header-buttons {
             display: flex;
-            justify-content: center; /* Center the buttons */
-            gap: 2rem; /* Space between buttons */
+            justify-content: center;
+            gap: 2rem;
             margin-top: 2rem;
-            width: 100%; /* Ensures the buttons occupy the full width of the header */
+            width: 100%;
         }
 
         .header-button {
-            background-color: #3498db; /* Light blue color */
+            background-color: #3498db;
             color: white;
-            padding: 1rem 2rem; /* Make the buttons bigger */
+            padding: 1rem 2rem;
             border-radius: 4px;
             text-decoration: none;
-            font-size: 1.1rem; /* Slightly bigger font */
+            font-size: 1.1rem;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .header-button:hover {
-            background-color: #2980b9; /* Darker blue on hover */
-            transform: translateY(-2px); /* Slight movement on hover */
+            background-color: #2980b9;
+            transform: translateY(-2px);
         }
 
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .header-text {
-                text-align: center;
-                margin-bottom: 1.5rem;
-            }
-
-            .header-image {
-                margin-left: 0;
-            }
-
-            .header-image img {
-                width: 150px;
-            }
-
-            .header h2 {
-                max-width: 100%;
-                margin: 0 auto;
-            }
-
-            .header-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-
-        /* Container for the mission and information sections */
+        /* Containers for Content Sections */
         .container {
-            max-width: 1200px;
+            max-width: 1400px; /* Increased page width */
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
-            justify-content: space-between; /* Align sections side by side */
+            justify-content: space-between;
             gap: 2rem;
             margin-top: 3rem;
-            flex-wrap: wrap; /* Allows the sections to wrap on smaller screens */
+            flex-wrap: wrap;
         }
 
-        /* Mission section with hover animation */
+        /* Section with Mission */
         .mission-section {
             background-color: white;
             border-radius: 8px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             flex: 1;
-            max-width: 350px; /* Ensure mission section doesn't stretch too far */
+            max-width: 450px; /* Uniform size */
         }
 
-        /* Hover effect to scale the mission-section */
         .mission-section:hover {
-            transform: scale(1.05); /* Scale the card slightly when hovered */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add more shadow for emphasis */
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .mission-section h2 {
-            font-size: 1.3rem; /* Make the title consistent with other sections */
+            font-size: 1.3rem;
         }
 
-        /* Feature Cards (used for the three info boxes) */
+        /* Feature Cards (Information Boxes) */
         .feature-card {
             background-color: white;
             padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             flex: 1;
-            max-width: 350px; /* Ensure feature cards don't stretch too far */
+            max-width: 450px; /* Ensure same size for all cards */
         }
 
-        /* Hover effect to scale the feature-card */
         .feature-card:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -174,6 +143,7 @@
 
         .feature-card p {
             color: #7f8c8d;
+            font-size: 1rem;
         }
 
         /* CTA Section */
@@ -201,6 +171,7 @@
             background-color: #27ae60;
         }
 
+        /* Footer Section */
         footer {
             text-align: center;
             padding: 2rem;
@@ -214,10 +185,10 @@
             margin: 2rem 0;
             border-collapse: collapse;
             border-radius: 8px;
-            overflow: hidden; /* For rounded corners */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         table th, table td {
             padding: 12px 20px;
             text-align: left;
@@ -238,11 +209,11 @@
 
         /* Hover effect for table rows */
         table tbody tr:hover {
-            background-color: #bdc3c7; /* Change row color on hover */
+            background-color: #bdc3c7;
         }
 
         table tbody tr:nth-child(odd) {
-            background-color: #f9f9f9; /* Alternate row color */
+            background-color: #f9f9f9;
         }
 
         table td {
@@ -254,6 +225,29 @@
         table, th, td {
             border: 1px solid #ddd;
         }
+
+        /* Responsive Styling for Small Screens */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .feature-card {
+                max-width: 100%;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -263,8 +257,8 @@
                 <h1>EDUCATION FOR ALL</h1>
                 <h2>Empowering minds across borders, cultures, and backgrounds</h2>
             </div>
-            
-            <!-- Centered buttons section with spacing -->
+
+            <!-- Header Buttons Section -->
             <div class="header-buttons">
                 <a href="whoweare.html" class="header-button">Who We Are</a>
                 <a href="whatwedo.html" class="header-button">What We Do</a>
@@ -280,27 +274,64 @@
             <p>We are a community dedicated to making quality education accessible to everyone on Earth, regardless of their country, language, or circumstances. We believe that education is a fundamental right and a powerful tool for positive change in the world.</p>
         </div>
 
-        <!-- Info Boxes (Global Access, Inclusive Learning, Quality Education) -->
+        <!-- Info Boxes -->
         <div class="feature-card">
             <h3>Global Access</h3>
-            <p>Breaking down geographical barriers to provide educational resources to learners worldwide.</p>
+            <p>Breaking down geographical barriers to provide educational resources to learners worldwide, ensuring no one is left behind.</p>
         </div>
         <div class="feature-card">
             <h3>Inclusive Learning</h3>
-            <p>Creating content that respects and embraces diverse cultural perspectives and learning styles.</p>
+            <p>Creating content that respects and embraces diverse cultural perspectives and learning styles, making education truly inclusive.</p>
         </div>
         <div class="feature-card">
             <h3>Quality Education</h3>
-            <p>Delivering high-quality educational content that meets international standards.</p>
+            <p>Delivering high-quality educational content that meets international standards, ensuring a robust and effective learning experience for all.</p>
         </div>
     </div>
 
+    <!-- Table: People Without Primary Education -->
+    <div class="education-rates-section">
+        <h2>Rate of People Without Primary Education (2020-2024)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Rate of People Without Primary Education (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2020</td>
+                    <td>15.3</td>
+                </tr>
+                <tr>
+                    <td>2021</td>
+                    <td>14.8</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>14.1</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>13.7</td>
+                </tr>
+                <tr>
+                    <td>2024</td>
+                    <td>13.2 (Estimate)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Call to Action Section -->
     <div class="cta-section">
         <h2>Join Our Educational Community</h2>
         <p>Be part of our mission to make quality education accessible to all!</p>
         <a href="GetInvolved.html" class="cta-button">Get Involved</a>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Education for All. All Rights Reserved.</p>
     </footer>
