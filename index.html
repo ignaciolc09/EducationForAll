@@ -175,6 +175,26 @@
             background-color: #2c3e50;
             color: white;
         }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #ecf0f1;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
     </style>
 </head>
 <body>
@@ -194,6 +214,41 @@
         <div class="mission-section">
             <h2>Our Mission</h2>
             <p>We are a community dedicated to making quality education accessible to everyone on Earth, regardless of their country, language, or circumstances. We believe that education is a fundamental right and a powerful tool for positive change in the world.</p>
+        </div>
+
+        <!-- Suicide Rates Table -->
+        <div class="suicide-rates-section">
+            <h2>Suicide Rates (2020-2024)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Suicide Rate (per 100,000)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2020</td>
+                        <td>12.3</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>13.0</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>12.8</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>13.2</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td>12.5 (Estimate)</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <div class="features">
