@@ -224,7 +224,7 @@
 
         /* Blur effect for the whole page */
         .blurred {
-            filter: blur(5px);
+            filter: blur(3px); /* Reduced blur intensity */
             pointer-events: none; /* Disable interactions with blurred content */
         }
 
@@ -276,6 +276,11 @@
 
         .modal-button.close:hover {
             background-color: #c0392b;
+        }
+
+        /* Ensuring modal content is not blurred */
+        .modal .modal-content {
+            filter: none; /* No blur applied */
         }
     </style>
 </head>
