@@ -91,12 +91,20 @@
             padding: 0 2rem;
         }
 
+        /* Mission section with hover animation */
         .mission-section {
             background-color: white;
             border-radius: 8px;
             padding: 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth effect */
+        }
+
+        /* Hover effect to scale the mission-section */
+        .mission-section:hover {
+            transform: scale(1.05); /* Scale the card slightly when hovered */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add more shadow for emphasis */
         }
 
         .features {
@@ -138,13 +146,13 @@
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth effect */
         }
 
         /* Hover effect to scale the feature-card */
         .feature-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05); /* Scale the card slightly when hovered */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add more shadow for emphasis */
         }
 
         .feature-card h3 {
@@ -183,51 +191,24 @@
             color: white;
         }
 
-        /* Table Styling */
+        /* Table styling */
         table {
             width: 100%;
             margin: 2rem 0;
             border-collapse: collapse;
-            border-radius: 8px;
-            overflow: hidden; /* For rounded corners */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
         }
-        
-        table th, table td {
-            padding: 12px 20px;
-            text-align: left;
-            font-size: 16px;
-        }
-
-        table th {
-            background-color: #2980b9;
-            color: white;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        table tbody tr {
-            background-color: #ecf0f1;
-            transition: background-color 0.3s ease;
-        }
-
-        /* Hover effect for table rows */
-        table tbody tr:hover {
-            background-color: #bdc3c7; /* Change row color on hover */
-        }
-
-        table tbody tr:nth-child(odd) {
-            background-color: #f9f9f9; /* Alternate row color */
-        }
-
-        table td {
-            font-size: 14px;
-            color: #2c3e50;
-        }
-
-        /* Table borders */
         table, th, td {
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #ecf0f1;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
         }
     </style>
 </head>
@@ -302,4 +283,6 @@
 
         <div class="cta-section">
             <h2>Join Our Educational Community</h2>
-            <p>Be part of our
+            <p>Be part of our mission to make education accessible to everyone</p>
+            <a href="#" class="cta-button">Get Started</a>
+        </div
