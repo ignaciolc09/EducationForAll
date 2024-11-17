@@ -17,6 +17,18 @@
             line-height: 1.6;
         }
 
+        /* Animation for fade-in */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Header Styles */
         .header {
             background-color: #2c3e50;
@@ -24,6 +36,7 @@
             padding: 3rem 0;
             margin-bottom: 2rem;
             position: relative;
+            animation: fadeIn 1s ease-out;
         }
 
         .header-content {
@@ -97,6 +110,7 @@
             gap: 2rem;
             margin-top: 3rem;
             flex-wrap: wrap;
+            animation: fadeIn 1.5s ease-out;
         }
 
         .mission-section {
@@ -109,6 +123,7 @@
             flex: 1;
             max-width: 450px;
             text-align: center;
+            animation: fadeIn 1s ease-out;
         }
 
         .mission-section h2 {
@@ -137,6 +152,7 @@
             flex: 1;
             max-width: 450px;
             margin-bottom: 2rem;
+            animation: fadeIn 1.2s ease-out;
         }
 
         .feature-card:hover {
@@ -160,7 +176,8 @@
             background-color: #3498db;
             color: white;
             border-radius: 8px;
-            margin-top: 2rem; /* Adjust margin-top to fine-tune the space */
+            margin-top: 2rem;
+            animation: fadeIn 1.5s ease-out;
         }
 
         .cta-button {
@@ -183,7 +200,8 @@
             padding: 2rem;
             background-color: #2c3e50;
             color: white;
-            margin-top: 0; /* Removed margin to connect with the CTA section */
+            margin-top: 0;
+            animation: fadeIn 1.5s ease-out;
         }
 
         /* Table Styling */
@@ -191,7 +209,8 @@
             display: flex;
             justify-content: center;
             margin-top: 2rem;
-            margin-bottom: 3rem; /* Added margin-bottom to create space */
+            margin-bottom: 3rem;
+            animation: fadeIn 1.3s ease-out;
         }
 
         .education-rates-table {
@@ -263,7 +282,6 @@
                 max-width: 95%; /* Adjust for smaller screens */
             }
         }
-
     </style>
 </head>
 <body>
