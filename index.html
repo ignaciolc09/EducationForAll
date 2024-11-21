@@ -85,6 +85,16 @@
             }
         }
 
+        /* Animation for Growing Information Boxes */
+        @keyframes growBox {
+            0%, 100% {
+                transform: scale(1); /* Normal size */
+            }
+            50% {
+                transform: scale(1.05); /* Grow slightly */
+            }
+        }
+
         /* Containers for Content Sections */
         .container {
             max-width: 1400px;
@@ -105,10 +115,10 @@
             padding: 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             flex: 1;
             max-width: 450px;
             text-align: center;
+            animation: growBox 2.5s ease-in-out infinite;
         }
 
         /* Titles for Information Boxes */
@@ -122,6 +132,23 @@
         .mission-section p, .feature-card p {
             color: #333333;
             font-size: 1rem;
+        }
+
+        /* Staggered animation for each box */
+        .mission-section {
+            animation-delay: 0s; /* No delay for the first box */
+        }
+
+        .feature-card:nth-child(1) {
+            animation-delay: 0s; /* No delay for the first box */
+        }
+
+        .feature-card:nth-child(2) {
+            animation-delay: 2.5s; /* Delay second box for 2.5 seconds */
+        }
+
+        .feature-card:nth-child(3) {
+            animation-delay: 5s; /* Delay third box for 5 seconds */
         }
 
         /* Hover Animation for Information Boxes */
