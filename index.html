@@ -85,16 +85,6 @@
             }
         }
 
-        /* Animation for Growing Information Boxes */
-        @keyframes growBox {
-            0%, 100% {
-                transform: scale(1); /* Normal size */
-            }
-            50% {
-                transform: scale(1.05); /* Grow slightly */
-            }
-        }
-
         /* Containers for Content Sections */
         .container {
             max-width: 1400px;
@@ -133,33 +123,6 @@
         .mission-section p, .feature-card p {
             color: #333333;
             font-size: 1rem;
-        }
-
-        /* Staggered animation for each box */
-        .mission-section {
-            animation-delay: 0s; /* No delay for the first box */
-        }
-
-        .feature-card:nth-child(1) {
-            animation-delay: 0s; /* No delay for the first box */
-        }
-
-        .feature-card:nth-child(2) {
-            animation-delay: 2.5s; /* Delay second box for 2.5 seconds */
-        }
-
-        .feature-card:nth-child(3) {
-            animation-delay: 5s; /* Delay third box for 5 seconds */
-        }
-
-        .feature-card:nth-child(4) {
-            animation-delay: 7.5s; /* Delay fourth box for 7.5 seconds */
-        }
-
-        /* Hover Animation for Information Boxes */
-        .feature-card:hover, .mission-section:hover {
-            transform: scale(1.05); /* Slightly bigger on hover */
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
 
         .cta-section {
@@ -208,7 +171,7 @@
             </div>
 
             <div class="header-buttons">
-                <a href="whoweare.html" class="header-button">Who We Are</a>
+                <a href="whoweare.html" id="toggle-button" class="header-button">Who We Are</a>
                 <a href="whatwedo.html" class="header-button">What We Do</a>
                 <a href="learnmore.html" class="header-button">Learn More</a>
             </div>
@@ -247,5 +210,23 @@
         <p>&copy; 2024 Education for All. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        // JavaScript to check the current page and change the button label
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleButton = document.getElementById("toggle-button");
+
+            // Check if the current page is "Home Page"
+            if (window.location.pathname === "/index.html" || window.location.pathname === "/") {
+                toggleButton.textContent = "Who We Are";  // Home Page -> Who We Are button
+                toggleButton.href = "whoweare.html";      // Link to Who We Are page
+            }
+
+            // Check if the current page is "Who We Are" page
+            if (window.location.pathname === "/whoweare.html") {
+                toggleButton.textContent = "Home Page";  // Who We Are page -> Home Page button
+                toggleButton.href = "index.html";        // Link to Home Page
+            }
+        });
+    </script>
 </body>
 </html>
