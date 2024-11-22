@@ -99,12 +99,12 @@
         }
 
         /* Uniform Styles for Information Boxes */
-        .mission-section, .feature-card, .big-info-block {
+        .mission-section, .feature-card {
             background-color: #ffffff; /* White background for boxes */
             border-radius: 15px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             flex: 1;
             max-width: 450px;
             text-align: center;
@@ -112,69 +112,17 @@
             animation-timing-function: ease-in-out;
         }
 
-        /* Big Horizontal Block for "About Us" */
-        .big-info-block {
-            background-color: #ffffff; /* White background */
-            color: #333; /* Dark text */
-            font-size: 1.2rem;
-            flex-basis: 100%; /* Take full width of the container */
-            text-align: center;
-            border-radius: 15px;
-            margin-bottom: 3rem; /* Extra margin to create space from following content */
-            padding: 2rem 3rem; /* Larger padding */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        }
-
-        .big-info-block h2 {
-            font-size: 2rem;
-            color: #0288d1;
-            margin-bottom: 1rem;
-        }
-
-        .big-info-block h3 {
-            font-size: 1.5rem;
-            color: #0288d1;
-            margin-top: 1.5rem;
-        }
-
         /* Titles for Information Boxes */
-        .mission-section h2, .feature-card h3, .big-info-block h2 {
+        .mission-section h2, .feature-card h3 {
             font-size: 1.4rem; 
             color: #0288d1; /* Blue color for titles */
             margin-bottom: 1rem;
         }
 
         /* Text for Information Boxes */
-        .mission-section p, .feature-card p, .big-info-block p {
+        .mission-section p, .feature-card p {
             color: #333333;
             font-size: 1rem;
-        }
-
-        /* Staggered animation for each box */
-        .mission-section {
-            animation-delay: 0s; /* No delay for the first box */
-        }
-
-        .feature-card:nth-child(1) {
-            animation-delay: 0s; /* No delay for the first box */
-        }
-
-        .feature-card:nth-child(2) {
-            animation-delay: 2.5s; /* Delay second box for 2.5 seconds */
-        }
-
-        .feature-card:nth-child(3) {
-            animation-delay: 5s; /* Delay third box for 5 seconds */
-        }
-
-        .feature-card:nth-child(4) {
-            animation-delay: 7.5s; /* Delay fourth box for 7.5 seconds */
-        }
-
-        /* Hover Animation for Information Boxes */
-        .feature-card:hover, .mission-section:hover, .big-info-block:hover {
-            transform: scale(1.05); /* Slightly bigger on hover */
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
 
         .cta-section {
@@ -223,7 +171,7 @@
             </div>
 
             <div class="header-buttons">
-                <a href="whoweare.html" class="header-button">Who We Are</a>
+                <a href="whoweare.html" id="toggle-button" class="header-button">Who We Are</a>
                 <a href="whatwedo.html" class="header-button">What We Do</a>
                 <a href="learnmore.html" class="header-button">Learn More</a>
             </div>
@@ -231,22 +179,19 @@
     </div>
 
     <div class="container">
-        <!-- Updated "About Us" block -->
-        <div class="big-info-block">
-            <h2>About Us</h2>
-            <p>We are an organization created by students from North Chapultepec Institute, driven by a passion for education and equality. Our mission is to make education accessible to every person on Earth, regardless of age, ability, or background. We are dedicated to breaking barriers in education and empowering people everywhere to reach their fullest potential. We provide tools, resources, and opportunities to create a brighter, more inclusive future for everyone.</p>
-            <h3>Our Mission</h3>
-            <p>To break down all barriers to education and ensure that anyone, anywhere, can access quality learning opportunities. We aim to create a world where education is a universal right for all.</p>
+        <div class="mission-section">
+            <h2>Our Mission</h2>
+            <p>We are a community dedicated to making quality education accessible to everyone on Earth, regardless of their country, language, or circumstances. We believe that education is a fundamental right and a powerful tool for positive change in the world.</p>
         </div>
 
         <div class="feature-card">
-            <h3>Where do we come from</h3>
-            <p>We are a group of students from a school called "Instituto Chapultepec norte", we are cursing 9th grade and this is our final proyect for the first semester.</p>
+            <h3>Global Access</h3>
+            <p>Breaking down geographical barriers to provide educational resources to learners worldwide, ensuring that regardless of location, anyone can access the knowledge they need.</p>
         </div>
 
         <div class="feature-card">
-            <h3>Context</h3>
-            <p>We are looking foward to give education to all people no matter the barriers or any challenge they may face, thats the purpose of this page, to help others recieve the proper education they should have</p>
+            <h3>Inclusive Learning</h3>
+            <p>Creating content that respects and embraces diverse cultural perspectives, learning styles, and experiences. We aim to cater to learners of all backgrounds.</p>
         </div>
 
         <div class="feature-card">
@@ -256,8 +201,8 @@
     </div>
 
     <div class="cta-section">
-        <h2>Join Our Mission</h2>
-        <p>Be part of a global movement that is working to make education available to all, regardless of circumstances. Together, we can break barriers and create a better future through education!</p>
+        <h2>Join Our Educational Community</h2>
+        <p>Be part of our mission to make quality education accessible to all!</p>
         <a href="GetInvolved.html" class="cta-button">Get Involved</a>
     </div>
 
@@ -265,5 +210,23 @@
         <p>&copy; 2024 Education for All. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        // JavaScript to check the current page and change the button label
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleButton = document.getElementById("toggle-button");
+
+            // Check if the current page is "Home Page"
+            if (window.location.pathname === "/whoweare.html") {
+                toggleButton.textContent = "Home Page";  // Who We Are page -> Home Page button
+                toggleButton.href = "index.html";        // Link to Home Page
+            }
+
+            // Check if the current page is "Home Page"
+            if (window.location.pathname === "/index.html" || window.location.pathname === "/") {
+                toggleButton.textContent = "Who We Are";  // Home Page -> Who We Are button
+                toggleButton.href = "whoweare.html";      // Link to Who We Are page
+            }
+        });
+    </script>
 </body>
 </html>
