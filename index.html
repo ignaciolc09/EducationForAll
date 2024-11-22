@@ -74,8 +74,9 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ensures a responsive layout */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
             gap: 2rem;
             margin-top: 4rem;
         }
@@ -88,6 +89,8 @@
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s ease, background-color 0.3s ease;
+            flex: 1;
+            min-width: 280px; /* Ensures cards are at least 280px wide */
         }
 
         .mission-section h2, .feature-card h3 {
@@ -141,6 +144,7 @@
             color: white;
             margin-top: 4rem;
         }
+
     </style>
 </head>
 <body>
@@ -161,21 +165,25 @@
     </div>
 
     <div class="container">
+        <!-- "Our Mission" Block -->
         <div class="mission-section">
             <h2>Our Mission</h2>
             <p>We are a community dedicated to making quality education accessible to everyone on Earth, regardless of their country, language, or circumstances. We believe that education is a fundamental right and a powerful tool for positive change in the world.</p>
         </div>
 
+        <!-- "Global Access" Block -->
         <div class="feature-card">
             <h3>Global Access</h3>
             <p>Breaking down geographical barriers to provide educational resources to learners worldwide, ensuring that regardless of location, anyone can access the knowledge they need.</p>
         </div>
 
+        <!-- "Inclusive Learning" Block -->
         <div class="feature-card">
             <h3>Inclusive Learning</h3>
             <p>Creating content that respects and embraces diverse cultural perspectives, learning styles, and experiences. We aim to cater to learners of all backgrounds.</p>
         </div>
 
+        <!-- "Quality Education" Block -->
         <div class="feature-card">
             <h3>Quality Education</h3>
             <p>Delivering high-quality educational content that meets international standards, ensuring that our materials are informative and effective in facilitating learning outcomes.</p>
