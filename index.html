@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education for All</title>
     <style>
         /* General Reset */
         * {
@@ -15,6 +16,7 @@
         body {
             background-color: #e0f7fa; /* Light cyan background */
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Header Styles */
@@ -25,27 +27,28 @@
             margin-bottom: 2rem;
             text-align: center;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border-bottom: 4px solid #0288d1; /* Blue border */
-            animation: fadeIn 1s ease-out;
+            border-bottom: 4px solid #0288d1;
+            animation: fadeIn 1.5s ease-out;
+            z-index: 1;
         }
 
         .header-text h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: bold;
             color: #fff; /* White text for title */
             margin-bottom: 1rem;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .header-text h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #f0f4f7;
             max-width: 600px;
             margin: 0 auto;
             font-weight: 300;
             line-height: 1.5;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .header-buttons {
@@ -53,31 +56,33 @@
             justify-content: center;
             gap: 2rem;
             margin-top: 2rem;
+            z-index: 1;
         }
 
         .header-button {
             background-color: #4caf50; /* Green button */
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             border-radius: 30px;
             text-decoration: none;
             font-size: 1.2rem;
             font-weight: 500;
             text-transform: uppercase;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
 
         .header-button:hover {
             background-color: #388e3c; /* Darker green on hover */
-            transform: translateY(-5px);
+            transform: translateY(-7px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         /* Animation for fade-in */
         @keyframes fadeIn {
             0% {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(50px);
             }
             100% {
                 opacity: 1;
@@ -98,9 +103,8 @@
             animation: fadeIn 1.5s ease-out;
         }
 
-        /* Uniform Styles for Information Boxes */
         .mission-section, .feature-card {
-            background-color: #ffffff; /* White background for boxes */
+            background-color: #ffffff;
             border-radius: 15px;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -108,27 +112,31 @@
             flex: 1;
             max-width: 450px;
             text-align: center;
-            animation: growBox 2.5s ease-in-out infinite;
-            animation-timing-function: ease-in-out;
+            animation: growBox 2s ease-in-out infinite;
+            transition: transform 0.3s ease-in-out;
         }
 
-        /* Titles for Information Boxes */
+        .feature-card:hover {
+            transform: translateY(-10px); /* Lift effect on hover */
+        }
+
+        /* Title and Text for Information Boxes */
         .mission-section h2, .feature-card h3 {
-            font-size: 1.4rem; 
-            color: #0288d1; /* Blue color for titles */
+            font-size: 1.4rem;
+            color: #0288d1;
             margin-bottom: 1rem;
         }
 
-        /* Text for Information Boxes */
         .mission-section p, .feature-card p {
             color: #333333;
             font-size: 1rem;
+            line-height: 1.5;
         }
 
         .cta-section {
             text-align: center;
             padding: 3rem 0;
-            background-color: #0288d1; /* Blue background for CTA */
+            background-color: #0288d1;
             color: #fff;
             border-radius: 12px;
             margin-top: 2rem;
@@ -137,8 +145,8 @@
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2rem;
-            background-color: #4caf50; /* Green CTA button */
+            padding: 1.2rem 2.5rem;
+            background-color: #4caf50;
             color: white;
             text-decoration: none;
             border-radius: 25px;
@@ -147,16 +155,30 @@
         }
 
         .cta-button:hover {
-            background-color: #388e3c; /* Darker green on hover */
+            background-color: #388e3c;
+            transform: scale(1.1);
         }
 
         footer {
             text-align: center;
             padding: 2rem;
-            background-color: #0288d1; /* Blue footer */
+            background-color: #0288d1;
             color: white;
-            margin-top: 0;
+            margin-top: 2rem;
             animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Animation for Boxes */
+        @keyframes growBox {
+            0% {
+                transform: scale(0.9);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
 
     </style>
@@ -228,5 +250,6 @@
             }
         });
     </script>
+
 </body>
 </html>
