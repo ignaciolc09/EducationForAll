@@ -24,6 +24,8 @@
         /* Main Page Hidden Initially */
         #main-page {
             display: none;
+            opacity: 0;
+            transition: opacity 1s ease; /* Fade-in effect */
         }
 
         /* Login Page Styles */
@@ -252,11 +254,11 @@
     </div>
 
     <!-- Hello Screen -->
-    <div id="hello-screen">
-        <h1>Hello, <span id="user-name"></span></h1>
+    <div id="hello-screen" style="display: none;">
+        <h1 id="hello-message">Hello, <span id="user-name"></span>!</h1>
     </div>
 
-    <!-- Main Page Content -->
+    <!-- Main Page Content (Hidden Initially) -->
     <div id="main-page">
         <div class="header">
             <div class="header-content">
@@ -322,12 +324,13 @@
                 document.getElementById("hello-screen").style.opacity = "1";
                 document.getElementById("user-name").innerText = username;
 
-                // Show main page after delay
+                // Show main page after delay with fade-in effect
                 setTimeout(function () {
                     document.getElementById("hello-screen").style.opacity = "0";
                     setTimeout(function () {
                         document.getElementById("hello-screen").style.display = "none";
                         document.getElementById("main-page").style.display = "block";
+                        document.getElementById("main-page").style.opacity = "1";
                     }, 1000);
                 }, 2000);
             } else {
