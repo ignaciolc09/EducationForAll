@@ -77,6 +77,29 @@
             transform: translateY(-5px);
         }
 
+        /* Hello Screen Styles */
+        #hello-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        #hello-screen h1 {
+            font-size: 3rem;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+        }
+
         /* Header Styles */
         .header {
             background: linear-gradient(135deg, #0288d1, #4caf50);
@@ -223,13 +246,17 @@
     <div id="login-page" class="login-container">
         <div class="login-form">
             <h2>Welcome to Education for All</h2>
-            <p>Please enter your name to continue</p>
-            <input type="text" id="username" placeholder="Enter your name" required>
+            <input type="text" id="username" placeholder="Enter your name" />
             <button onclick="submitLogin()">Submit</button>
         </div>
     </div>
 
-    <!-- Main Content (Initially Hidden) -->
+    <!-- Hello Screen -->
+    <div id="hello-screen">
+        <h1>Hello, <span id="user-name"></span></h1>
+    </div>
+
+    <!-- Main Page Content -->
     <div id="main-page">
         <div class="header">
             <div class="header-content">
@@ -290,12 +317,19 @@
             if (username.trim() !== "") {
                 // Hide login page
                 document.getElementById("login-page").style.display = "none";
+                // Show hello screen with smooth transition
+                document.getElementById("hello-screen").style.display = "flex";
+                document.getElementById("hello-screen").style.opacity = "1";
+                document.getElementById("user-name").innerText = username;
 
                 // Show main page after delay
                 setTimeout(function () {
-                    document.getElementById("main-page").style.display = "block";
-                    alert("Hello, " + username);
-                }, 500);
+                    document.getElementById("hello-screen").style.opacity = "0";
+                    setTimeout(function () {
+                        document.getElementById("hello-screen").style.display = "none";
+                        document.getElementById("main-page").style.display = "block";
+                    }, 1000);
+                }, 2000);
             } else {
                 alert("Please enter your name.");
             }
