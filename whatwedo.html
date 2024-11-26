@@ -1,1 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif; /* Modern sans-serif font */
+        }
 
+        body {
+            background-color: #e0f7fa; /* Light cyan background */
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            position: relative;
+            background: linear-gradient(135deg, #0288d1, #4caf50); /* Blue and green gradient */
+            padding: 5rem 0;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #0288d1; /* Blue border */
+            animation: fadeIn 1s ease-out;
+        }
+
+        .header-text h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #fff; /* White text for title */
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-text h2 {
+            font-size: 1.8rem;
+            color: #f0f4f7;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+            line-height: 1.5;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .header-button {
+            background-color: #4caf50; /* Green button */
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header-button:hover {
+            background-color: #388e3c; /* Darker green on hover */
+            transform: translateY(-5px);
+        }
+
+        /* Animation for fade-in */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Containers for Content Sections */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Uniform Styles for Information Boxes */
+        .mission-section, .feature-card {
+            background-color: #ffffff; /* White background for boxes */
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            max-width: 450px;
+            text-align: center;
+            animation: growBox 2.5s ease-in-out infinite;
+            animation-timing-function: ease-in-out;
+        }
+
+        /* Titles for Information Boxes */
+        .mission-section h2, .feature-card h3 {
+            font-size: 1.4rem; 
+            color: #0288d1; /* Blue color for titles */
+            margin-bottom: 1rem;
+        }
+
+        /* Text for Information Boxes */
+        .mission-section p, .feature-card p {
+            color: #333333;
+            font-size: 1rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 3rem 0;
+            background-color: #0288d1; /* Blue background for CTA */
+            color: #fff;
+            border-radius: 12px;
+            margin-top: 2rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #4caf50; /* Green CTA button */
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #388e3c; /* Darker green on hover */
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #0288d1; /* Blue footer */
+            color: white;
+            margin-top: 0;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-content">
+            <div class="header-text">
+                <h1>Contact Us</h1>
+                <h2>Need help? Want to join the Cause? This is it.</h2>
+            </div>
+
+            <div class="header-buttons">
+                <a href="whoweare.html" id="toggle-button" class="header-button">Who we are</a>
+                <a href="index.html" class="header-button">Home Page</a>
+                <a href="learnmore.html" class="header-button">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="mission-section">
+            <h2>Our Mission</h2>
+            <p>We are a community dedicated to making quality education accessible to everyone on Earth, regardless of their country, language, or circumstances. We believe that education is a fundamental right and a powerful tool for positive change in the world.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Global Access</h3>
+            <p>Breaking down geographical barriers to provide educational resources to learners worldwide, ensuring that regardless of location, anyone can access the knowledge they need.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Inclusive Learning</h3>
+            <p>Creating content that respects and embraces diverse cultural perspectives, learning styles, and experiences. We aim to cater to learners of all backgrounds.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Quality Education</h3>
+            <p>Delivering high-quality educational content that meets international standards, ensuring that our materials are informative and effective in facilitating learning outcomes.</p>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Join Our Educational Community</h2>
+        <p>Be part of our mission to make quality education accessible to all!</p>
+        <a href="GetInvolved.html" class="cta-button">Get Involved</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Education for All. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
