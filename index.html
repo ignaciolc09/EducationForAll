@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,63 @@
             background-color: #f5f5f5;
             line-height: 1.6;
             overflow-x: hidden;
+            font-size: 16px;
+        }
+
+        /* Main Page Hidden Initially */
+        #main-page {
+            display: none;
+        }
+
+        /* Login Page Styles */
+        .login-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0288d1;
+            color: white;
+        }
+
+        .login-form {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-form h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .login-form input {
+            width: 80%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .login-form button {
+            padding: 1rem 2rem;
+            background-color: #4caf50;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .login-form button:hover {
+            background-color: #388e3c;
+            transform: translateY(-5px);
         }
 
         /* Header Styles */
@@ -156,61 +214,94 @@
             margin-top: 4rem;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for footer */
         }
-
     </style>
 </head>
+
 <body>
 
-    <div class="header">
-        <div class="header-content">
-            <div class="header-text">
-                <h1>EDUCATION FOR ALL</h1>
-                <h2>Empowering minds across borders, cultures, and backgrounds</h2>
+    <!-- Login Page -->
+    <div id="login-page" class="login-container">
+        <div class="login-form">
+            <h2>Welcome to Education for All</h2>
+            <p>Please enter your name to continue</p>
+            <input type="text" id="username" placeholder="Enter your name" required>
+            <button onclick="submitLogin()">Submit</button>
+        </div>
+    </div>
+
+    <!-- Main Content (Initially Hidden) -->
+    <div id="main-page">
+        <div class="header">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>EDUCATION FOR ALL</h1>
+                    <h2>Empowering minds across borders, cultures, and backgrounds</h2>
+                </div>
+
+                <div class="header-buttons">
+                    <a href="whoweare.html" class="header-button">Who We Are</a>
+                    <a href="whatwedo.html" class="header-button">What We Do</a>
+                    <a href="learnmore.html" class="header-button">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- "Our Mission" Block -->
+            <div class="mission-section">
+                <h2>Our Mission</h2>
+                <p>We are a community dedicated to making quality education accessible to everyone on Earth, regardless of their country, language, or circumstances. We believe that education is a fundamental right and a powerful tool for positive change in the world.</p>
             </div>
 
-            <div class="header-buttons">
-                <a href="whoweare.html" class="header-button">Who We Are</a>
-                <a href="whatwedo.html" class="header-button">What We Do</a>
-                <a href="learnmore.html" class="header-button">Learn More</a>
+            <!-- "Global Access" Block -->
+            <div class="feature-card">
+                <h3>Global Access</h3>
+                <p>Breaking down geographical barriers to provide educational resources to learners worldwide, ensuring that regardless of location, anyone can access the knowledge they need.</p>
+            </div>
+
+            <!-- "Inclusive Learning" Block -->
+            <div class="feature-card">
+                <h3>Inclusive Learning</h3>
+                <p>Creating content that respects and embraces diverse cultural perspectives, learning styles, and experiences. We aim to cater to learners of all backgrounds.</p>
+            </div>
+
+            <!-- "Quality Education" Block -->
+            <div class="feature-card">
+                <h3>Quality Education</h3>
+                <p>Delivering high-quality educational content that meets international standards, ensuring that our materials are informative and effective in facilitating learning outcomes.</p>
             </div>
         </div>
+
+        <div class="cta-section">
+            <h2>Join Our Educational Community</h2>
+            <p>Be part of our mission to make quality education accessible to all!</p>
+            <a href="GetInvolved.html" class="cta-button">Get Involved</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Education for All. All Rights Reserved.</p>
+        </footer>
     </div>
 
-    <div class="container">
-        <!-- "Our Mission" Block -->
-        <div class="mission-section">
-            <h2>Our Mission</h2>
-            <p>We are a community dedicated to making quality education accessible to everyone on Earth, regardless of their country, language, or circumstances. We believe that education is a fundamental right and a powerful tool for positive change in the world.</p>
-        </div>
+    <script>
+        function submitLogin() {
+            var username = document.getElementById("username").value;
 
-        <!-- "Global Access" Block -->
-        <div class="feature-card">
-            <h3>Global Access</h3>
-            <p>Breaking down geographical barriers to provide educational resources to learners worldwide, ensuring that regardless of location, anyone can access the knowledge they need.</p>
-        </div>
+            if (username.trim() !== "") {
+                // Hide login page
+                document.getElementById("login-page").style.display = "none";
 
-        <!-- "Inclusive Learning" Block -->
-        <div class="feature-card">
-            <h3>Inclusive Learning</h3>
-            <p>Creating content that respects and embraces diverse cultural perspectives, learning styles, and experiences. We aim to cater to learners of all backgrounds.</p>
-        </div>
-
-        <!-- "Quality Education" Block -->
-        <div class="feature-card">
-            <h3>Quality Education</h3>
-            <p>Delivering high-quality educational content that meets international standards, ensuring that our materials are informative and effective in facilitating learning outcomes.</p>
-        </div>
-    </div>
-
-    <div class="cta-section">
-        <h2>Join Our Educational Community</h2>
-        <p>Be part of our mission to make quality education accessible to all!</p>
-        <a href="GetInvolved.html" class="cta-button">Get Involved</a>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Education for All. All Rights Reserved.</p>
-    </footer>
+                // Show main page after delay
+                setTimeout(function () {
+                    document.getElementById("main-page").style.display = "block";
+                    alert("Hello, " + username);
+                }, 500);
+            } else {
+                alert("Please enter your name.");
+            }
+        }
+    </script>
 
 </body>
+
 </html>
