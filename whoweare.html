@@ -171,7 +171,7 @@
             </div>
 
             <div class="header-buttons">
-                <a href="whoweare.html" id="toggle-button" class="header-button">Who We Are</a>
+                <a href="index.html" id="toggle-button" class="header-button">Home Page</a>
                 <a href="whatwedo.html" class="header-button">What We Do</a>
                 <a href="learnmore.html" class="header-button">Learn More</a>
             </div>
@@ -209,24 +209,5 @@
     <footer>
         <p>&copy; 2024 Education for All. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        // JavaScript to check the current page and change the button label
-        document.addEventListener("DOMContentLoaded", function() {
-            const toggleButton = document.getElementById("toggle-button");
-
-            // Check if the current page is "Home Page"
-            if (window.location.pathname === "/whoweare.html") {
-                toggleButton.textContent = "Home Page";  // Who We Are page -> Home Page button
-                toggleButton.href = "index.html";        // Link to Home Page
-            }
-
-            // Check if the current page is "Home Page"
-            if (window.location.pathname === "/index.html" || window.location.pathname === "/") {
-                toggleButton.textContent = "Who We Are";  // Home Page -> Who We Are button
-                toggleButton.href = "whoweare.html";      // Link to Who We Are page
-            }
-        });
-    </script>
 </body>
 </html>
