@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education for All</title>
+
     <style>
         /* General Reset */
         * {
@@ -77,6 +78,44 @@
         .login-form button:hover {
             background-color: #388e3c;
             transform: translateY(-5px);
+        }
+
+        .login-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0288d1;
+            color: white;
+        }
+
+        .login-form {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-image {
+            width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto 1rem;
+        }
+
+        .enter-button {
+            padding: 1rem 2rem;
+            background-color: #4caf50;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .enter-button:hover {
+        background-color: #388e3c;
         }
 
         /* Hello Screen Styles */
@@ -252,6 +291,16 @@
             <button onclick="submitLogin()">Submit</button>
         </div>
     </div>
+    <div class="login-container">
+    <div class="login-form">
+        <img src="images/logo.png" alt="Logo de Educación" class="login-image">
+        <h2>Welcome to Education for All</h2>
+        <input type="text" placeholder="Enter your name">
+        <p>Click below to enter</p>
+        <button class="enter-button">Enter</button>
+    </div>
+    </div>
+
 
     <!-- Hello Screen -->
     <div id="hello-screen" style="display: none;">
