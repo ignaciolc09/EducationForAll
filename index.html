@@ -103,32 +103,28 @@
         }
 
         /* Header Styles with Gradient Animation */
-/* Header Styles */
 .header {
-    background: linear-gradient(45deg, #0288d1, #66bb6a, #388e3c, #0097a7); /* Colores más contrastantes */
-    background-size: 300% 300%; /* Mayor espacio para el gradiente */
+    background: linear-gradient(135deg, #0288d1, #4dd0e1, #81c784); /* Ajuste en el verde */
     padding: 6rem 0;
     text-align: center;
     color: white;
     border-bottom: 4px solid #0288d1;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for header */
-    position: relative;
-    overflow: hidden;
-    animation: moveBackground 20s ease-in-out infinite; /* Movimiento suave */
+    animation: gradient-animation 5s ease infinite; /* Animación continua */
 }
 
-/* Animación del fondo en movimiento */
-@keyframes moveBackground {
+@keyframes gradient-animation {
     0% {
-        background-position: 0 0; /* Comienza desde la posición original */
+        background: linear-gradient(135deg, #0288d1, #4dd0e1, #81c784);
     }
     50% {
-        background-position: 100% 100%; /* El gradiente se mueve a la esquina opuesta */
+        background: linear-gradient(135deg, #1e88e5, #00bcd4, #66bb6a);
     }
     100% {
-        background-position: 0 0; /* Vuelve al inicio */
+        background: linear-gradient(135deg, #0288d1, #4dd0e1, #81c784);
     }
 }
+
 
 
         /* Header Styles */
