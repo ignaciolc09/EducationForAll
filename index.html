@@ -103,28 +103,35 @@
         }
 
         /* Header Styles with Gradient Animation */
-@keyframes moveBackground {
-    0% {
-        background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 100%;
-    }
-    100% {
-        background-position: 0% 0%;
-    }
-}
-
+/* Header Styles */
 .header {
-    background: linear-gradient(135deg, #0288d1, #4caf50);
-    background-size: 200% 200%;
-    animation: moveBackground 10s ease infinite;
+    background: linear-gradient(135deg, #0288d1, #4caf50); /* Fondo de gradiente */
     padding: 6rem 0;
     text-align: center;
     color: white;
     border-bottom: 4px solid #0288d1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for header */
+    position: relative;
+    overflow: hidden; /* Para que el fondo no se salga de la cabecera */
 }
+
+/* Animación del fondo en movimiento */
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 200% 0; /* Movimiento de izquierda a derecha */
+    }
+}
+
+/* Aplicando la animación */
+.header {
+    background: linear-gradient(135deg, #0288d1, #4caf50);
+    background-size: 400% 400%; /* Tamaño grande para el fondo */
+    animation: moveBackground 10s linear infinite; /* Movimiento constante */
+}
+
 
         /* Header Styles */
         .header {
