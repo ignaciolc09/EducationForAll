@@ -103,28 +103,28 @@
         }
 
         /* Header Styles with Gradient Animation */
-    .header {
-        background: linear-gradient(to right, #0288d1, #4caf50, #ffeb3b);
-        animation: gradientShift 10s ease infinite; /* Esto hace que el fondo cambie de colores */
-        padding: 6rem 0;
-        text-align: center;
-        color: white;
-        border-bottom: 4px solid #0288d1;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra suave para la cabecera */
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0%;
     }
-
-    @keyframes gradientShift {
-        0% {
-            background: linear-gradient(to right, #0288d1, #4caf50, #ffeb3b); /* Colores iniciales */
-        }
-        50% {
-            background: linear-gradient(to right, #ffeb3b, #4caf50, #0288d1); /* Cambio a mitad */
-        }
-        100% {
-            background: linear-gradient(to right, #0288d1, #4caf50, #ffeb3b); /* Regresa al estado inicial */
-        }
+    50% {
+        background-position: 100% 100%;
     }
+    100% {
+        background-position: 0% 0%;
+    }
+}
 
+.header {
+    background: linear-gradient(135deg, #0288d1, #4caf50);
+    background-size: 200% 200%;
+    animation: moveBackground 10s ease infinite;
+    padding: 6rem 0;
+    text-align: center;
+    color: white;
+    border-bottom: 4px solid #0288d1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
         /* Header Styles */
         .header {
