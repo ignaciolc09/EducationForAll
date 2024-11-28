@@ -105,16 +105,16 @@
         /* Header Styles with Gradient Animation */
 /* Header Styles */
 .header {
-    background: linear-gradient(45deg, #0288d1, #4caf50, #ff9800, #9c27b0); /* Más colores */
-    background-size: 400% 400%; /* Aumentamos el área del gradiente */
+    background: linear-gradient(45deg, #0288d1, #4caf50); /* Solo los tonos verdes y azules */
+    background-size: 200% 200%; /* Hace que el gradiente ocupe más espacio */
     padding: 6rem 0;
     text-align: center;
     color: white;
     border-bottom: 4px solid #0288d1;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for header */
     position: relative;
-    overflow: hidden; /* Para que el fondo no se salga de la cabecera */
-    animation: moveBackground 15s linear infinite; /* Movimiento suave */
+    overflow: hidden; /* Asegura que el fondo no se salga de la cabecera */
+    animation: moveBackground 20s ease-in-out infinite; /* Movimiento suave */
 }
 
 /* Animación del fondo en movimiento */
@@ -123,10 +123,10 @@
         background-position: 0 0; /* Comienza desde la posición original */
     }
     50% {
-        background-position: 100% 100%; /* Mueve el gradiente hacia la esquina opuesta */
+        background-position: 100% 100%; /* El gradiente se mueve a la esquina opuesta */
     }
     100% {
-        background-position: 0 0; /* Vuelve a la posición inicial */
+        background-position: 0 0; /* Vuelve al inicio */
     }
 }
 
