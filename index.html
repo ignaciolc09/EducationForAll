@@ -103,7 +103,7 @@
         }
 
         /* Header Styles with Gradient Animation */
-.header {
+    .header {
         background: linear-gradient(135deg, #0288d1, #4caf50);
         padding: 6rem 0;
         text-align: center;
@@ -114,8 +114,8 @@
         animation: move-background 20s linear infinite;
     }
 
-@keyframes backgroundAnimation {
-    0% {
+    @keyframes move-background {
+        0% {
         background-position: 0% 50%;
         }
         50% {
@@ -125,13 +125,7 @@
             background-position: 0% 50%;
         }
     }
-    50% {
-        background-position: 50% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
-}
+
 
         /* Header Styles */
 
