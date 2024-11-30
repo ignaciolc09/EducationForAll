@@ -103,28 +103,28 @@
         }
 
         /* Header Styles with Gradient Animation */
-.header {
-    background: linear-gradient(135deg, #0288d1, #4caf50); /* Colores originales */
-    padding: 6rem 0;
-    text-align: center;
-    color: white;
-    border-bottom: 4px solid #0288d1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for header */
-    background-size: 400% 400%; /* Aumentar tamaño para que el fondo se desplace */
-    animation: move-background 20s linear infinite; /* Movimiento suave y continuo */
-}
+    .header {
+        background: linear-gradient(135deg, #0288d1, #4caf50);
+        padding: 6rem 0;
+        text-align: center;
+        color: white;
+        border-bottom: 4px solid #0288d1;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        background-size: 400% 400%;
+        animation: move-background 20s linear infinite;
+    }
 
-@keyframes move-background {
-    0% {
-        background-position: 0% 50%; /* Posición inicial */
+    @keyframes move-background {
+        0% {
+        background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
     }
-    50% {
-        background-position: 100% 50%; /* Posición intermedia */
-    }
-    100% {
-        background-position: 0% 50%; /* Regresa al inicio */
-    }
-}
 
 
         /* Header Styles */
