@@ -17,6 +17,30 @@
             line-height: 1.6;
         }
 
+             /* Header Styles with Gradient Animation */
+    .header {
+        background: linear-gradient(135deg, #0288d1, #4caf50);
+        padding: 6rem 0;
+        text-align: center;
+        color: white;
+        border-bottom: 4px solid #0288d1;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        background-size: 400% 400%;
+        animation: move-background 20s linear infinite;
+    }
+
+    @keyframes move-background {
+        0% {
+        background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
         /* Header Styles */
         .header {
             position: relative;
@@ -159,7 +183,29 @@
             animation: fadeIn 1.5s ease-out;
         }
 
+         /* For Cellphones and tablets */
+            @media (max-width: 768px) {
+        .header-text h1 {
+            font-size: 2.5rem;
+        }
+
+        .login-form {
+            padding: 2rem;
+            max-width: 90%;
+        }
+
+        .header-buttons a {
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+        }
+    }
+
     </style>
+</head>
+
+     <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    
 </head>
 <body>
 
