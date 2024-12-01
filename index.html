@@ -126,137 +126,6 @@
         }
     }
 
-
-        /* Header Styles */
-
-        .header-text h1 {
-            font-size: 3.8rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* Soft text shadow for title */
-        }
-
-        .header-text h2 {
-            font-size: 1.8rem;
-            color: #e0f7fa;
-            max-width: 600px;
-            margin: 0 auto;
-            font-weight: 300;
-            line-height: 1.6;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Soft text shadow for subtitle */
-        }
-
-        /* Header Button Styles */
-        .header-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .header-button {
-            background-color: #4caf50;
-            color: white;
-            padding: 1.2rem 2.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for buttons */
-        }
-
-        .header-button:hover {
-            background-color: #388e3c;
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
-        }
-
-        /* Main Content Layout */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        /* Information Section */
-        .mission-section, .feature-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            flex: 1;
-            min-width: 280px; /* Ensures cards are at least 280px wide */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for information cards */
-        }
-
-        .mission-section h2, .feature-card h3 {
-            font-size: 1.4rem;
-            color: #0288d1;
-            margin-bottom: 1rem;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); /* Soft text shadow for headings */
-        }
-
-        .mission-section p, .feature-card p {
-            font-size: 1rem;
-            color: #333;
-        }
-
-        /* Hover Effect for Information Blocks */
-        .mission-section:hover, .feature-card:hover {
-            transform: translateY(-10px);
-            background-color: #f0f8ff; /* Light blue background */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-        }
-
-        /* Call to Action Section */
-        .cta-section {
-            text-align: center;
-            padding: 3rem 0;
-            background-color: #0288d1;
-            color: #fff;
-            border-radius: 12px;
-            margin-top: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for CTA */
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: #4caf50;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            margin-top: 1rem;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for CTA button */
-        }
-
-        .cta-button:hover {
-            background-color: #388e3c;
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
-        }
-
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #0288d1;
-            color: white;
-            margin-top: 4rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for footer */
-        }
-
         /* For Cellphones and tablets */
             @media (max-width: 768px) {
         .header-text h1 {
@@ -283,71 +152,18 @@
 
     <!-- Login Page -->
     <div id="login-page" class="login-container">
-        <div class="login-form">
-            <img src="efa_logo.png" alt="EFA Logo" style="width: 100px; margin-bottom: 1rem;">
-            <h2>Welcome to Education for All!</h2>
-            <input type="text" id="username" placeholder="Enter your name" />
-            <button onclick="submitLogin()">Submit</button>
-        </div>
-    </div>
+    <div class="login-form">
+    <img src="efa_logo.png" alt="EFA Logo" style="width: 100px; margin-bottom: 1rem;">
+    <h2>Welcome to Education for All!</h2>
+    <form action="principal.html" method="GET">
+        <input type="text" id="username" name="username" placeholder="Enter your name" required>
+        <button type="submit">Submit</button>
+    </form>
+</div>
 
     <!-- Hello Screen -->
     <div id="hello-screen" style="display: none;">
         <h1 id="hello-message">Hello, <span id="user-name"></span>!</h1>
-    </div>
-
-    <!-- Main Page Content (Hidden Initially) -->
-    <div id="main-page">
-        <div class="header">
-            <div class="header-content">
-                <div class="header-text">
-                    <h1>EDUCATION FOR ALL</h1>
-                    <h2>Empowering minds across borders, cultures, and backgrounds</h2>
-                </div>
-
-                <div class="header-buttons">
-                    <a href="whoweare.html" class="header-button">Who We Are</a>
-                    <a href="whatwedo.html" class="header-button">What We Do</a>
-                    <a href="learnmore.html" class="header-button">Learn More</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <!-- "Our Mission" Block -->
-            <div class="mission-section">
-                <h2>Our Mission</h2>
-                <p>We are a community dedicated to making quality education accessible to everyone on Earth, regardless of their country, language, or circumstances. We believe that education is a fundamental right and a powerful tool for positive change in the world.</p>
-            </div>
-
-            <!-- "Global Access" Block -->
-            <div class="feature-card">
-                <h3>Global Access</h3>
-                <p>Breaking down geographical barriers to provide educational resources to learners worldwide, ensuring that regardless of location, anyone can access the knowledge they need.</p>
-            </div>
-
-            <!-- "Inclusive Learning" Block -->
-            <div class="feature-card">
-                <h3>Inclusive Learning</h3>
-                <p>Creating content that respects and embraces diverse cultural perspectives, learning styles, and experiences. We aim to cater to learners of all backgrounds.</p>
-            </div>
-
-            <!-- "Quality Education" Block -->
-            <div class="feature-card">
-                <h3>Quality Education</h3>
-                <p>Delivering high-quality educational content that meets international standards, ensuring that our materials are informative and effective in facilitating learning outcomes.</p>
-            </div>
-        </div>
-
-        <div class="cta-section">
-            <h2>Join Our Educational Community</h2>
-            <p>Be part of our mission to make quality education accessible to all!</p>
-            <a href="GetInvolved.html" class="cta-button">Get Involved</a>
-        </div>
-
-        <footer>
-            <p>&copy; 2024 Education for All. All Rights Reserved.</p>
-        </footer>
     </div>
 
     <script>
