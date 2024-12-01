@@ -376,6 +376,40 @@
                 alert("Please enter your name.");
             }
         }
+
+        // Verificación de sesión al cargar la página
+window.onload = function() {
+    const username = localStorage.getItem("username");
+    if (username) {
+        // Si el usuario está logueado, muestra la página principal
+        document.getElementById("login-page").style.display = "none";
+        document.getElementById("main-page").style.display = "block";
+        document.getElementById("hello-message").innerText = `Hello, ${username}!`;
+        document.getElementById("hello-screen").style.display = "flex";
+        setTimeout(function () {
+            document.getElementById("hello-screen").style.opacity = "0";
+            setTimeout(function () {
+                document.getElementById("hello-screen").style.display = "none";
+            }, 1000);
+        }, 2000);
+    } else {
+        // Si no hay usuario, redirige al login
+        window.location.href = "login.html";
+    }
+};
+
+// Función para manejar el login
+function submitLogin() {
+    const username = document.getElementById("username").value.trim();
+    if (username) {
+        // Guardar el nombre del usuario y redirigir
+        localStorage.setItem("username", username);
+        window.location.href = "index.html"; // Redirige a la página principal
+    } else {
+        alert("Please enter your name.");
+    }
+}
+
     </script>
 
 </body>
