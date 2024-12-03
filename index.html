@@ -22,28 +22,27 @@
             background: #f5f5f5;
         }
 
-        /* Main Page */
+        /* Main Page Hidden Initially */
         #main-page {
-            display: block;
-            opacity: 1;
+            display: none;
+            opacity: 0;
             transition: opacity 1s ease; /* Fade-in effect */
-            text-align: center;
-            padding: 3rem;
         }
 
-        /* Header Styles with Gradient Animation */
-        .header {
+        /* Login Page Styles */
+        .login-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background: linear-gradient(135deg, #0288d1, #4caf50);
-            padding: 6rem 0;
-            text-align: center;
-            color: white;
-            border-bottom: 4px solid #0288d1;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             background-size: 400% 400%;
-            animation: move-background 20s linear infinite;
+            animation: gradientShift 15s ease infinite;
+            color: white;
+            position: relative;
         }
 
-        @keyframes move-background {
+        @keyframes gradientShift {
             0% {
                 background-position: 0% 50%;
             }
@@ -57,36 +56,119 @@
             }
         }
 
-        /* Main Content Styles */
-        .content {
-            background-color: white;
-            padding: 2rem;
+        .login-form {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 3rem;
             border-radius: 15px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            transform: scale(0.9);
+            animation: formAnimation 1s ease forwards;
         }
 
-        .content h2 {
+        @keyframes formAnimation {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .login-form h2 {
             font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .login-form input {
+            width: 80%;
+            padding: 1rem;
             margin-bottom: 1.5rem;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .login-form input:focus {
+            outline: none;
+            border: 2px solid #4caf50;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
+        }
+
+        .login-form button {
+            padding: 1rem 2rem;
+            background-color: #4caf50;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-form button:hover {
+            background-color: #388e3c;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hello Screen Styles */
+        #hello-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        #hello-screen h1 {
+            font-size: 3rem;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+            animation: fadeInText 2s ease forwards;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         /* For Mobile and Tablets */
         @media (max-width: 768px) {
-            .header {
-                padding: 4rem 0;
+            .login-form {
+                padding: 2rem;
+                max-width: 90%;
             }
 
-            .content {
-                padding: 1.5rem;
-            }
-
-            .header h1 {
-                font-size: 2.5rem;
-            }
-
-            .content h2 {
+            .login-form h2 {
                 font-size: 2rem;
+            }
+
+            .login-form input {
+                width: 90%;
+            }
+
+            .login-form button {
+                padding: 0.8rem 1.5rem;
             }
         }
     </style>
@@ -96,18 +178,49 @@
 
 <body>
 
-    <!-- Main Page -->
-    <div id="main-page">
-        <div class="header">
-            <h1>Education For All</h1>
-            <p>Empowering students around the world with quality education.</p>
-        </div>
-
-        <div class="content">
-            <h2>Welcome to our platform!</h2>
-            <p>Explore a variety of resources, connect with educators, and enhance your learning journey with us.</p>
+    <!-- Login Page -->
+    <div id="login-page" class="login-container">
+        <div class="login-form">
+            <img src="efa_logo.png" alt="EFA Logo" style="width: 100px; margin-bottom: 1rem;">
+            <h2>Welcome to Education for All!</h2>
+            <form action="principal.html" method="GET">
+                <input type="text" id="username" name="username" placeholder="Enter your name" required>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
+
+    <!-- Hello Screen -->
+    <div id="hello-screen">
+        <h1 id="hello-message">Hello, <span id="user-name"></span>!</h1>
+    </div>
+
+    <script>
+        function submitLogin() {
+            var username = document.getElementById("username").value;
+
+            if (username.trim() !== "") {
+                // Hide login page
+                document.getElementById("login-page").style.display = "none";
+                // Show hello screen with smooth transition
+                document.getElementById("hello-screen").style.display = "flex";
+                document.getElementById("hello-screen").style.opacity = "1";
+                document.getElementById("user-name").innerText = username;
+
+                // Show main page after delay with fade-in effect
+                setTimeout(function () {
+                    document.getElementById("hello-screen").style.opacity = "0";
+                    setTimeout(function () {
+                        document.getElementById("hello-screen").style.display = "none";
+                        document.getElementById("main-page").style.display = "block";
+                        document.getElementById("main-page").style.opacity = "1";
+                    }, 1000);
+                }, 2000);
+            } else {
+                alert("Please enter your name.");
+            }
+        }
+    </script>
 
 </body>
 
