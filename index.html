@@ -183,7 +183,8 @@
         <div class="login-form">
             <img src="efa_logo.png" alt="EFA Logo" style="width: 100px; margin-bottom: 1rem;">
             <h2>Welcome to Education for All!</h2>
-            <form action="principal.html" method="GET">
+            <!-- Updated form to call the submitLogin function -->
+            <form id="login-form" onsubmit="submitLogin(event)">
                 <input type="text" id="username" name="username" placeholder="Enter your name" required>
                 <button type="submit">Submit</button>
             </form>
@@ -196,7 +197,9 @@
     </div>
 
     <script>
-        function submitLogin() {
+        function submitLogin(event) {
+            event.preventDefault();  // Prevent form submission to server
+
             var username = document.getElementById("username").value;
 
             if (username.trim() !== "") {
