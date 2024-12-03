@@ -19,7 +19,6 @@
             line-height: 1.6;
             overflow-x: hidden;
             font-size: 16px;
-            background: #f5f5f5;
         }
 
         /* Main Page Hidden Initially */
@@ -27,6 +26,57 @@
             display: none;
             opacity: 0;
             transition: opacity 1s ease; /* Fade-in effect */
+        }
+
+        /* Login Page Styles */
+        .login-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0288d1;
+            color: white;
+        }
+
+        .login-form {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-form h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .login-form input {
+            width: 80%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .login-form button {
+            padding: 1rem 2rem;
+            background-color: #4caf50;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .login-form button:hover {
+            background-color: #388e3c;
+            transform: translateY(-5px);
         }
 
         /* Hello Screen Styles */
@@ -37,7 +87,7 @@
             right: 0;
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
+            display: none;
             justify-content: center;
             align-items: center;
             z-index: 9999;
@@ -50,101 +100,98 @@
             color: white;
             text-align: center;
             font-weight: 600;
-            animation: fadeInText 2s ease forwards;
         }
 
-        @keyframes fadeInText {
-            0% {
-                opacity: 0;
-            }
+        /* Header Styles with Gradient Animation */
+    .header {
+        background: linear-gradient(135deg, #0288d1, #4caf50);
+        padding: 6rem 0;
+        text-align: center;
+        color: white;
+        border-bottom: 4px solid #0288d1;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        background-size: 400% 400%;
+        animation: move-background 20s linear infinite;
+    }
 
-            100% {
-                opacity: 1;
-            }
+    @keyframes move-background {
+        0% {
+        background-position: 0% 50%;
         }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
 
-        /* Text container for the dynamic header */
-        .dynamic-header {
-            position: relative;
-            overflow: hidden;
+        /* For Cellphones and tablets */
+            @media (max-width: 768px) {
+        .header-text h1 {
             font-size: 2.5rem;
-            color: #333;
-            text-align: center;
         }
 
-        .dynamic-header h2 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            animation: swipeText 12s infinite;
-            margin: 0;
+        .login-form {
+            padding: 2rem;
+            max-width: 90%;
         }
 
-        .dynamic-header h2 span {
-            display: block;
-            animation: changeText 12s infinite;
-            white-space: nowrap;
+        .header-buttons a {
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
         }
+    }
 
-        /* Keyframes for the swipe effect */
-        @keyframes swipeText {
-            0% {
-                transform: translateY(0);
-            }
-            25% {
-                transform: translateY(-100%);
-            }
-            50% {
-                transform: translateY(-200%);
-            }
-            75% {
-                transform: translateY(-300%);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        /* Keyframes for the text change */
-        @keyframes changeText {
-            0% {
-                opacity: 1;
-            }
-            25% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 0;
-            }
-            75% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        /* For Mobile and Tablets */
-        @media (max-width: 768px) {
-            .dynamic-header h2 {
-                font-size: 2rem;
-            }
-        }
     </style>
-    <!-- Favicon -->
+        <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/png">
 </head>
 
 <body>
 
-    <!-- Dynamic Header with text switching effect -->
-    <div class="dynamic-header">
-        <h2>
-            <span>Breaking barriers all around the world in education</span>
-            <span>Knowledge has no limits</span>
-        </h2>
+    <!-- Login Page -->
+    <div id="login-page" class="login-container">
+    <div class="login-form">
+    <img src="efa_logo.png" alt="EFA Logo" style="width: 100px; margin-bottom: 1rem;">
+    <h2>Welcome to Education for All!</h2>
+    <form action="principal.html" method="GET">
+        <input type="text" id="username" name="username" placeholder="Enter your name" required>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+    <!-- Hello Screen -->
+    <div id="hello-screen" style="display: none;">
+        <h1 id="hello-message">Hello, <span id="user-name"></span>!</h1>
     </div>
+
+    <script>
+        function submitLogin() {
+            var username = document.getElementById("username").value;
+
+            if (username.trim() !== "") {
+                // Hide login page
+                document.getElementById("login-page").style.display = "none";
+                // Show hello screen with smooth transition
+                document.getElementById("hello-screen").style.display = "flex";
+                document.getElementById("hello-screen").style.opacity = "1";
+                document.getElementById("user-name").innerText = username;
+
+                // Show main page after delay with fade-in effect
+                setTimeout(function () {
+                    document.getElementById("hello-screen").style.opacity = "0";
+                    setTimeout(function () {
+                        document.getElementById("hello-screen").style.display = "none";
+                        document.getElementById("main-page").style.display = "block";
+                        document.getElementById("main-page").style.opacity = "1";
+                    }, 1000);
+                }, 2000);
+            } else {
+                alert("Please enter your name.");
+            }
+        }
+    </script>
 
 </body>
 
