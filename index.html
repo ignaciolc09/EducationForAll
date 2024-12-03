@@ -19,6 +19,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             font-size: 16px;
+            background: #f5f5f5;
         }
 
         /* Main Page Hidden Initially */
@@ -34,23 +35,53 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #0288d1;
+            background: linear-gradient(135deg, #0288d1, #4caf50);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
             color: white;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .login-form {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             padding: 3rem;
-            border-radius: 10px;
+            border-radius: 15px;
             text-align: center;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
             width: 100%;
             max-width: 400px;
+            transform: scale(0.9);
+            animation: formAnimation 1s ease forwards;
+        }
+
+        @keyframes formAnimation {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .login-form h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
+            text-transform: uppercase;
         }
 
         .login-form input {
@@ -61,6 +92,13 @@
             border: none;
             font-size: 1rem;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .login-form input:focus {
+            outline: none;
+            border: 2px solid #4caf50;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
         }
 
         .login-form button {
@@ -71,12 +109,13 @@
             border-radius: 30px;
             border: none;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .login-form button:hover {
             background-color: #388e3c;
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         /* Hello Screen Styles */
@@ -87,7 +126,7 @@
             right: 0;
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.7);
-            display: none;
+            display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
@@ -100,51 +139,40 @@
             color: white;
             text-align: center;
             font-weight: 600;
+            animation: fadeInText 2s ease forwards;
         }
 
-        /* Header Styles with Gradient Animation */
-    .header {
-        background: linear-gradient(135deg, #0288d1, #4caf50);
-        padding: 6rem 0;
-        text-align: center;
-        color: white;
-        border-bottom: 4px solid #0288d1;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        background-size: 400% 400%;
-        animation: move-background 20s linear infinite;
-    }
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
 
-    @keyframes move-background {
-        0% {
-        background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-
-        /* For Cellphones and tablets */
-            @media (max-width: 768px) {
-        .header-text h1 {
-            font-size: 2.5rem;
+            100% {
+                opacity: 1;
+            }
         }
 
-        .login-form {
-            padding: 2rem;
-            max-width: 90%;
-        }
+        /* For Mobile and Tablets */
+        @media (max-width: 768px) {
+            .login-form {
+                padding: 2rem;
+                max-width: 90%;
+            }
 
-        .header-buttons a {
-            padding: 1rem 1.5rem;
-            font-size: 1rem;
-        }
-    }
+            .login-form h2 {
+                font-size: 2rem;
+            }
 
+            .login-form input {
+                width: 90%;
+            }
+
+            .login-form button {
+                padding: 0.8rem 1.5rem;
+            }
+        }
     </style>
-        <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/png">
 </head>
 
@@ -152,17 +180,18 @@
 
     <!-- Login Page -->
     <div id="login-page" class="login-container">
-    <div class="login-form">
-    <img src="efa_logo.png" alt="EFA Logo" style="width: 100px; margin-bottom: 1rem;">
-    <h2>Welcome to Education for All!</h2>
-    <form action="principal.html" method="GET">
-        <input type="text" id="username" name="username" placeholder="Enter your name" required>
-        <button type="submit">Submit</button>
-    </form>
-</div>
+        <div class="login-form">
+            <img src="efa_logo.png" alt="EFA Logo" style="width: 100px; margin-bottom: 1rem;">
+            <h2>Welcome to Education for All!</h2>
+            <form action="principal.html" method="GET">
+                <input type="text" id="username" name="username" placeholder="Enter your name" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Hello Screen -->
-    <div id="hello-screen" style="display: none;">
+    <div id="hello-screen">
         <h1 id="hello-message">Hello, <span id="user-name"></span>!</h1>
     </div>
 
