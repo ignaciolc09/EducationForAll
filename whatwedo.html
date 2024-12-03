@@ -91,8 +91,8 @@
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
-            justify-content: space-between;
-            gap: 2rem;
+            justify-content: center;
+            gap: 3rem;
             margin-top: 3rem;
             flex-wrap: wrap;
             animation: fadeIn 1.5s ease-out;
@@ -105,8 +105,8 @@
             padding: 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            flex: 1;
-            max-width: 450px;
+            flex: 1 1 500px; /* Allow the sections to grow, with a minimum width of 500px */
+            max-width: 650px; /* Increase the max-width */
             text-align: center;
             animation: growBox 2.5s ease-in-out infinite;
             animation-timing-function: ease-in-out;
@@ -201,4 +201,3 @@
     </footer>
 </body>
 </html>
-
