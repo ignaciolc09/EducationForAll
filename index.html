@@ -21,45 +21,78 @@
         }
 
         /* Main Page Hidden Initially */
-      #main-page {
-    display: block; /* Cambiado de none a block */
-    opacity: 1; /* Asegura que sea visible */
-    transition: opacity 1s ease; /* Mantiene la transición */
-}
-
-      /* Header Styles with Gradient Animation */
-    .header {
-        background: linear-gradient(135deg, #0288d1, #4caf50);
-        padding: 6rem 0;
-        text-align: center;
-        color: white;
-        border-bottom: 4px solid #0288d1;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        background-size: 400% 400%;
-        animation: move-background 20s linear infinite;
-    }
-
-    @keyframes move-background {
-        0% {
-        background-position: 0% 50%;
+        #main-page {
+            display: block; /* Cambiado de none a block */
+            opacity: 1; /* Asegura que sea visible */
+            transition: opacity 1s ease; /* Mantiene la transición */
         }
-        50% {
-            background-position: 100% 50%;
+
+        /* Barra de navegación */
+        .navbar {
+            background-color: #004D80;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
         }
-        100% {
+
+        .nav-links-left a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .nav-links-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links-right a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .nav-links-right i {
+            font-size: 18px;
+        }
+
+        a:hover {
+            color: #FFD700; /* Cambia de color cuando pasas el ratón */
+        }
+
+        /* Header Styles with Gradient Animation */
+        .header {
+            background: linear-gradient(135deg, #0288d1, #4caf50);
+            padding: 6rem 0;
+            text-align: center;
+            color: white;
+            border-bottom: 4px solid #0288d1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background-size: 400% 400%;
+            animation: move-background 20s linear infinite;
+        }
+
+        @keyframes move-background {
+            0% {
             background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
-    }
-
 
         /* Header Styles */
-
         .header-text h1 {
             font-size: 3.8rem;
             font-weight: bold;
             margin-bottom: 1rem;
             letter-spacing: 1px;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* Soft text shadow for title */
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
         }
 
         .header-text h2 {
@@ -69,7 +102,7 @@
             margin: 0 auto;
             font-weight: 300;
             line-height: 1.6;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Soft text shadow for subtitle */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
         }
 
         /* Header Button Styles */
@@ -90,13 +123,13 @@
             font-weight: 500;
             text-transform: uppercase;
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for buttons */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         .header-button:hover {
             background-color: #388e3c;
             transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Main Content Layout */
@@ -111,39 +144,16 @@
             margin-top: 4rem;
         }
 
-        /* Information Section */
         .mission-section, .feature-card {
             background-color: white;
             border-radius: 10px;
             padding: 2rem;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
             text-align: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
             flex: 1;
-            min-width: 280px; /* Ensures cards are at least 280px wide */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for information cards */
+            min-width: 280px;
         }
 
-        .mission-section h2, .feature-card h3 {
-            font-size: 1.4rem;
-            color: #0288d1;
-            margin-bottom: 1rem;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); /* Soft text shadow for headings */
-        }
-
-        .mission-section p, .feature-card p {
-            font-size: 1rem;
-            color: #333;
-        }
-
-        /* Hover Effect for Information Blocks */
-        .mission-section:hover, .feature-card:hover {
-            transform: translateY(-10px);
-            background-color: #f0f8ff; /* Light blue background */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-        }
-
-       /* Call to Action Section */
         .cta-section {
             text-align: center;
             padding: 3rem 0;
@@ -151,7 +161,7 @@
             color: #fff;
             border-radius: 12px;
             margin-top: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for CTA */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .cta-button {
@@ -162,48 +172,42 @@
             text-decoration: none;
             border-radius: 25px;
             margin-top: 1rem;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for CTA button */
         }
 
-        .cta-button:hover {
-            background-color: #388e3c;
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
-        }
-
-        /* Footer Styles */
         footer {
             text-align: center;
             padding: 2rem;
             background-color: #0288d1;
             color: white;
             margin-top: 4rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow for footer */
         }
 
-        /* For Cellphones and tablets */
-            @media (max-width: 768px) {
-        .header-text h1 {
-            font-size: 2.5rem;
-        }
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 2.5rem;
+            }
 
-        .login-form {
-            padding: 2rem;
-            max-width: 90%;
+            .header-buttons a {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
         }
-
-        .header-buttons a {
-            padding: 1rem 1.5rem;
-            font-size: 1rem;
-        }
-    }
-
     </style>
-        <!-- Favicon -->
-    <link rel="icon" href="favicon.png" type="image/png">
 </head>
+
 <body>
+  <!-- Barra de navegación -->
+  <div class="navbar">
+        <div class="nav-links-left">
+            <a href="#">Descubre</a>
+            <a href="#">Otra opción</a>
+        </div>
+        <div class="nav-links-right">
+            <a href="#"><i class="fas fa-user"></i> Perfil</a>
+            <a href="#"><i class="fas fa-cog"></i> Configuración</a>
+        </div>
+  </div>
+
   <!-- Main Page Content (Hidden Initially) -->
     <div id="main-page">
         <div class="header">
