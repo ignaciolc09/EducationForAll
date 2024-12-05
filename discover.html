@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende Hoy</title>
+    <style>
+        /* Estilo general */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 0;
+        }
+
+        /* Imagen centrada */
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background-image: url('tu-imagen.jpg'); /* Pon tu imagen aquí */
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* Mensaje debajo de la imagen */
+        .intro-message {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        /* Estilo para los botones */
+        .subject-buttons {
+            margin-top: 30px;
+        }
+
+        .subject-button {
+            display: inline-block;
+            background-color: #4caf50;
+            color: white;
+            padding: 15px 30px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .subject-button:hover {
+            background-color: #388e3c;
+        }
+
+        /* Estilo para los temas que se despliegan */
+        .topics {
+            display: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .topic {
+            background-color: #e8f5e9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+        /* Mostrar los temas al hacer clic */
+        .subject-button.active + .topics {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Imagen de fondo centrada -->
+    <div class="hero-image"></div>
+
+    <!-- Mensaje introductorio -->
+    <div class="intro-message">
+        <p>Hoy vas a aprender algo increíble. ¿Qué tema te gustaría explorar?</p>
+    </div>
+
+    <!-- Botones para las materias -->
+    <div class="subject-buttons">
+        <!-- Botón para matemáticas -->
+        <a href="#" class="subject-button" onclick="toggleTopics('math')">Matemáticas</a>
+        <!-- Botón para ciencias -->
+        <a href="#" class="subject-button" onclick="toggleTopics('science')">Ciencias</a>
+        <!-- Botón para historia -->
+        <a href="#" class="subject-button" onclick="toggleTopics('history')">Historia</a>
+    </div>
+
+    <!-- Temas para matemáticas -->
+    <div class="topics" id="math">
+        <div class="topic">Álgebra</div>
+        <div class="topic">Geometría</div>
+        <div class="topic">Cálculo</div>
+    </div>
+
+    <!-- Temas para ciencias -->
+    <div class="topics" id="science">
+        <div class="topic">Física</div>
+        <div class="topic">Química</div>
+        <div class="topic">Biología</div>
+    </div>
+
+    <!-- Temas para historia -->
+    <div class="topics" id="history">
+        <div class="topic">Historia Antigua</div>
+        <div class="topic">Historia Moderna</div>
+        <div class="topic">Geografía</div>
+    </div>
+
+    <script>
+        // Función para mostrar los temas cuando se hace clic en un botón
+        function toggleTopics(subject) {
+            // Primero ocultamos todos los temas
+            var allTopics = document.querySelectorAll('.topics');
+            allTopics.forEach(function(topic) {
+                topic.style.display = 'none';
+            });
+
+            // Mostramos los temas del botón seleccionado
+            var selectedTopics = document.getElementById(subject);
+            selectedTopics.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
