@@ -12,12 +12,12 @@
             box-sizing: border-box;
         }
 
-        /* Cuerpo de la página */
+        /* Estilo de la página */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f5f5f5;
-            padding-top: 50px;
+            padding-top: 30px;
         }
 
         /* Contenedor para la imagen */
@@ -25,32 +25,31 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 50vh; /* Esto asegura que la imagen se quede en la mitad de la pantalla */
+            height: 40vh;
         }
 
         /* Estilo de la imagen */
         .center-image {
-            max-width: 200px;
-            max-height: 200px;
-            width: auto;
+            max-width: 150px;
             height: auto;
         }
 
-        /* Texto de bienvenida */
-        .welcome-text {
+        /* Títulos y botones */
+        h1, h2 {
+            color: #0288d1;
             margin-top: 20px;
         }
 
         /* Botones de materias */
         .subjects button {
-            margin: 10px;
-            padding: 10px 20px;
+            margin: 15px;
+            padding: 12px 30px;
             background-color: #0288d1;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             transition: background-color 0.3s ease;
         }
 
@@ -58,32 +57,29 @@
             background-color: #0277bd;
         }
 
-        /* Subtemas (ocultos por defecto) */
+        /* Subtemas */
         .subtopics {
             display: none;
-            margin-top: 10px;
             text-align: left;
+            margin-top: 10px;
         }
 
         .subtopics ul {
             list-style-type: none;
             padding-left: 20px;
+            color: #333;
         }
 
         .subtopics li {
             padding: 5px;
-            font-size: 14px;
-            color: #333;
-        }
-
-        .toggle-subtopics {
-            margin-top: 10px;
+            font-size: 16px;
             cursor: pointer;
-            font-weight: bold;
-            color: #0288d1;
-            text-decoration: underline;
+            transition: background-color 0.3s;
         }
 
+        .subtopics li:hover {
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 <body>
@@ -93,71 +89,57 @@
         <img src="tu-imagen.jpg" alt="Imagen de bienvenida" class="center-image">
     </div>
 
-    <!-- Texto de bienvenida y botones de materias -->
-    <div class="welcome-text">
-        <h2>Hoy vas a aprender:</h2>
-        <p>Explora nuestros temas educativos.</p>
-        <div class="subjects">
-            <button onclick="toggleSubtopics('math')">Matemáticas</button>
-            <div id="math" class="subtopics">
-                <p class="toggle-subtopics" onclick="toggleList('math-subtopics')">Ver subtemas</p>
-                <ul id="math-subtopics" style="display:none;">
-                    <li>Álgebra</li>
-                    <li>Geometría</li>
-                    <li>Trigonometría</li>
-                </ul>
-            </div>
+    <!-- Texto de bienvenida -->
+    <h1>¡Bienvenido a la educación para todos!</h1>
+    <h2>Hoy vas a aprender:</h2>
 
-            <button onclick="toggleSubtopics('science')">Ciencias</button>
-            <div id="science" class="subtopics">
-                <p class="toggle-subtopics" onclick="toggleList('science-subtopics')">Ver subtemas</p>
-                <ul id="science-subtopics" style="display:none;">
-                    <li>Biología</li>
-                    <li>Física</li>
-                    <li>Química</li>
-                </ul>
-            </div>
+    <!-- Botones de materias -->
+    <div class="subjects">
+        <button onclick="toggleSubtopics('math')">Matemáticas</button>
+        <div id="math" class="subtopics">
+            <ul>
+                <li>Álgebra</li>
+                <li>Geometría</li>
+                <li>Trigonometría</li>
+            </ul>
+        </div>
 
-            <button onclick="toggleSubtopics('language')">Lenguaje</button>
-            <div id="language" class="subtopics">
-                <p class="toggle-subtopics" onclick="toggleList('language-subtopics')">Ver subtemas</p>
-                <ul id="language-subtopics" style="display:none;">
-                    <li>Gramática</li>
-                    <li>Vocabulario</li>
-                    <li>Redacción</li>
-                </ul>
-            </div>
+        <button onclick="toggleSubtopics('science')">Ciencias</button>
+        <div id="science" class="subtopics">
+            <ul>
+                <li>Biología</li>
+                <li>Física</li>
+                <li>Química</li>
+            </ul>
+        </div>
 
-            <button onclick="toggleSubtopics('history')">Historia</button>
-            <div id="history" class="subtopics">
-                <p class="toggle-subtopics" onclick="toggleList('history-subtopics')">Ver subtemas</p>
-                <ul id="history-subtopics" style="display:none;">
-                    <li>Historia Universal</li>
-                    <li>Historia Contemporánea</li>
-                    <li>Historia Local</li>
-                </ul>
-            </div>
+        <button onclick="toggleSubtopics('language')">Lenguaje</button>
+        <div id="language" class="subtopics">
+            <ul>
+                <li>Gramática</li>
+                <li>Vocabulario</li>
+                <li>Redacción</li>
+            </ul>
+        </div>
+
+        <button onclick="toggleSubtopics('history')">Historia</button>
+        <div id="history" class="subtopics">
+            <ul>
+                <li>Historia Universal</li>
+                <li>Historia Contemporánea</li>
+                <li>Historia Local</li>
+            </ul>
         </div>
     </div>
 
     <script>
-        // Función para mostrar u ocultar los subtemas
+        // Función para mostrar u ocultar los subtemas de cada materia
         function toggleSubtopics(subject) {
             var subtopics = document.getElementById(subject);
             if (subtopics.style.display === "none" || subtopics.style.display === "") {
                 subtopics.style.display = "block"; // Muestra los subtemas
             } else {
                 subtopics.style.display = "none"; // Oculta los subtemas
-            }
-        }
-
-        // Función para mostrar u ocultar la lista de subtemas cuando se hace clic
-        function toggleList(subtopicId) {
-            var list = document.getElementById(subtopicId);
-            if (list.style.display === "none" || list.style.display === "") {
-                list.style.display = "block"; // Muestra la lista de subtemas
-            } else {
-                list.style.display = "none"; // Oculta la lista de subtemas
             }
         }
     </script>
