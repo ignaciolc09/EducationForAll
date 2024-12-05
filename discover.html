@@ -46,6 +46,17 @@
             border: none;
         }
 
+        .geogebra-container {
+    max-width: 1000px; /* Máximo ancho que ocupa el GeoGebra */
+    margin: 0 auto;    /* Centra el contenido */
+    padding: 20px;     /* Espacio interno */
+}
+
+.geogebra-container iframe {
+    width: 100%;       /* Se adapta al contenedor */
+    height: 500px;     /* Altura fija para el GeoGebra */
+}
+
     </style>
 </head>
 
@@ -60,7 +71,9 @@
     </div>
 
     <!-- Contenedor GeoGebra -->
-    <iframe src="https://www.geogebra.org/" title="GeoGebra Tool"></iframe>
+<div class="geogebra-container">
+    <iframe src="https://www.geogebra.org/m/xyz" width="100%" height="500"></iframe>
+</div>
 
 </body>
 
