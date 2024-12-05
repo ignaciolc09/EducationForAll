@@ -75,6 +75,15 @@
             font-size: 14px;
             color: #333;
         }
+
+        .toggle-subtopics {
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #0288d1;
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -90,50 +99,65 @@
         <p>Explora nuestros temas educativos.</p>
         <div class="subjects">
             <button onclick="toggleSubtopics('math')">Matemáticas</button>
+            <div id="math" class="subtopics">
+                <p class="toggle-subtopics" onclick="toggleList('math-subtopics')">Ver subtemas</p>
+                <ul id="math-subtopics" style="display:none;">
+                    <li>Álgebra</li>
+                    <li>Geometría</li>
+                    <li>Trigonometría</li>
+                </ul>
+            </div>
+
             <button onclick="toggleSubtopics('science')">Ciencias</button>
+            <div id="science" class="subtopics">
+                <p class="toggle-subtopics" onclick="toggleList('science-subtopics')">Ver subtemas</p>
+                <ul id="science-subtopics" style="display:none;">
+                    <li>Biología</li>
+                    <li>Física</li>
+                    <li>Química</li>
+                </ul>
+            </div>
+
             <button onclick="toggleSubtopics('language')">Lenguaje</button>
+            <div id="language" class="subtopics">
+                <p class="toggle-subtopics" onclick="toggleList('language-subtopics')">Ver subtemas</p>
+                <ul id="language-subtopics" style="display:none;">
+                    <li>Gramática</li>
+                    <li>Vocabulario</li>
+                    <li>Redacción</li>
+                </ul>
+            </div>
+
             <button onclick="toggleSubtopics('history')">Historia</button>
+            <div id="history" class="subtopics">
+                <p class="toggle-subtopics" onclick="toggleList('history-subtopics')">Ver subtemas</p>
+                <ul id="history-subtopics" style="display:none;">
+                    <li>Historia Universal</li>
+                    <li>Historia Contemporánea</li>
+                    <li>Historia Local</li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <!-- Subtemas para cada materia -->
-    <div id="math" class="subtopics">
-        <ul>
-            <li>Álgebra</li>
-            <li>Geometría</li>
-            <li>Trigonometría</li>
-        </ul>
-    </div>
-    <div id="science" class="subtopics">
-        <ul>
-            <li>Biología</li>
-            <li>Física</li>
-            <li>Química</li>
-        </ul>
-    </div>
-    <div id="language" class="subtopics">
-        <ul>
-            <li>Gramática</li>
-            <li>Vocabulario</li>
-            <li>Redacción</li>
-        </ul>
-    </div>
-    <div id="history" class="subtopics">
-        <ul>
-            <li>Historia Universal</li>
-            <li>Historia Contemporánea</li>
-            <li>Historia Local</li>
-        </ul>
-    </div>
-
     <script>
-        // Función para mostrar u ocultar subtemas al hacer clic
+        // Función para mostrar u ocultar los subtemas
         function toggleSubtopics(subject) {
             var subtopics = document.getElementById(subject);
-            if (subtopics.style.display === "block") {
-                subtopics.style.display = "none"; // Oculta los subtemas si están visibles
-            } else {
+            if (subtopics.style.display === "none" || subtopics.style.display === "") {
                 subtopics.style.display = "block"; // Muestra los subtemas
+            } else {
+                subtopics.style.display = "none"; // Oculta los subtemas
+            }
+        }
+
+        // Función para mostrar u ocultar la lista de subtemas cuando se hace clic
+        function toggleList(subtopicId) {
+            var list = document.getElementById(subtopicId);
+            if (list.style.display === "none" || list.style.display === "") {
+                list.style.display = "block"; // Muestra la lista de subtemas
+            } else {
+                list.style.display = "none"; // Oculta la lista de subtemas
             }
         }
     </script>
