@@ -5,147 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education For All</title>
     <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
             display: flex;
-            height: 100vh;
-            background-color: #f5f5f5;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
         }
 
-        /* Barra lateral */
-        .sidebar {
-            width: 250px;
-            background-color: #0288d1;
-            color: white;
-            padding-top: 20px;
-            position: fixed;
-            height: 100%;
-            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar h2 {
-            color: white;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .subject-box {
-            background-color: #4caf50;
-            color: white;
+        .subject {
+            background-color: #e0f7e9;
+            border-radius: 8px;
+            width: 45%;
             padding: 15px;
-            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .subject-header {
+            display: flex;
+            align-items: center;
             cursor: pointer;
-            font-size: 18px;
-            margin: 10px;
-            transition: background-color 0.3s ease;
-            border-radius: 5px;
         }
 
-        .subject-box:hover {
-            background-color: #388e3c;
+        .subject-header img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
         }
 
-        /* Subtemas ocultos inicialmente */
+        .subject-header h2 {
+            font-size: 1.5rem;
+        }
+
         .subtopics {
             display: none;
-            margin-left: 10px;
-            padding-left: 10px;
-            list-style-type: none;
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 10px;
         }
 
         .subtopics li {
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 5px;
-            padding: 5px;
-            transition: background-color 0.3s;
+            padding: 5px 0;
         }
 
         .subtopics li:hover {
-            background-color: #f1f1f1;
+            color: #007BFF;
         }
-
-        /* Contenedor principal de contenido */
-        .content {
-            margin-left: 250px;
-            padding: 20px;
-            width: 100%;
-        }
-
-        .content h1 {
-            text-align: center;
-            color: #0288d1;
-            margin-top: 40px;
-        }
-
-        /* Estilo de la imagen de bienvenida */
-        .center-image {
-            display: block;
-            margin: 30px auto;
-            max-width: 150px;
-        }
-        
     </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Matemáticas -->
+        <div class="subject">
+            <div class="subject-header" onclick="toggleSubtopics('math')">
+                <img src="math-icon.png" alt="Math Icon">
+                <h2>Mathematics</h2>
+            </div>
+            <ul id="math" class="subtopics">
+                <li>Algebra</li>
+                <li>Geometry</li>
+                <li>Calculus</li>
+            </ul>
+        </div>
 
-    <!-- Barra lateral -->
-    <div class="sidebar">
-        <h2>Materias</h2>
-        <div class="subject-box" onclick="toggleSubtopics('math')">Matemáticas</div>
-        <ul id="math" class="subtopics">
-            <li><a href="calculator.html">Álgebra</a></li>
-            <li><a href="geogebra.html">Geometría</a></li>
-            <li><a href="trigonometria.html">Trigonometría</a></li>
-        </ul>
+        <!-- Ciencia -->
+        <div class="subject">
+            <div class="subject-header" onclick="toggleSubtopics('science')">
+                <img src="science-icon.png" alt="Science Icon">
+                <h2>Science</h2>
+            </div>
+            <ul id="science" class="subtopics">
+                <li>Physics</li>
+                <li>Chemistry</li>
+                <li>Biology</li>
+            </ul>
+        </div>
 
-        <div class="subject-box" onclick="toggleSubtopics('science')">Ciencias</div>
-        <ul id="science" class="subtopics">
-            <li><a href="biologia.html">Biología</a></li>
-            <li><a href="fisica.html">Física</a></li>
-            <li><a href="quimica.html">Química</a></li>
-        </ul>
+        <!-- Computación -->
+        <div class="subject">
+            <div class="subject-header" onclick="toggleSubtopics('computing')">
+                <img src="computing-icon.png" alt="Computing Icon">
+                <h2>Computing</h2>
+            </div>
+            <ul id="computing" class="subtopics">
+                <li>Programming</li>
+                <li>Web Development</li>
+                <li>Algorithms</li>
+            </ul>
+        </div>
 
-        <div class="subject-box" onclick="toggleSubtopics('language')">Lenguaje</div>
-        <ul id="language" class="subtopics">
-            <li><a href="translator.html">Gramática</a></li>
-            <li><a href="vocabulario.html">Vocabulario</a></li>
-            <li><a href="redaccion.html">Redacción</a></li>
-        </ul>
-
-        <div class="subject-box" onclick="toggleSubtopics('history')">Historia</div>
-        <ul id="history" class="subtopics">
-            <li><a href="historia_universal.html">Historia Universal</a></li>
-            <li><a href="historia_contemporanea.html">Historia Contemporánea</a></li>
-            <li><a href="historia_local.html">Historia Local</a></li>
-        </ul>
-    </div>
-
-    <!-- Contenido principal -->
-    <div class="content">
-        <img src="favicon.png" alt="Imagen de bienvenida" class="center-image">
-        <h1>¡Bienvenido a la educación para todos!</h1>
-        <h2>Hoy vas a aprender:</h2>
+        <!-- Economía -->
+        <div class="subject">
+            <div class="subject-header" onclick="toggleSubtopics('economy')">
+                <img src="economy-icon.png" alt="Economy Icon">
+                <h2>Economics</h2>
+            </div>
+            <ul id="economy" class="subtopics">
+                <li>Microeconomics</li>
+                <li>Macroeconomics</li>
+                <li>Personal Finance</li>
+            </ul>
+        </div>
     </div>
 
     <script>
-        // Función para mostrar u ocultar los subtemas
-        function toggleSubtopics(subject) {
-            var subtopics = document.getElementById(subject);
-            if (subtopics.style.display === "none" || subtopics.style.display === "") {
-                subtopics.style.display = "block"; // Muestra los subtemas
+        function toggleSubtopics(id) {
+            const subtopics = document.getElementById(id);
+            if (subtopics.style.display === 'none' || subtopics.style.display === '') {
+                subtopics.style.display = 'block';
             } else {
-                subtopics.style.display = "none"; // Oculta los subtemas
+                subtopics.style.display = 'none';
             }
         }
     </script>
-
 </body>
 </html>
