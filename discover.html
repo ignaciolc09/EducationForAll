@@ -14,39 +14,40 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
             height: 100vh;
-            flex-direction: column;
-            padding: 20px;
+            background-color: #f5f5f5;
         }
 
-        /* Contenedor principal de materias */
-        .subjects-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 20px;
+        /* Barra lateral */
+        .sidebar {
+            width: 250px;
+            background-color: #0288d1;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
         }
 
-        /* Cuadro para cada materia */
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
         .subject-box {
             background-color: #4caf50;
             color: white;
-            padding: 20px;
-            width: 200px;
-            border: none;
+            padding: 15px;
             text-align: center;
             cursor: pointer;
             font-size: 18px;
+            margin: 10px;
             transition: background-color 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
 
-        /* Efecto al pasar el ratón */
         .subject-box:hover {
             background-color: #388e3c;
         }
@@ -54,18 +55,16 @@
         /* Subtemas ocultos inicialmente */
         .subtopics {
             display: none;
-            margin-top: 10px;
-            padding-left: 20px;
-        }
-
-        .subtopics ul {
+            margin-left: 10px;
+            padding-left: 10px;
             list-style-type: none;
         }
 
         .subtopics li {
-            padding: 5px;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 5px;
+            padding: 5px;
             transition: background-color 0.3s;
         }
 
@@ -73,71 +72,71 @@
             background-color: #f1f1f1;
         }
 
-        /* Imagen central */
-        .center-image {
-            max-width: 150px;
-            margin: 0 auto;
-            display: block;
+        /* Contenedor principal de contenido */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
         }
 
-        /* Títulos */
-        h1, h2 {
+        .content h1 {
             text-align: center;
             color: #0288d1;
+            margin-top: 40px;
         }
 
+        /* Estilo de la imagen de bienvenida */
+        .center-image {
+            display: block;
+            margin: 30px auto;
+            max-width: 150px;
+        }
+        
     </style>
 </head>
 <body>
 
-    <!-- Imagen central -->
-    <img src="tu-imagen.jpg" alt="Imagen de bienvenida" class="center-image">
-
-    <!-- Títulos -->
-    <h1>¡Bienvenido a la educación para todos!</h1>
-    <h2>Hoy vas a aprender:</h2>
-
-    <!-- Contenedor de las materias -->
-    <div class="subjects-container">
+    <!-- Barra lateral -->
+    <div class="sidebar">
+        <h2>Materias</h2>
         <div class="subject-box" onclick="toggleSubtopics('math')">Matemáticas</div>
-        <div id="math" class="subtopics">
-            <ul>
-                <li>Álgebra</li>
-                <li>Geometría</li>
-                <li>Trigonometría</li>
-            </ul>
-        </div>
+        <ul id="math" class="subtopics">
+            <li>Álgebra</li>
+            <li>Geometría</li>
+            <li>Trigonometría</li>
+        </ul>
 
         <div class="subject-box" onclick="toggleSubtopics('science')">Ciencias</div>
-        <div id="science" class="subtopics">
-            <ul>
-                <li>Biología</li>
-                <li>Física</li>
-                <li>Química</li>
-            </ul>
-        </div>
+        <ul id="science" class="subtopics">
+            <li>Biología</li>
+            <li>Física</li>
+            <li>Química</li>
+        </ul>
 
         <div class="subject-box" onclick="toggleSubtopics('language')">Lenguaje</div>
-        <div id="language" class="subtopics">
-            <ul>
-                <li>Gramática</li>
-                <li>Vocabulario</li>
-                <li>Redacción</li>
-            </ul>
-        </div>
+        <ul id="language" class="subtopics">
+            <li>Gramática</li>
+            <li>Vocabulario</li>
+            <li>Redacción</li>
+        </ul>
 
         <div class="subject-box" onclick="toggleSubtopics('history')">Historia</div>
-        <div id="history" class="subtopics">
-            <ul>
-                <li>Historia Universal</li>
-                <li>Historia Contemporánea</li>
-                <li>Historia Local</li>
-            </ul>
-        </div>
+        <ul id="history" class="subtopics">
+            <li>Historia Universal</li>
+            <li>Historia Contemporánea</li>
+            <li>Historia Local</li>
+        </ul>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        <img src="tu-imagen.jpg" alt="Imagen de bienvenida" class="center-image">
+        <h1>¡Bienvenido a la educación para todos!</h1>
+        <h2>Hoy vas a aprender:</h2>
     </div>
 
     <script>
-        // Función para mostrar u ocultar los subtemas de cada materia
+        // Función para mostrar u ocultar los subtemas
         function toggleSubtopics(subject) {
             var subtopics = document.getElementById(subject);
             if (subtopics.style.display === "none" || subtopics.style.display === "") {
