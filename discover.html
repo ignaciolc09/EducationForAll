@@ -14,40 +14,41 @@
 
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            height: 100vh;
             background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            flex-direction: column;
+            padding: 20px;
         }
 
-        /* Barra lateral */
-        .sidebar {
-            width: 250px;
-            background-color: #0288d1;
+        /* Contenedor principal de materias */
+        .subjects-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Cuadro para cada materia */
+        .subject-box {
+            background-color: #4caf50;
             color: white;
             padding: 20px;
-            position: fixed;
-            height: 100%;
-            overflow-y: auto;
-        }
-
-        /* Estilo para los botones de la barra lateral */
-        .sidebar button {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background-color: #0288d1;
-            color: white;
+            width: 200px;
             border: none;
-            font-size: 18px;
+            text-align: center;
             cursor: pointer;
-            text-align: left;
-            border-radius: 5px;
-            margin-bottom: 10px;
+            font-size: 18px;
             transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .sidebar button:hover {
-            background-color: #0277bd;
+        /* Efecto al pasar el ratón */
+        .subject-box:hover {
+            background-color: #388e3c;
         }
 
         /* Subtemas ocultos inicialmente */
@@ -72,13 +73,6 @@
             background-color: #f1f1f1;
         }
 
-        /* Contenedor principal de la página */
-        .content {
-            margin-left: 250px; /* Espacio para la barra lateral */
-            padding: 20px;
-            width: 100%;
-        }
-
         /* Imagen central */
         .center-image {
             max-width: 150px;
@@ -96,10 +90,16 @@
 </head>
 <body>
 
-    <!-- Barra lateral con las materias -->
-    <div class="sidebar">
-        <h2>Materias</h2>
-        <button onclick="toggleSubtopics('math')">Matemáticas</button>
+    <!-- Imagen central -->
+    <img src="tu-imagen.jpg" alt="Imagen de bienvenida" class="center-image">
+
+    <!-- Títulos -->
+    <h1>¡Bienvenido a la educación para todos!</h1>
+    <h2>Hoy vas a aprender:</h2>
+
+    <!-- Contenedor de las materias -->
+    <div class="subjects-container">
+        <div class="subject-box" onclick="toggleSubtopics('math')">Matemáticas</div>
         <div id="math" class="subtopics">
             <ul>
                 <li>Álgebra</li>
@@ -108,7 +108,7 @@
             </ul>
         </div>
 
-        <button onclick="toggleSubtopics('science')">Ciencias</button>
+        <div class="subject-box" onclick="toggleSubtopics('science')">Ciencias</div>
         <div id="science" class="subtopics">
             <ul>
                 <li>Biología</li>
@@ -117,7 +117,7 @@
             </ul>
         </div>
 
-        <button onclick="toggleSubtopics('language')">Lenguaje</button>
+        <div class="subject-box" onclick="toggleSubtopics('language')">Lenguaje</div>
         <div id="language" class="subtopics">
             <ul>
                 <li>Gramática</li>
@@ -126,7 +126,7 @@
             </ul>
         </div>
 
-        <button onclick="toggleSubtopics('history')">Historia</button>
+        <div class="subject-box" onclick="toggleSubtopics('history')">Historia</div>
         <div id="history" class="subtopics">
             <ul>
                 <li>Historia Universal</li>
@@ -134,16 +134,6 @@
                 <li>Historia Local</li>
             </ul>
         </div>
-    </div>
-
-    <!-- Contenido principal de la página -->
-    <div class="content">
-        <!-- Imagen central -->
-        <img src="tu-imagen.jpg" alt="Imagen de bienvenida" class="center-image">
-        
-        <!-- Títulos y bienvenida -->
-        <h1>¡Bienvenido a la educación para todos!</h1>
-        <h2>Hoy vas a aprender:</h2>
     </div>
 
     <script>
