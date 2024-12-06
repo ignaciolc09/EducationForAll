@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFA - Discover</title>
+    <title>Education For All</title>
     <style>
         * {
             margin: 0;
@@ -13,21 +13,168 @@
         }
 
         body {
+            background-color: #f5f5f5;
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0288d1, #4caf50);
+            padding: 6rem 0;
+            text-align: center;
+            color: white;
+            border-bottom: 4px solid #0288d1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background-size: 400% 400%;
+            animation: move-background 20s linear infinite;
+        }
+
+        @keyframes move-background {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .header-text h1 {
+            font-size: 3.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-text h2 {
+            font-size: 1.8rem;
+            color: #e0f7fa;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+            line-height: 1.6;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-buttons {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .header-button {
+            background-color: #4caf50;
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-button:hover {
+            background-color: #388e3c;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            width: 100%;
-            height: 100%;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 4rem;
         }
 
-        /* Left section for topics and chatbot */
+        .mission-section, .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .mission-section:hover, .feature-card:hover {
+            transform: translateY(-10px);
+            background-color: #f0f8ff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 3rem 0;
+            background-color: #0288d1;
+            color: #fff;
+            border-radius: 12px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-button:hover {
+            background-color: #388e3c;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .discover-section {
+            text-align: center;
+            padding: 3rem 0;
+            background-color: #e0f7fa;
+            color: #333;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .discover-section h2 {
+            font-size: 2rem;
+            color: #0288d1;
+        }
+
+        .discover-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .discover-button:hover {
+            background-color: #388e3c;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
         .left-section {
             width: 50%;
             padding: 20px;
@@ -51,18 +198,6 @@
             top: 10px;
             left: 10px;
         }
-
-        .chatbot-placeholder {
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-    color: white;
-    padding: 15px;
-    border-radius: 15px;
-    margin-top: 60px;
-    margin-bottom: 40px;
-    font-size: 18px;
-    text-align: center;
-    width: 250px;
-}
 
         .subject-list {
             width: 100%;
@@ -92,7 +227,6 @@
             display: none;
         }
 
-        /* Right section for logo and text */
         .right-section {
             width: 50%;
             padding: 40px;
@@ -114,7 +248,6 @@
             text-align: center;
         }
 
-        /* Responsiveness */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -135,50 +268,99 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <div class="header-text">
+            <h1>EDUCATION FOR ALL</h1>
+            <h2>Empowering minds across borders, cultures, and backgrounds</h2>
+        </div>
+
+        <div class="header-buttons">
+            <a href="index.html" class="header-button">Home</a>
+            <a href="discover.html" class="header-button">Discover</a>
+            <a href="learnmore.html" class="header-button">Learn More</a>
+        </div>
+    </div>
+
     <div class="container">
-        <!-- Left section -->
+        <div class="mission-section">
+            <h2>Our Mission</h2>
+            <p>We believe in making education accessible to everyone, regardless of location, background, or financial status. We strive to foster a world where learning is universal and empowering for all individuals.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Features</h3>
+            <ul>
+                <li>Free Educational Resources</li>
+                <li>Online Learning Materials</li>
+                <li>Courses for All Ages</li>
+                <li>Global Accessibility</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Join us today and start learning!</h2>
+        <a href="signup.html" class="cta-button">Sign Up</a>
+    </div>
+
+    <div class="discover-section">
+        <h2>Discover Our Courses</h2>
+        <a href="courses.html" class="discover-button">Explore Courses</a>
+    </div>
+
+    <div class="container">
         <div class="left-section">
-            <button class="back-button">Back</button>
+            <button class="back-button" onclick="window.history.back()">Back</button>
 
-            <div class="chatbot-placeholder">
-                Here will be the chatbot
+            <div class="subject-list">
+                <div class="subject">
+                    <button class="subject-title">Math</button>
+                    <div class="topics">
+                        <ul>
+                            <li>Algebra</li>
+                            <li>Geometry</li>
+                            <li>Calculus</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subject">
+                    <button class="subject-title">Science</button>
+                    <div class="topics">
+                        <ul>
+                            <li>Physics</li>
+                            <li>Chemistry</li>
+                            <li>Biology</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subject">
+                    <button class="subject-title">Literature</button>
+                    <div class="topics">
+                        <ul>
+                            <li>Poetry</li>
+                            <li>Modern Novels</li>
+                            <li>Classic Literature</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </div>
 
-<div class="subject">
-    <button class="subject-title" onclick="toggleTopics('maths')">Mathematics</button>
-    <div id="maths" class="topics">
-        <a href="maths.html"><p>Maths</p></a>
-        <a href="geogebra.html"><p>Geometry Calculator</p></a>
-        <a href="calculator.html"><p>Calculator</p></a>
-    </div>
-</div>
-
-<div class="subject">
-    <button class="subject-title" onclick="toggleTopics('languages')">Languages</button>
-    <div id="languages" class="topics">
-        <a href="languages.html"><p>Learn a Language</p></a>
-        <a href="translator.html"><p>Translator</p></a>
-    </div>
-</div>
-
-        <!-- Right section -->
         <div class="right-section">
             <div class="efa-logo">
-                <img src="favicon.png" alt="EFA Logo">
-                <h1>What are you going to study?</h1>
+                <img src="logo.png" alt="Education For All Logo">
+                <h1>Empowering Education</h1>
             </div>
         </div>
     </div>
 
     <script>
-        function toggleTopics(id) {
-            const topics = document.getElementById(id);
-            if (topics.style.display === "block") {
-                topics.style.display = "none";
-            } else {
-                topics.style.display = "block";
-            }
-        }
+        document.querySelectorAll('.subject-title').forEach(button => {
+            button.addEventListener('click', () => {
+                const topics = button.nextElementSibling;
+                topics.style.display = topics.style.display === 'block' ? 'none' : 'block';
+            });
+        });
     </script>
 </body>
 </html>
