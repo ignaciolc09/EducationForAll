@@ -3,181 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFA - Chatbot</title>
+    <title>Chatbot - Secure</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
         }
-
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f9f9f9;
+            background-color: #f4f4f9;
         }
-
         .chat-container {
-            width: 90%;
-            max-width: 500px;
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
         }
-
         .chat-header {
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            background: #6a11cb;
             color: white;
             padding: 15px;
             text-align: center;
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 18px;
         }
-
-        .chat-body {
-            padding: 20px;
-            flex-grow: 1;
+        .chat-messages {
+            height: 300px;
+            padding: 15px;
             overflow-y: auto;
-        }
-
-        .chat-message {
-            margin: 10px 0;
-            padding: 10px 15px;
-            border-radius: 10px;
-            max-width: 70%;
-            line-height: 1.4;
-        }
-
-        .chat-message.user {
-            background: #e0f7fa;
-            margin-left: auto;
-            color: #00796b;
-        }
-
-        .chat-message.bot {
-            background: #f0f0f0;
-            color: #333;
-        }
-
-        .chat-footer {
-            display: flex;
-            padding: 10px;
-            border-top: 1px solid #e0e0e0;
             background: #f9f9f9;
         }
-
-        .chat-footer input {
+        .chat-messages .message {
+            margin-bottom: 15px;
+        }
+        .chat-messages .message.user {
+            text-align: right;
+        }
+        .chat-messages .message.bot {
+            text-align: left;
+        }
+        .chat-messages .message p {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        .chat-messages .message.user p {
+            background: #0f9d58;
+            color: white;
+        }
+        .chat-messages .message.bot p {
+            background: #e0f7fa;
+            color: #333;
+        }
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+        .chat-input input {
             flex: 1;
             padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            border: none;
+            outline: none;
         }
-
-        .chat-footer button {
+        .chat-input button {
+            padding: 10px 20px;
             background: #0f9d58;
             color: white;
             border: none;
-            padding: 10px 15px;
-            margin-left: 10px;
-            border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
         }
-
-        .chat-footer button:hover {
-            background: #0d7a46;
-        }
-
-        /* Quick questions section */
-        .quick-questions {
-            margin-top: 15px;
-        }
-
-        .quick-button {
-            background: #007BFF;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            margin: 5px;
-            font-size: 14px;
-        }
-
-        .quick-button:hover {
-            background: #0056b3;
+        .chat-input button:hover {
+            background: #087f44;
         }
     </style>
 </head>
 <body>
     <div class="chat-container">
-        <div class="chat-header">EFA - Math Assistant</div>
-        <div class="chat-body" id="chatBody">
-            <!-- Chat messages will appear here -->
-            <div class="chat-message bot">Hello! How can I assist you with mathematics today?</div>
+        <div class="chat-header">Math Chatbot</div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <p>Hi! I'm here to help you with math. Ask me a question or enter a calculation.</p>
+            </div>
         </div>
-        <div class="chat-footer">
-            <input type="text" id="userInput" placeholder="Type your question here...">
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Type your message...">
             <button onclick="sendMessage()">Send</button>
-        </div>
-        <div class="quick-questions" id="quickQuestions">
-            <button class="quick-button" onclick="sendQuickMessage('What is algebra?')">What is algebra?</button>
-            <button class="quick-button" onclick="sendQuickMessage('How do I solve equations?')">Solve equations</button>
-            <button class="quick-button" onclick="sendQuickMessage('What is geometry?')">What is geometry?</button>
         </div>
     </div>
 
     <script>
-        const chatBody = document.getElementById('chatBody');
-        const userInput = document.getElementById('userInput');
-
-        // Predefined responses for the bot
-        const responses = {
-            "algebra": "Algebra involves solving equations using variables like x and y. Check out our Algebra section for more!",
-            "equations": "To solve equations, isolate the variable by performing the same operation on both sides.",
-            "geometry": "Geometry is about shapes, angles, and spaces. You can explore this further in the Geometry section!",
-            "default": "I'm not sure about that. Can you try rephrasing your question?"
-        };
+        const messages = document.getElementById("chatMessages");
+        const input = document.getElementById("chatInput");
 
         function sendMessage() {
-            const message = userInput.value.trim();
-            if (message === "") return;
+            const userMessage = input.value.trim();
+            if (!userMessage) return;
 
-            // Display user's message
-            displayMessage(message, 'user');
+            // Add user's message to the chat
+            addMessage(userMessage, "user");
 
-            // Get bot's response
-            const response = getResponse(message.toLowerCase());
-            setTimeout(() => displayMessage(response, 'bot'), 500);
+            // Clear input field
+            input.value = "";
 
-            userInput.value = "";
+            // Generate bot's response
+            setTimeout(() => {
+                const botResponse = generateResponse(userMessage);
+                addMessage(botResponse, "bot");
+            }, 500);
         }
 
-        function sendQuickMessage(message) {
-            userInput.value = message;
-            sendMessage();
+        function addMessage(text, sender) {
+            const message = document.createElement("div");
+            message.className = `message ${sender}`;
+            message.innerHTML = `<p>${text}</p>`;
+            messages.appendChild(message);
+            messages.scrollTop = messages.scrollHeight; // Scroll to the bottom
         }
 
-        function displayMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('chat-message', sender);
-            messageDiv.textContent = text;
-            chatBody.appendChild(messageDiv);
-            chatBody.scrollTop = chatBody.scrollHeight;
-        }
-
-        function getResponse(message) {
-            for (let keyword in responses) {
-                if (message.includes(keyword)) {
-                    return responses[keyword];
+        function generateResponse(input) {
+            // Check if the input is a valid math expression
+            if (isMathExpression(input)) {
+                try {
+                    return `The result is: ${evaluateMath(input)}`;
+                } catch {
+                    return "Sorry, I couldn't calculate that. Make sure the input is valid.";
                 }
             }
-            return responses["default"];
+
+            // Predefined responses for certain keywords
+            const lowerInput = input.toLowerCase();
+            if (lowerInput.includes("hello")) return "Hello! How can I assist you with math today?";
+            if (lowerInput.includes("thank you")) return "You're welcome!";
+            if (lowerInput.includes("help")) return "You can ask me math questions like '2 + 2' or '5 * 7'. Try it!";
+
+            // Default response
+            return "I didn't understand that. Can you try asking something else?";
+        }
+
+        function isMathExpression(input) {
+            // Check if input only contains numbers, operators, and parentheses
+            const mathRegex = /^[0-9+\-*/().\s]+$/;
+            return mathRegex.test(input);
+        }
+
+        function evaluateMath(input) {
+            // Safely evaluate a math expression using the Function constructor
+            const sanitized = input.replace(/[^-()\d/*+.]/g, ''); // Remove invalid characters
+            return new Function(`return ${sanitized}`)();
         }
     </script>
 </body>
