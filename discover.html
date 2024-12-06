@@ -3,146 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education For All (EFA)</title>
+    <title>EFA - Education For All</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
-        }
-
-        /* Header Section */
-        .header {
-            background-color: #0062a3;
-            color: white;
             text-align: center;
-            padding: 50px;
         }
-
-        .header h1 {
-            font-size: 40px;
-        }
-
-        .header p {
-            font-size: 20px;
-            margin-top: 10px;
-        }
-
-        .back-btn {
-            background-color: #4A90E2;
-            color: white;
-            border: none;
+        .navbar {
+            background-color: #335d92;
             padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 10px;
         }
-
-        /* Container Section */
-        .container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .categories {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        .category {
-            background-color: #43a047;
-            width: 250px;
-            padding: 20px;
-            border-radius: 10px;
+        .navbar a {
             color: white;
-            text-align: left;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: #5598d7;
         }
-
-        .category-label {
+        .container {
+            margin: 20px;
+            text-align: center;
+        }
+        .button-container {
+            margin-top: 30px;
+        }
+        .main-btn {
+            background-color: #62b864;
+            color: white;
+            padding: 15px 30px;
             font-size: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
         }
-
-        .category i {
-            font-size: 30px;
+        .main-btn:hover {
+            background-color: #4f8c52;
         }
-
-        .subtopics {
+        .dropdown-btn {
+            background-color: #f6f6f6;
+            color: #333;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            width: 200px;
+            cursor: pointer;
+            margin: 5px;
+            border: 1px solid #ddd;
+        }
+        .dropdown-content {
             display: none;
+            text-align: left;
             margin-top: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 230px;
         }
-
-        .category input[type="checkbox"]:checked + .category-label + .subtopics {
+        .dropdown-content a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 8px;
+            font-size: 14px;
+        }
+        .dropdown-content a:hover {
+            background-color: #e1e1e1;
+        }
+        .dropdown-btn:focus + .dropdown-content,
+        .dropdown-content:hover {
             display: block;
         }
-
-        .subtopics p {
-            font-size: 14px;
-            margin: 5px 0;
-        }
-        
-        /* Back button style */
         .back-btn {
-            background-color: #4A90E2;
+            background-color: #335d92;
             color: white;
-            border: none;
+            font-size: 18px;
             padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+        .back-btn:hover {
+            background-color: #5598d7;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <div class="header">
-        <h1>EFA - Education For All</h1>
-        <p>What are you going to study today?</p>
-        <button class="back-btn" onclick="window.history.back()">Back</button>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#" class="back-btn">Back</a>
     </div>
 
-    <!-- Discover Section -->
+    <!-- Container -->
     <div class="container">
-        <div class="categories">
-            <!-- Mathematics -->
-            <div class="category">
-                <input type="checkbox" id="math" />
-                <label class="category-label" for="math">
-                    <i class="fas fa-calculator"></i> Mathematics
-                </label>
-                <div class="subtopics">
-                    <p>Maths</p>
-                    <p>Geometry Calculator</p>
-                    <p>Calculator</p>
-                </div>
-            </div>
+        <h1>What are you going to study?</h1>
+        <img src="your-logo-image-path.png" alt="EFA Logo" width="200">
+        
+        <!-- Button Section -->
+        <div class="button-container">
+            <button class="main-btn">Mathematics</button>
+            <button class="main-btn">Languages</button>
+            <button class="main-btn">Science</button>
+        </div>
 
-            <!-- Languages -->
-            <div class="category">
-                <input type="checkbox" id="languages" />
-                <label class="category-label" for="languages">
-                    <i class="fas fa-language"></i> Languages
-                </label>
-                <div class="subtopics">
-                    <p>Learn a Language</p>
-                    <p>Translator</p>
-                </div>
+        <!-- Dropdown for Mathematics -->
+        <div class="dropdown">
+            <button class="dropdown-btn">Mathematics</button>
+            <div class="dropdown-content">
+                <a href="#">Maths</a>
+                <a href="#">Geometry Calculator</a>
+                <a href="#">Calculator</a>
             </div>
         </div>
+
+        <!-- Dropdown for Languages -->
+        <div class="dropdown">
+            <button class="dropdown-btn">Languages</button>
+            <div class="dropdown-content">
+                <a href="#">Learn a Language</a>
+                <a href="translator.html">Translator</a>
+            </div>
+        </div>
+
+        <!-- Add other categories as necessary -->
+
     </div>
-
-    <!-- Include Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
 </body>
 </html>
