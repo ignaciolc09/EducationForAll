@@ -43,33 +43,21 @@
             height: 100%;
         }
 
-      <a href="index.html" class="back-button">Back to Home</a>
+        .back-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin-bottom: 20px;
+        }
 
-<style>
-    .back-button {
-        display: inline-block;
-        background-color: #007BFF;
-        color: white;
-        font-size: 16px;
-        padding: 12px 24px;
-        border-radius: 25px;
-        text-decoration: none;
-        font-weight: bold;
-        text-align: center;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .back-button:hover {
-        background-color: #0056b3;
-        transform: scale(1.05);
-    }
-
-    .back-button:active {
-        background-color: #003366;
-        transform: scale(0.95);
-    }
-</style>
-
+        .back-button:hover {
+            background-color: #0056b3;
+        }
 
         .chatbot-placeholder {
             background: linear-gradient(to right, #6a11cb, #2575fc);
@@ -189,7 +177,7 @@
     <div class="container">
         <!-- Left section -->
         <div class="left-section">
-    <a href="index.html" class="back-button">Back to Home</a>
+             <a href="index.html" class="back-button">Back</a>
 
             <div class="chatbot-placeholder">
                  <a href="chatbot.html" class="subtheme-link">Chat Bot</a>
