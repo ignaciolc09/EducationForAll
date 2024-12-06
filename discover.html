@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EFA - Discover</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,11 +22,20 @@
 
         .container {
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 80%;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Left section for topics and chatbot */
+        .left-section {
+            width: 50%;
             padding: 20px;
             background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
         }
 
         .back-button {
@@ -32,21 +46,25 @@
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
         }
 
         .chatbot-placeholder {
             background: linear-gradient(to right, #6a11cb, #2575fc);
             color: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
-            margin-left: 10px;
+            margin-top: 60px; /* Below the back button */
             font-size: 18px;
             text-align: center;
-            width: 200px;
+            width: 250px;
+            margin-bottom: 30px;
         }
 
         .subject-list {
-            width: 30%;
+            width: 100%;
         }
 
         .subject {
@@ -73,52 +91,84 @@
             display: none;
         }
 
-        .efa-logo {
-            text-align: center;
-            margin-left: 20px;
+        /* Right section for logo and text */
+        .right-section {
+            width: 50%;
+            padding: 40px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .efa-logo img {
-            max-width: 150px;
-            margin-bottom: 10px;
+            max-width: 200px;
+            margin-bottom: 20px;
         }
 
         .efa-logo h1 {
-            font-size: 24px;
+            font-size: 28px;
             color: #333;
+            text-align: center;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-section, .right-section {
+                width: 100%;
+                box-shadow: none;
+            }
+
+            .back-button {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <button class="back-button">Back</button>
+        <!-- Left section -->
+        <div class="left-section">
+            <button class="back-button">Back</button>
 
-        <div class="chatbot-placeholder">
-            Aquí voy a poner el chatbot
-        </div>
-
-        <div class="subject-list">
-            <div class="subject">
-                <button class="subject-title" onclick="toggleTopics('maths')">Mathematics</button>
-                <div id="maths" class="topics">
-                    <p>Maths</p>
-                    <p>Geometry Calculator</p>
-                    <p>Calculator</p>
-                </div>
+            <div class="chatbot-placeholder">
+                Here will be the chatbot
             </div>
 
-            <div class="subject">
-                <button class="subject-title" onclick="toggleTopics('languages')">Languages</button>
-                <div id="languages" class="topics">
-                    <p>Learn a Language</p>
-                    <p>Translator</p>
+            <div class="subject-list">
+                <div class="subject">
+                    <button class="subject-title" onclick="toggleTopics('maths')">Mathematics</button>
+                    <div id="maths" class="topics">
+                        <p>Maths</p>
+                        <p>Geometry Calculator</p>
+                        <p>Calculator</p>
+                    </div>
+                </div>
+
+                <div class="subject">
+                    <button class="subject-title" onclick="toggleTopics('languages')">Languages</button>
+                    <div id="languages" class="topics">
+                        <p>Learn a Language</p>
+                        <p>Translator</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="efa-logo">
-            <img src="logo.png" alt="EFA Logo">
-            <h1>What are you going to study?</h1>
+        <!-- Right section -->
+        <div class="right-section">
+            <div class="efa-logo">
+                <img src="logo.png" alt="EFA Logo">
+                <h1>What are you going to study?</h1>
+            </div>
         </div>
     </div>
 
