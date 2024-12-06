@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics Chatbot - EFA</title>
+    <title>EFA - Discover Chatbot</title>
     <style>
         * {
             margin: 0;
@@ -13,220 +13,193 @@
         }
 
         body {
-            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding: 0;
             margin: 0;
+            background-color: #f0f0f0;
         }
 
-        /* Contenedor del Chatbot */
         .chatbot-container {
-            width: 80%;
-            max-width: 600px;
-            height: 80vh;
+            width: 400px;
+            height: 500px;
             background-color: white;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            padding: 20px;
             overflow: hidden;
         }
 
-        /* Cabecera del Chatbot */
-        .chatbot-header {
-            background-color: #007BFF;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-
-        /* Área de mensajes */
-        .chatbot-messages {
+        .chatbox {
             flex-grow: 1;
-            padding: 20px;
             overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            margin-bottom: 20px;
         }
 
-        /* Mensajes del chatbot */
-        .message {
-            padding: 12px;
-            border-radius: 8px;
+        .chatbox p {
+            margin: 10px 0;
+        }
+
+        .chatbox .bot-message {
+            text-align: left;
+            background-color: #0f9d58;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
             max-width: 70%;
         }
 
-        .message.bot {
-            background-color: #e0e0e0;
-            align-self: flex-start;
-            color: #333;
-        }
-
-        .message.user {
-            background-color: #007BFF;
-            align-self: flex-end;
-            color: white;
-        }
-
-        /* Área de entrada de texto */
-        .chatbot-input-container {
-            display: flex;
-            align-items: center;
+        .chatbox .user-message {
+            text-align: right;
+            background-color: #e0f7fa;
+            color: black;
             padding: 10px;
-            background-color: #f7f7f7;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
+            border-radius: 10px;
+            max-width: 70%;
+            margin-left: auto;
         }
 
-        .chatbot-input {
+        .chat-input {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .chat-input input {
             width: 80%;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 10px;
+            border-radius: 10px;
             border: 1px solid #ccc;
             font-size: 16px;
-            margin-right: 10px;
         }
 
-        .send-button {
+        .chat-input button {
+            width: 15%;
+            padding: 10px;
             background-color: #007BFF;
             color: white;
             border: none;
-            padding: 12px;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s;
         }
 
-        .send-button:hover {
+        .chat-input button:hover {
             background-color: #0056b3;
         }
-
-        /* Estilo para cuando el chatbot está esperando una respuesta */
-        .chatbot-waiting {
-            font-style: italic;
-            color: #555;
-        }
-
-        /* Ajustes de tamaño para dispositivos móviles */
-        @media (max-width: 768px) {
-            .chatbot-container {
-                width: 100%;
-                height: 70vh;
-            }
-
-            .chatbot-header {
-                font-size: 20px;
-            }
-
-            .chatbot-input {
-                font-size: 14px;
-            }
-
-            .send-button {
-                font-size: 14px;
-            }
-        }
-
     </style>
 </head>
 <body>
 
-<div class="chatbot-container">
-    <div class="chatbot-header">
-        Mathematics Chatbot
-    </div>
+    <div class="chatbot-container">
+        <div class="chatbox" id="chatbox">
+            <p class="bot-message">Hello! How can I assist you with Math today?</p>
+        </div>
 
-    <div class="chatbot-messages" id="chatbot-messages">
-        <!-- Mensajes del chatbot -->
-        <div class="message bot">
-            Hello! I am your Math Assistant. How can I help you today?
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your question...">
+            <button onclick="sendMessage()">Send</button>
         </div>
     </div>
 
-    <div class="chatbot-input-container">
-        <input type="text" id="user-input" class="chatbot-input" placeholder="Ask a math question..." />
-        <button class="send-button" onclick="sendMessage()">Send</button>
-    </div>
-</div>
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById('userInput').value;
+            if (userInput) {
+                var chatbox = document.getElementById('chatbox');
+                var userMessage = document.createElement('p');
+                userMessage.classList.add('user-message');
+                userMessage.textContent = userInput;
+                chatbox.appendChild(userMessage);
+                document.getElementById('userInput').value = '';
 
-<script>
-    // Función para procesar el mensaje del usuario y mostrar la respuesta del chatbot
-    function sendMessage() {
-        const userInput = document.getElementById('user-input').value.trim();
-        const messageContainer = document.getElementById('chatbot-messages');
+                // Bot response logic
+                var botMessage = document.createElement('p');
+                botMessage.classList.add('bot-message');
 
-        if (userInput) {
-            // Mostrar el mensaje del usuario
-            const userMessage = document.createElement('div');
-            userMessage.classList.add('message', 'user');
-            userMessage.textContent = userInput;
-            messageContainer.appendChild(userMessage);
+                // Check if user input contains mathematical operations
+                var operationResult = performCalculation(userInput);
+                if (operationResult !== null) {
+                    botMessage.textContent = "The result is: " + operationResult;
+                } else {
+                    botMessage.textContent = getBotResponse(userInput);
+                }
 
-            // Limpiar el campo de entrada de texto
-            document.getElementById('user-input').value = '';
+                chatbox.appendChild(botMessage);
 
-            // Respuesta del chatbot
-            const botMessage = document.createElement('div');
-            botMessage.classList.add('message', 'bot');
-            botMessage.classList.add('chatbot-waiting');
-            botMessage.textContent = 'Thinking...';
-            messageContainer.appendChild(botMessage);
-
-            // Desplazar el contenedor hacia abajo para mostrar los mensajes
-            messageContainer.scrollTop = messageContainer.scrollHeight;
-
-            // Procesar la pregunta matemática
-            setTimeout(() => {
-                // Aquí se puede integrar lógica para responder preguntas matemáticas
-                let answer = getMathAnswer(userInput);
-                
-                // Actualizar el mensaje del chatbot con la respuesta
-                botMessage.textContent = answer;
-                botMessage.classList.remove('chatbot-waiting');
-                messageContainer.appendChild(botMessage);
-                messageContainer.scrollTop = messageContainer.scrollHeight;
-            }, 1000);
-        }
-    }
-
-    // Función para manejar respuestas matemáticas básicas
-    function getMathAnswer(input) {
-        const mathExpression = input.toLowerCase();
-
-        // Respuestas predefinidas
-        if (mathExpression.includes("addition") || mathExpression.includes("sum")) {
-            return "I can help you with addition! Example: 2 + 2 = 4";
-        }
-        if (mathExpression.includes("subtraction") || mathExpression.includes("minus")) {
-            return "I can help you with subtraction! Example: 5 - 3 = 2";
-        }
-        if (mathExpression.includes("multiplication") || mathExpression.includes("times")) {
-            return "I can help you with multiplication! Example: 3 * 3 = 9";
-        }
-        if (mathExpression.includes("division") || mathExpression.includes("divided")) {
-            return "I can help you with division! Example: 6 / 2 = 3";
+                // Scroll to the bottom of the chatbox
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }
         }
 
-        // Lógica para manejar ecuaciones simples
-        try {
-            const result = eval(input);
-            return `The result of ${input} is ${result}`;
-        } catch (error) {
-            return "Sorry, I couldn't understand that. Please try asking a different question.";
+        // Function to perform simple mathematical operations
+        function performCalculation(input) {
+            // Regular expressions for detecting operations
+            const addition = /(\d+)\s*\+\s*(\d+)/;
+            const subtraction = /(\d+)\s*-\s*(\d+)/;
+            const multiplication = /(\d+)\s*\*\s*(\d+)/;
+            const division = /(\d+)\s*\/\s*(\d+)/;
+            const power = /(\d+)\s*\^\s*(\d+)/;
+            const sqrt = /sqrt\((\d+)\)/;
+
+            let match;
+
+            // Check for addition
+            if (match = input.match(addition)) {
+                return parseInt(match[1]) + parseInt(match[2]);
+            }
+
+            // Check for subtraction
+            if (match = input.match(subtraction)) {
+                return parseInt(match[1]) - parseInt(match[2]);
+            }
+
+            // Check for multiplication
+            if (match = input.match(multiplication)) {
+                return parseInt(match[1]) * parseInt(match[2]);
+            }
+
+            // Check for division
+            if (match = input.match(division)) {
+                if (parseInt(match[2]) === 0) {
+                    return "Cannot divide by zero!";
+                }
+                return parseInt(match[1]) / parseInt(match[2]);
+            }
+
+            // Check for power (exponentiation)
+            if (match = input.match(power)) {
+                return Math.pow(parseInt(match[1]), parseInt(match[2]));
+            }
+
+            // Check for square root
+            if (match = input.match(sqrt)) {
+                return Math.sqrt(parseInt(match[1])).toFixed(2);
+            }
+
+            // Return null if no operation is found
+            return null;
         }
-    }
-</script>
+
+        // Function to handle general responses
+        function getBotResponse(input) {
+            input = input.toLowerCase();
+
+            if (input.includes("hello")) {
+                return "Hi there! How can I help you today?";
+            } else if (input.includes("bye")) {
+                return "Goodbye! Have a great day!";
+            } else if (input.includes("help")) {
+                return "You can ask me to solve math problems like '5 + 3', 'sqrt(16)', or '10 * 4'. Try it!";
+            } else {
+                return "I'm sorry, I didn't understand that. Can you try asking something else?";
+            }
+        }
+    </script>
 
 </body>
 </html>
