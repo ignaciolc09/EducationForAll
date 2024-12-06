@@ -21,12 +21,13 @@
             background-color: #f0f0f0;
         }
 
-       .container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-}
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            gap: 20px;
+        }
 
         /* Left section for topics and chatbot */
         .left-section {
@@ -38,19 +39,24 @@
             justify-content: flex-start;
             align-items: flex-start;
             box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            height: 100%;
         }
 
         .back-button {
             background-color: #007BFF;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 20px;
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
-            position: absolute;
-            top: 10px;
-            left: 10px;
+            transition: background-color 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
         }
 
         .chatbot-placeholder {
@@ -58,19 +64,20 @@
             color: white;
             padding: 15px;
             border-radius: 15px;
-            margin-top: 60px; /* Below the back button */
             font-size: 18px;
             text-align: center;
-            width: 250px;
+            width: 100%;
             margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .subject-list {
             width: 100%;
+            margin-top: 20px;
         }
 
         .subject {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .subject-title {
@@ -83,45 +90,50 @@
             text-align: left;
             font-size: 18px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        
-        /* Estilo de los enlaces para los subtemas */
-.subtheme-link {
-    display: block;
-    color: #0f9d58;
-    text-decoration: none;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 8px;
-    background-color: #e0f7fa;
-}
 
-.subtheme-link:hover {
-    background-color: #0f9d58;
-    color: white;
-    transform: translateY(-2px);
-    transition: transform 0.3s ease;
-}
-
+        .subject-title:hover {
+            background-color: #0c7d46;
+        }
 
         .topics {
             background-color: #e0f7fa;
             padding: 10px;
             border-radius: 10px;
             margin-top: 5px;
-            display: none;
+            display: block;
+        }
+
+        .subtheme-link {
+            display: block;
+            color: #0f9d58;
+            text-decoration: none;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            background-color: #e0f7fa;
+            transition: all 0.3s ease;
+        }
+
+        .subtheme-link:hover {
+            background-color: #0f9d58;
+            color: white;
+            transform: translateY(-2px);
         }
 
         /* Right section for logo and text */
-.right-section {
-    width: 50%;
-    padding: 40px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+        .right-section {
+            width: 50%;
+            padding: 40px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        }
 
         .efa-logo img {
             max-width: 200px;
@@ -138,6 +150,7 @@
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
+                gap: 0;
             }
 
             .left-section, .right-section {
@@ -146,15 +159,21 @@
             }
 
             .back-button {
-                position: relative;
-                top: 0;
-                left: 0;
                 margin-bottom: 20px;
+            }
+
+            .efa-logo h1 {
+                font-size: 24px;
+            }
+
+            .subject-title, .subtheme-link {
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <!-- Left section -->
         <div class="left-section">
@@ -164,24 +183,23 @@
                 Here will be the chatbot
             </div>
 
-       <div class="subject">
-    <button class="subject-title" onclick="toggleTopics('maths')">Mathematics</button>
-    <div id="maths" class="topics">
-        <!-- Subtemas con enlaces -->
-        <a href="maths.html" class="subtheme-link"><p>Maths</p></a>
-        <a href="geogebra.html" class="subtheme-link"><p>Geometry Calculator</p></a>
-        <a href="calculator.html" class="subtheme-link"><p>Calculator</p></a>
-    </div>
-</div>
+            <div class="subject-list">
+                <div class="subject">
+                    <button class="subject-title">Mathematics</button>
+                    <div class="topics">
+                        <a href="maths.html" class="subtheme-link">Maths</a>
+                        <a href="geogebra.html" class="subtheme-link">Geometry Calculator</a>
+                        <a href="calculator.html" class="subtheme-link">Calculator</a>
+                    </div>
+                </div>
 
-<div class="subject">
-    <button class="subject-title" onclick="toggleTopics('languages')">Languages</button>
-    <div id="languages" class="topics">
-        <!-- Subtemas con enlaces -->
-        <a href="languages.html" class="subtheme-link"><p>Learn a Language</p></a>
-        <a href="translator.html" class="subtheme-link"><p>Translator</p></a>
-    </div>
-</div>
+                <div class="subject">
+                    <button class="subject-title">Languages</button>
+                    <div class="topics">
+                        <a href="languages.html" class="subtheme-link">Learn a Language</a>
+                        <a href="translator.html" class="subtheme-link">Translator</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -194,15 +212,5 @@
         </div>
     </div>
 
-    <script>
-        function toggleTopics(id) {
-            const topics = document.getElementById(id);
-            if (topics.style.display === "block") {
-                topics.style.display = "none";
-            } else {
-                topics.style.display = "block";
-            }
-        }
-    </script>
 </body>
 </html>
