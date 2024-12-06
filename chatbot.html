@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot - Secure</title>
+    <title>Secure Math Chatbot</title>
     <style>
         * {
             margin: 0;
@@ -86,10 +86,10 @@
 </head>
 <body>
     <div class="chat-container">
-        <div class="chat-header">Math Chatbot</div>
+        <div class="chat-header">Math & Knowledge Chatbot</div>
         <div class="chat-messages" id="chatMessages">
             <div class="message bot">
-                <p>Hi! I'm here to help you with math. Ask me a question or enter a calculation.</p>
+                <p>Hi! I'm here to help with math and answer questions. Ask me anything!</p>
             </div>
         </div>
         <div class="chat-input">
@@ -128,35 +128,41 @@
         }
 
         function generateResponse(input) {
-            // Check if the input is a valid math expression
-            if (isMathExpression(input)) {
-                try {
-                    return `The result is: ${evaluateMath(input)}`;
-                } catch {
-                    return "Sorry, I couldn't calculate that. Make sure the input is valid.";
-                }
+            const lowerInput = input.toLowerCase();
+
+            // Math calculations
+            if (isMathExpression(lowerInput)) {
+                return calculateMath(lowerInput);
             }
 
-            // Predefined responses for certain keywords
-            const lowerInput = input.toLowerCase();
-            if (lowerInput.includes("hello")) return "Hello! How can I assist you with math today?";
+            // Predefined responses for specific questions
+            if (lowerInput.includes("hello") || lowerInput.includes("hi")) return "Hello! How can I help you?";
+            if (lowerInput.includes("how are you")) return "I'm just a bot, but I'm here to help!";
             if (lowerInput.includes("thank you")) return "You're welcome!";
-            if (lowerInput.includes("help")) return "You can ask me math questions like '2 + 2' or '5 * 7'. Try it!";
+            if (lowerInput.includes("help")) return "You can ask me math questions or general questions like 'What is 2 + 2?'";
+
+            // Educational topics
+            if (lowerInput.includes("pi")) return "Pi is approximately 3.14159 and is used in many mathematical calculations involving circles.";
+            if (lowerInput.includes("triangle area")) return "The area of a triangle is calculated as: 0.5 * base * height.";
+            if (lowerInput.includes("pythagorean theorem")) return "The Pythagorean Theorem states: a² + b² = c², where c is the hypotenuse.";
 
             // Default response
-            return "I didn't understand that. Can you try asking something else?";
+            return "I'm not sure how to respond to that. Can you ask something else?";
         }
 
         function isMathExpression(input) {
-            // Check if input only contains numbers, operators, and parentheses
             const mathRegex = /^[0-9+\-*/().\s]+$/;
             return mathRegex.test(input);
         }
 
-        function evaluateMath(input) {
-            // Safely evaluate a math expression using the Function constructor
-            const sanitized = input.replace(/[^-()\d/*+.]/g, ''); // Remove invalid characters
-            return new Function(`return ${sanitized}`)();
+        function calculateMath(input) {
+            try {
+                // Safe evaluation of basic math expressions
+                const sanitized = input.replace(/[^0-9+\-*/().\s]/g, ''); // Remove invalid characters
+                return `The result is: ${new Function(`'use strict'; return (${sanitized})`)()}`;
+            } catch {
+                return "I couldn't calculate that. Please make sure your input is a valid math expression.";
+            }
         }
     </script>
 </body>
