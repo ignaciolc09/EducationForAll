@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFA - Education For All</title>
+    <title>EFA - Discover</title>
     <style>
         * {
             margin: 0;
@@ -12,140 +12,170 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
         }
 
         .container {
             display: flex;
             width: 100%;
             height: 100%;
-            background-color: white;
-            border-radius: 15px;
         }
 
-        .left {
+        /* Left section for topics and chatbot */
+        .left-section {
             width: 50%;
             padding: 20px;
-            background-color: #f0f0f0;
+            background-color: white;
             display: flex;
             flex-direction: column;
+            justify-content: flex-start;
             align-items: flex-start;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
         }
 
-        .right {
-            width: 50%;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .back-button button {
-            background-color: #0069d9;
+        .back-button {
+            background-color: #007BFF;
             color: white;
-            padding: 10px;
-            margin-bottom: 20px;
             border: none;
-            border-radius: 5px;
+            padding: 10px 20px;
+            border-radius: 10px;
             cursor: pointer;
+            font-size: 16px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
         }
 
-        .chatbot button {
-            background-color: #6c6c6c;
+        .chatbot-placeholder {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
             color: white;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 60px; /* Increased space between back button and chatbot */
+            font-size: 18px;
+            text-align: center;
+            width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .subject-list {
+            width: 100%;
         }
 
         .subject {
-            background-color: #5bff87;
+            margin-bottom: 20px;
+        }
+
+        .subject-title {
+            background-color: #0f9d58;
             color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 15px;
             width: 100%;
             text-align: left;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
+            font-size: 18px;
             cursor: pointer;
         }
 
         .topics {
-            display: none;
-            padding-left: 20px;
-        }
-
-        .topics button {
-            background-color: #66cc66;
-            color: white;
-            width: 100%;
-            text-align: left;
+            background-color: #e0f7fa;
             padding: 10px;
-            margin: 5px 0;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 5px;
+            display: none;
         }
 
-        .study-question {
-            margin-top: 50px;
+        /* Right section for logo and text */
+        .right-section {
+            width: 50%;
+            padding: 40px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .study-question h2 {
-            font-size: 24px;
-            color: #003366; /* Azul fuerte */
-        }
-
-        .logo img {
-            width: 150px;
-            height: auto;
+        .efa-logo img {
+            max-width: 200px;
             margin-bottom: 20px;
+        }
+
+        .efa-logo h1 {
+            font-size: 28px;
+            color: #003366; /* Azul fuerte */
+            text-align: center;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-section, .right-section {
+                width: 100%;
+                box-shadow: none;
+            }
+
+            .back-button {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="left">
-            <div class="back-button">
-                <button>Back</button>
+        <!-- Left section -->
+        <div class="left-section">
+            <button class="back-button">Back</button>
+
+            <!-- Space between back button and chatbot -->
+            <div class="chatbot-placeholder">
+                Here will be the chatbot
             </div>
-            <div class="chatbot">
-                <button>Chatbot</button>
-            </div>
-            <div class="subjects">
-                <button class="subject" onclick="toggleTopics('maths')">Mathematics</button>
-                <div id="maths" class="topics">
-                    <button>Maths</button>
-                    <button>Geometry Calculator</button>
-                    <button>Calculator</button>
+
+            <div class="subject-list">
+                <div class="subject">
+                    <button class="subject-title" onclick="toggleTopics('maths')">Mathematics</button>
+                    <div id="maths" class="topics">
+                        <p>Maths</p>
+                        <p>Geometry Calculator</p>
+                        <p>Calculator</p>
+                    </div>
                 </div>
-                <button class="subject" onclick="toggleTopics('languages')">Languages</button>
-                <div id="languages" class="topics">
-                    <button>Learn a Language</button>
-                    <button>Translator</button>
+
+                <div class="subject">
+                    <button class="subject-title" onclick="toggleTopics('languages')">Languages</button>
+                    <div id="languages" class="topics">
+                        <p>Learn a Language</p>
+                        <p>Translator</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="right">
-            <div class="logo">
-                <img src="https://via.placeholder.com/150" alt="EFA Logo">
-            </div>
-            <div class="study-question">
-                <h2>What are you going to study?</h2>
+
+        <!-- Right section -->
+        <div class="right-section">
+            <div class="efa-logo">
+                <img src="logo.png" alt="EFA Logo">
+                <h1>What are you going to study?</h1>
             </div>
         </div>
     </div>
 
     <script>
         function toggleTopics(id) {
-            var topics = document.getElementById(id);
+            const topics = document.getElementById(id);
             if (topics.style.display === "block") {
                 topics.style.display = "none";
             } else {
