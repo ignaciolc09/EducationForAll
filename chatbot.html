@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics Chatbot - EFA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Contenedor del Chatbot */
+        .chatbot-container {
+            width: 80%;
+            max-width: 600px;
+            height: 80vh;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        /* Cabecera del Chatbot */
+        .chatbot-header {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        /* Área de mensajes */
+        .chatbot-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Mensajes del chatbot */
+        .message {
+            padding: 12px;
+            border-radius: 8px;
+            max-width: 70%;
+        }
+
+        .message.bot {
+            background-color: #e0e0e0;
+            align-self: flex-start;
+            color: #333;
+        }
+
+        .message.user {
+            background-color: #007BFF;
+            align-self: flex-end;
+            color: white;
+        }
+
+        /* Área de entrada de texto */
+        .chatbot-input-container {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .chatbot-input {
+            width: 80%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .send-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .send-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilo para cuando el chatbot está esperando una respuesta */
+        .chatbot-waiting {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Ajustes de tamaño para dispositivos móviles */
+        @media (max-width: 768px) {
+            .chatbot-container {
+                width: 100%;
+                height: 70vh;
+            }
+
+            .chatbot-header {
+                font-size: 20px;
+            }
+
+            .chatbot-input {
+                font-size: 14px;
+            }
+
+            .send-button {
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="chatbot-container">
+    <div class="chatbot-header">
+        Mathematics Chatbot
+    </div>
+
+    <div class="chatbot-messages" id="chatbot-messages">
+        <!-- Mensajes del chatbot -->
+        <div class="message bot">
+            Hello! I am your Math Assistant. How can I help you today?
+        </div>
+    </div>
+
+    <div class="chatbot-input-container">
+        <input type="text" id="user-input" class="chatbot-input" placeholder="Ask a math question..." />
+        <button class="send-button" onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    // Función para procesar el mensaje del usuario y mostrar la respuesta del chatbot
+    function sendMessage() {
+        const userInput = document.getElementById('user-input').value.trim();
+        const messageContainer = document.getElementById('chatbot-messages');
+
+        if (userInput) {
+            // Mostrar el mensaje del usuario
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message', 'user');
+            userMessage.textContent = userInput;
+            messageContainer.appendChild(userMessage);
+
+            // Limpiar el campo de entrada de texto
+            document.getElementById('user-input').value = '';
+
+            // Respuesta del chatbot
+            const botMessage = document.createElement('div');
+            botMessage.classList.add('message', 'bot');
+            botMessage.classList.add('chatbot-waiting');
+            botMessage.textContent = 'Thinking...';
+            messageContainer.appendChild(botMessage);
+
+            // Desplazar el contenedor hacia abajo para mostrar los mensajes
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+
+            // Procesar la pregunta matemática
+            setTimeout(() => {
+                // Aquí se puede integrar lógica para responder preguntas matemáticas
+                let answer = getMathAnswer(userInput);
+                
+                // Actualizar el mensaje del chatbot con la respuesta
+                botMessage.textContent = answer;
+                botMessage.classList.remove('chatbot-waiting');
+                messageContainer.appendChild(botMessage);
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+            }, 1000);
+        }
+    }
+
+    // Función para manejar respuestas matemáticas básicas
+    function getMathAnswer(input) {
+        const mathExpression = input.toLowerCase();
+
+        // Respuestas predefinidas
+        if (mathExpression.includes("addition") || mathExpression.includes("sum")) {
+            return "I can help you with addition! Example: 2 + 2 = 4";
+        }
+        if (mathExpression.includes("subtraction") || mathExpression.includes("minus")) {
+            return "I can help you with subtraction! Example: 5 - 3 = 2";
+        }
+        if (mathExpression.includes("multiplication") || mathExpression.includes("times")) {
+            return "I can help you with multiplication! Example: 3 * 3 = 9";
+        }
+        if (mathExpression.includes("division") || mathExpression.includes("divided")) {
+            return "I can help you with division! Example: 6 / 2 = 3";
+        }
+
+        // Lógica para manejar ecuaciones simples
+        try {
+            const result = eval(input);
+            return `The result of ${input} is ${result}`;
+        } catch (error) {
+            return "Sorry, I couldn't understand that. Please try asking a different question.";
+        }
+    }
+</script>
+
+</body>
+</html>
