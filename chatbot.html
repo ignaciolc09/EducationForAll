@@ -121,7 +121,7 @@
                 var botMessage = document.createElement('p');
                 botMessage.classList.add('bot-message');
 
-                // Check if user input contains mathematical operations
+                // Check for calculation or common phrases
                 var operationResult = performCalculation(userInput);
                 if (operationResult !== null) {
                     botMessage.textContent = "The result is: " + operationResult;
@@ -148,56 +148,59 @@
 
             let match;
 
-            // Check for addition
             if (match = input.match(addition)) {
                 return parseInt(match[1]) + parseInt(match[2]);
             }
-
-            // Check for subtraction
             if (match = input.match(subtraction)) {
                 return parseInt(match[1]) - parseInt(match[2]);
             }
-
-            // Check for multiplication
             if (match = input.match(multiplication)) {
                 return parseInt(match[1]) * parseInt(match[2]);
             }
-
-            // Check for division
             if (match = input.match(division)) {
                 if (parseInt(match[2]) === 0) {
                     return "Cannot divide by zero!";
                 }
                 return parseInt(match[1]) / parseInt(match[2]);
             }
-
-            // Check for power (exponentiation)
             if (match = input.match(power)) {
                 return Math.pow(parseInt(match[1]), parseInt(match[2]));
             }
-
-            // Check for square root
             if (match = input.match(sqrt)) {
                 return Math.sqrt(parseInt(match[1])).toFixed(2);
             }
 
-            // Return null if no operation is found
             return null;
         }
 
-        // Function to handle general responses
+        // Expanded bot response dictionary
         function getBotResponse(input) {
             input = input.toLowerCase();
 
-            if (input.includes("hello")) {
-                return "Hi there! How can I help you today?";
-            } else if (input.includes("bye")) {
-                return "Goodbye! Have a great day!";
-            } else if (input.includes("help")) {
-                return "You can ask me to solve math problems like '5 + 3', 'sqrt(16)', or '10 * 4'. Try it!";
-            } else {
-                return "I'm sorry, I didn't understand that. Can you try asking something else?";
+            const responses = {
+                "hello": "Hi there! How can I help you today?",
+                "bye": "Goodbye! Have a great day!",
+                "help": "You can ask me to solve math problems like '5 + 3', 'sqrt(16)', or '10 * 4'. Try it!",
+                "how are you": "I'm doing great, thank you for asking! How about you?",
+                "what is your name": "I'm your friendly math assistant, here to help you with your studies!",
+                "math help": "I'm here to help with math! Ask me anything from basic arithmetic to more advanced math.",
+                "what time is it": getCurrentTime(),
+                "who are you": "I am a chatbot designed to help with mathematics and other useful topics."
+            };
+
+            for (let key in responses) {
+                if (input.includes(key)) {
+                    return responses[key];
+                }
             }
+
+            return "I'm sorry, I didn't understand that. Can you try asking something else?";
+        }
+
+        // Function to get current time
+        function getCurrentTime() {
+            const currentTime = new Date();
+            return "The current time is " + currentTime.toLocaleTimeString();
         }
     </script>
 
