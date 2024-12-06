@@ -3,135 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFA - Education For All</title>
+    <title>EFA - Discover</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
-            text-align: center;
+            background-color: #f0f0f0;
         }
-        .navbar {
-            background-color: #335d92;
-            padding: 10px 20px;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            margin: 5px;
-            border-radius: 5px;
-            background-color: #5598d7;
-        }
+
         .container {
-            margin: 20px;
-            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 80%;
+            padding: 20px;
+            background-color: white;
         }
-        .button-container {
-            margin-top: 30px;
-        }
-        .main-btn {
-            background-color: #62b864;
+
+        .back-button {
+            background-color: #007BFF;
             color: white;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            margin: 5px;
-        }
-        .main-btn:hover {
-            background-color: #4f8c52;
-        }
-        .dropdown-btn {
-            background-color: #f6f6f6;
-            color: #333;
-            padding: 15px 30px;
-            font-size: 16px;
-            border-radius: 8px;
-            width: 200px;
-            cursor: pointer;
-            margin: 5px;
-            border: 1px solid #ddd;
-        }
-        .dropdown-content {
-            display: none;
-            text-align: left;
-            margin-top: 10px;
-            border-radius: 5px;
-            background-color: #fff;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 230px;
-        }
-        .dropdown-content a {
-            text-decoration: none;
-            color: #333;
-            display: block;
-            padding: 8px;
-            font-size: 14px;
-        }
-        .dropdown-content a:hover {
-            background-color: #e1e1e1;
-        }
-        .dropdown-btn:focus + .dropdown-content,
-        .dropdown-content:hover {
-            display: block;
-        }
-        .back-btn {
-            background-color: #335d92;
-            color: white;
-            font-size: 18px;
+            border: none;
             padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
         }
-        .back-btn:hover {
-            background-color: #5598d7;
+
+        .chatbot-placeholder {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-left: 10px;
+            font-size: 18px;
+            text-align: center;
+            width: 200px;
+        }
+
+        .subject-list {
+            width: 30%;
+        }
+
+        .subject {
+            margin-bottom: 20px;
+        }
+
+        .subject-title {
+            background-color: #0f9d58;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 15px;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .topics {
+            background-color: #e0f7fa;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .efa-logo {
+            text-align: center;
+            margin-left: 20px;
+        }
+
+        .efa-logo img {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        .efa-logo h1 {
+            font-size: 24px;
+            color: #333;
         }
     </style>
 </head>
 <body>
-
-    <!-- Navbar -->
-    <div class="navbar">
-        <a href="#" class="back-btn">Back</a>
-    </div>
-
-    <!-- Container -->
     <div class="container">
-        <h1>What are you going to study?</h1>
-        <img src="your-logo-image-path.png" alt="EFA Logo" width="200">
-        
-        <!-- Button Section -->
-        <div class="button-container">
-            <button class="main-btn">Mathematics</button>
-            <button class="main-btn">Languages</button>
-            <button class="main-btn">Science</button>
+        <button class="back-button">Back</button>
+
+        <div class="chatbot-placeholder">
+            Aquí voy a poner el chatbot
         </div>
 
-        <!-- Dropdown for Mathematics -->
-        <div class="dropdown">
-            <button class="dropdown-btn">Mathematics</button>
-            <div class="dropdown-content">
-                <a href="#">Maths</a>
-                <a href="#">Geometry Calculator</a>
-                <a href="#">Calculator</a>
+        <div class="subject-list">
+            <div class="subject">
+                <button class="subject-title" onclick="toggleTopics('maths')">Mathematics</button>
+                <div id="maths" class="topics">
+                    <p>Maths</p>
+                    <p>Geometry Calculator</p>
+                    <p>Calculator</p>
+                </div>
+            </div>
+
+            <div class="subject">
+                <button class="subject-title" onclick="toggleTopics('languages')">Languages</button>
+                <div id="languages" class="topics">
+                    <p>Learn a Language</p>
+                    <p>Translator</p>
+                </div>
             </div>
         </div>
 
-        <!-- Dropdown for Languages -->
-        <div class="dropdown">
-            <button class="dropdown-btn">Languages</button>
-            <div class="dropdown-content">
-                <a href="#">Learn a Language</a>
-                <a href="translator.html">Translator</a>
-            </div>
+        <div class="efa-logo">
+            <img src="logo.png" alt="EFA Logo">
+            <h1>What are you going to study?</h1>
         </div>
-
-        <!-- Add other categories as necessary -->
-
     </div>
+
+    <script>
+        function toggleTopics(id) {
+            const topics = document.getElementById(id);
+            if (topics.style.display === "block") {
+                topics.style.display = "none";
+            } else {
+                topics.style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
