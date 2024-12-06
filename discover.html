@@ -3,126 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education For All</title>
+    <title>Education For All (EFA)</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            background-color: #f0f4f8;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
 
         .container {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .logo {
+            width: 150px;
+            margin: 0 auto 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .cta {
+            font-size: 24px;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .subjects {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
             gap: 20px;
         }
 
         .subject {
-            background-color: #e0f7e9;
-            border-radius: 8px;
-            width: 45%;
+            background-color: #43a047;
+            color: white;
+            width: 300px;
             padding: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: left;
+            position: relative;
         }
 
-        .subject-header {
-            display: flex;
-            align-items: center;
+        .subject-label {
+            font-size: 18px;
             cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .subject-header img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
+        .toggle {
+            display: none;
         }
 
-        .subject-header h2 {
-            font-size: 1.5rem;
+        .toggle:checked + .subject-label + .subtopics {
+            display: block;
         }
 
         .subtopics {
             display: none;
-            list-style: none;
-            padding-left: 20px;
-            margin-top: 10px;
+            padding-top: 10px;
         }
 
-        .subtopics li {
-            padding: 5px 0;
+        .subtopics p {
+            margin: 5px 0;
         }
 
-        .subtopics li:hover {
-            color: #007BFF;
+        .back-btn {
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .chat-placeholder {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
+
+    <!-- Portada -->
     <div class="container">
-        <!-- Matemáticas -->
-        <div class="subject">
-            <div class="subject-header" onclick="toggleSubtopics('math')">
-                <img src="math-icon.png" alt="Math Icon">
-                <h2>Mathematics</h2>
-            </div>
-            <ul id="math" class="subtopics">
-                <li>Algebra</li>
-                <li>Geometry</li>
-                <li>Calculus</li>
-            </ul>
-        </div>
+        <img src="logo.png" alt="EFA Logo" class="logo">
+        <h1>Education For All (EFA)</h1>
+        <p class="cta">What are you going to study?</p>
+        <button class="back-btn" onclick="window.history.back()">Back</button>
+    </div>
 
-        <!-- Ciencia -->
-        <div class="subject">
-            <div class="subject-header" onclick="toggleSubtopics('science')">
-                <img src="science-icon.png" alt="Science Icon">
-                <h2>Science</h2>
-            </div>
-            <ul id="science" class="subtopics">
-                <li>Physics</li>
-                <li>Chemistry</li>
-                <li>Biology</li>
-            </ul>
-        </div>
+    <!-- Chatbot Placeholder -->
+    <div class="chat-placeholder">
+        <p>Aquí voy a poner el chatbot</p>
+    </div>
 
-        <!-- Computación -->
-        <div class="subject">
-            <div class="subject-header" onclick="toggleSubtopics('computing')">
-                <img src="computing-icon.png" alt="Computing Icon">
-                <h2>Computing</h2>
+    <!-- Discover Section -->
+    <div class="container">
+        <div class="subjects">
+            <!-- Matemáticas -->
+            <div class="subject">
+                <input type="checkbox" id="math" class="toggle">
+                <label for="math" class="subject-label">
+                    Mathematics
+                </label>
+                <div class="subtopics">
+                    <p>Maths</p>
+                    <p>Geometry Calculator</p>
+                    <p>Calculator</p>
+                </div>
             </div>
-            <ul id="computing" class="subtopics">
-                <li>Programming</li>
-                <li>Web Development</li>
-                <li>Algorithms</li>
-            </ul>
-        </div>
 
-        <!-- Economía -->
-        <div class="subject">
-            <div class="subject-header" onclick="toggleSubtopics('economy')">
-                <img src="economy-icon.png" alt="Economy Icon">
-                <h2>Economics</h2>
+            <!-- Lenguajes -->
+            <div class="subject">
+                <input type="checkbox" id="languages" class="toggle">
+                <label for="languages" class="subject-label">
+                    Languages
+                </label>
+                <div class="subtopics">
+                    <p>Learn a Language</p>
+                    <p>Translator</p>
+                </div>
             </div>
-            <ul id="economy" class="subtopics">
-                <li>Microeconomics</li>
-                <li>Macroeconomics</li>
-                <li>Personal Finance</li>
-            </ul>
         </div>
     </div>
 
-    <script>
-        function toggleSubtopics(id) {
-            const subtopics = document.getElementById(id);
-            if (subtopics.style.display === 'none' || subtopics.style.display === '') {
-                subtopics.style.display = 'block';
-            } else {
-                subtopics.style.display = 'none';
-            }
-        }
-    </script>
 </body>
 </html>
