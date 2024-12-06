@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFA - Discover Chatbot</title>
+    <title>EFA - Chatbot</title>
     <style>
         * {
             margin: 0;
@@ -17,262 +17,168 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            background-color: #f4f4f9;
+            background-color: #f9f9f9;
         }
 
-        .chatbot-container {
-            width: 420px;
-            height: 550px;
-            background-color: white;
+        .chat-container {
+            width: 90%;
+            max-width: 500px;
+            background: #ffffff;
             border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-            overflow: hidden;
         }
 
-        .chatbox {
-            flex-grow: 1;
-            overflow-y: auto;
-            margin-bottom: 20px;
-            padding: 10px;
-            height: 100%;
-        }
-
-        .chatbox p {
-            margin: 8px 0;
-        }
-
-        .chatbox .bot-message {
-            text-align: left;
-            background-color: #0f9d58;
+        .chat-header {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
             color: white;
-            padding: 12px;
-            border-radius: 10px;
-            max-width: 70%;
-            margin-bottom: 10px;
-        }
-
-        .chatbox .user-message {
-            text-align: right;
-            background-color: #e0f7fa;
-            color: black;
-            padding: 12px;
-            border-radius: 10px;
-            max-width: 70%;
-            margin-left: auto;
-            margin-bottom: 10px;
-        }
-
-        .chat-input {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        .chat-input input {
-            width: 80%;
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-
-        .chat-input button {
-            width: 18%;
-            padding: 12px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .chat-input button:hover {
-            background-color: #0056b3;
-        }
-
-        .chatbot-header {
-            background-color: #0f9d58;
             padding: 15px;
-            border-radius: 15px 15px 0 0;
-            color: white;
             text-align: center;
             font-size: 20px;
             font-weight: bold;
         }
 
-        .back-button {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 20px;
+        .chat-body {
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin: 10px 0;
+            padding: 10px 15px;
             border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            text-decoration: none;
+            max-width: 70%;
+            line-height: 1.4;
         }
 
-        .back-button:hover {
-            background-color: #0056b3;
+        .chat-message.user {
+            background: #e0f7fa;
+            margin-left: auto;
+            color: #00796b;
         }
 
-        /* Mejorar el botón Back to Home */
-        .back-home {
-            background-color: #28a745;
+        .chat-message.bot {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .chat-footer {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #e0e0e0;
+            background: #f9f9f9;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .chat-footer button {
+            background: #0f9d58;
             color: white;
-            font-size: 16px;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        .back-home:hover {
-            background-color: #218838;
-            transform: scale(1.1);
-            border-color: #218838;
+        .chat-footer button:hover {
+            background: #0d7a46;
         }
 
-        .back-home:active {
-            transform: scale(0.95);
+        /* Quick questions section */
+        .quick-questions {
+            margin-top: 15px;
         }
 
+        .quick-button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        .quick-button:hover {
+            background: #0056b3;
+        }
     </style>
 </head>
-     <!-- Favicon -->
-    <link rel="icon" href="favicon.png" type="image/png">
 <body>
-
-    <!-- Back to Discover Button -->
-    <a href="discover.html" class="back-button">Back to Discover</a>
-    
-    <!-- Back to Home Button (Mejorado) -->
-    <a href="index.html" class="back-home">Back to Home</a>
-
-    <div class="chatbot-container">
-        <div class="chatbot-header">
-            Chat with EFA Math Assistant
+    <div class="chat-container">
+        <div class="chat-header">EFA - Math Assistant</div>
+        <div class="chat-body" id="chatBody">
+            <!-- Chat messages will appear here -->
+            <div class="chat-message bot">Hello! How can I assist you with mathematics today?</div>
         </div>
-
-        <div class="chatbox" id="chatbox">
-            <p class="bot-message">Hello! How can I assist you with Math today?</p>
-        </div>
-
-        <div class="chat-input">
-            <input type="text" id="userInput" placeholder="Ask me a math question...">
+        <div class="chat-footer">
+            <input type="text" id="userInput" placeholder="Type your question here...">
             <button onclick="sendMessage()">Send</button>
+        </div>
+        <div class="quick-questions" id="quickQuestions">
+            <button class="quick-button" onclick="sendQuickMessage('What is algebra?')">What is algebra?</button>
+            <button class="quick-button" onclick="sendQuickMessage('How do I solve equations?')">Solve equations</button>
+            <button class="quick-button" onclick="sendQuickMessage('What is geometry?')">What is geometry?</button>
         </div>
     </div>
 
     <script>
+        const chatBody = document.getElementById('chatBody');
+        const userInput = document.getElementById('userInput');
+
+        // Predefined responses for the bot
+        const responses = {
+            "algebra": "Algebra involves solving equations using variables like x and y. Check out our Algebra section for more!",
+            "equations": "To solve equations, isolate the variable by performing the same operation on both sides.",
+            "geometry": "Geometry is about shapes, angles, and spaces. You can explore this further in the Geometry section!",
+            "default": "I'm not sure about that. Can you try rephrasing your question?"
+        };
+
         function sendMessage() {
-            var userInput = document.getElementById('userInput').value;
-            if (userInput) {
-                var chatbox = document.getElementById('chatbox');
-                var userMessage = document.createElement('p');
-                userMessage.classList.add('user-message');
-                userMessage.textContent = userInput;
-                chatbox.appendChild(userMessage);
-                document.getElementById('userInput').value = '';
+            const message = userInput.value.trim();
+            if (message === "") return;
 
-                // Bot response logic
-                var botMessage = document.createElement('p');
-                botMessage.classList.add('bot-message');
+            // Display user's message
+            displayMessage(message, 'user');
 
-                // Check for calculation or common phrases
-                var operationResult = performCalculation(userInput);
-                if (operationResult !== null) {
-                    botMessage.textContent = "The result is: " + operationResult;
-                } else {
-                    botMessage.textContent = getBotResponse(userInput);
+            // Get bot's response
+            const response = getResponse(message.toLowerCase());
+            setTimeout(() => displayMessage(response, 'bot'), 500);
+
+            userInput.value = "";
+        }
+
+        function sendQuickMessage(message) {
+            userInput.value = message;
+            sendMessage();
+        }
+
+        function displayMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('chat-message', sender);
+            messageDiv.textContent = text;
+            chatBody.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function getResponse(message) {
+            for (let keyword in responses) {
+                if (message.includes(keyword)) {
+                    return responses[keyword];
                 }
-
-                chatbox.appendChild(botMessage);
-
-                // Scroll to the bottom of the chatbox
-                chatbox.scrollTop = chatbox.scrollHeight;
             }
-        }
-
-        // Function to perform simple mathematical operations
-        function performCalculation(input) {
-            const addition = /(\d+)\s*\+\s*(\d+)/;
-            const subtraction = /(\d+)\s*-\s*(\d+)/;
-            const multiplication = /(\d+)\s*\*\s*(\d+)/;
-            const division = /(\d+)\s*\/\s*(\d+)/;
-            const power = /(\d+)\s*\^\s*(\d+)/;
-            const sqrt = /sqrt\((\d+)\)/;
-            const percentage = /(\d+)\s*%\s*of\s*(\d+)/;
-
-            let match;
-
-            if (match = input.match(addition)) {
-                return parseInt(match[1]) + parseInt(match[2]);
-            }
-            if (match = input.match(subtraction)) {
-                return parseInt(match[1]) - parseInt(match[2]);
-            }
-            if (match = input.match(multiplication)) {
-                return parseInt(match[1]) * parseInt(match[2]);
-            }
-            if (match = input.match(division)) {
-                if (parseInt(match[2]) === 0) {
-                    return "Cannot divide by zero!";
-                }
-                return parseInt(match[1]) / parseInt(match[2]);
-            }
-            if (match = input.match(power)) {
-                return Math.pow(parseInt(match[1]), parseInt(match[2]));
-            }
-            if (match = input.match(sqrt)) {
-                return Math.sqrt(parseInt(match[1])).toFixed(2);
-            }
-            if (match = input.match(percentage)) {
-                return (parseInt(match[1]) * parseInt(match[2])) / 100;
-            }
-
-            return null;
-        }
-
-        // Expanded bot response dictionary with more dynamic responses
-        function getBotResponse(input) {
-            input = input.toLowerCase();
-
-            const responses = {
-                "hello": "Hi there! How can I help you today?",
-                "bye": "Goodbye! Have a great day ahead!",
-                "help": "You can ask me about math problems like addition, subtraction, multiplication, division, square roots, powers, and percentages. Try something like '5 + 3' or 'square root of 16'.",
-                "how are you": "I'm doing great, thank you for asking! How about you?",
-                "what is your name": "I am your friendly Math assistant, always ready to help with any math questions.",
-                "math help": "Sure! Ask me anything related to math. I can help with basic arithmetic, algebra, geometry, and more.",
-                "what time is it": getCurrentTime(),
-                "who are you": "I am a chatbot designed to help you with math problems and concepts.",
-                "solve": "I can help with solving equations. Just ask me, for example: 'What is 5 * 3' or 'Solve 2x + 3 = 7'.",
-                "thank you": "You're welcome! I'm here to help anytime.",
-                "is pi irrational": "Yes, pi is an irrational number. It cannot be expressed as a simple fraction."
-            };
-
-            return responses[input] || "I'm sorry, I didn't quite understand that. Can you try asking something else?";
-        }
-
-        function getCurrentTime() {
-            const currentDate = new Date();
-            return `The current time is ${currentDate.toLocaleTimeString()}`;
+            return responses["default"];
         }
     </script>
-
 </body>
 </html>
