@@ -53,23 +53,23 @@
         }
 
         .chatbot-placeholder {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
-            padding: 15px;
-            border-radius: 15px;
-            margin-top: 60px; /* Below the back button */
-            font-size: 18px;
-            text-align: center;
-            width: 250px;
-            margin-bottom: 30px;
-        }
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    font-size: 18px;
+    text-align: center;
+    width: 250px;
+}
 
         .subject-list {
             width: 100%;
         }
 
         .subject {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .subject-title {
@@ -105,7 +105,7 @@
 
         .efa-logo img {
             max-width: 200px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .efa-logo h1 {
@@ -144,25 +144,22 @@
                 Here will be the chatbot
             </div>
 
-            <div class="subject-list">
-                <div class="subject">
-                    <button class="subject-title" onclick="toggleTopics('maths')">Mathematics</button>
-                    <div id="maths" class="topics">
-                        <p>Maths</p>
-                        <p>Geometry Calculator</p>
-                        <p>Calculator</p>
-                    </div>
-                </div>
+<div class="subject">
+    <button class="subject-title" onclick="toggleTopics('maths')">Mathematics</button>
+    <div id="maths" class="topics">
+        <a href="maths.html"><p>Maths</p></a>
+        <a href="geogebra.html"><p>Geometry Calculator</p></a>
+        <a href="calculator.html"><p>Calculator</p></a>
+    </div>
+</div>
 
-                <div class="subject">
-                    <button class="subject-title" onclick="toggleTopics('languages')">Languages</button>
-                    <div id="languages" class="topics">
-                        <p>Learn a Language</p>
-                        <p>Translator</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="subject">
+    <button class="subject-title" onclick="toggleTopics('languages')">Languages</button>
+    <div id="languages" class="topics">
+        <a href="languages.html"><p>Learn a Language</p></a>
+        <a href="translator.html"><p>Translator</p></a>
+    </div>
+</div>
 
         <!-- Right section -->
         <div class="right-section">
