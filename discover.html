@@ -87,103 +87,20 @@
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             gap: 2rem;
             margin-top: 4rem;
+            padding: 0 2rem;
+            flex-wrap: wrap;
         }
 
-        .mission-section, .feature-card {
+        .left-section, .right-section {
             background-color: white;
-            border-radius: 10px;
             padding: 2rem;
+            border-radius: 10px;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .mission-section:hover, .feature-card:hover {
-            transform: translateY(-10px);
-            background-color: #f0f8ff;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-section {
-            text-align: center;
-            padding: 3rem 0;
-            background-color: #0288d1;
-            color: #fff;
-            border-radius: 12px;
-            margin-top: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: #4caf50;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            margin-top: 1rem;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .cta-button:hover {
-            background-color: #388e3c;
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .discover-section {
-            text-align: center;
-            padding: 3rem 0;
-            background-color: #e0f7fa;
-            color: #333;
-            border-radius: 12px;
-            margin: 2rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .discover-section h2 {
-            font-size: 2rem;
-            color: #0288d1;
-        }
-
-        .discover-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: #4caf50;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            margin-top: 1rem;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .discover-button:hover {
-            background-color: #388e3c;
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .left-section {
-            width: 50%;
-            padding: 20px;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+            width: 48%;
         }
 
         .back-button {
@@ -227,16 +144,6 @@
             display: none;
         }
 
-        .right-section {
-            width: 50%;
-            padding: 40px;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
         .efa-logo img {
             max-width: 200px;
             margin-bottom: 30px;
@@ -248,6 +155,28 @@
             text-align: center;
         }
 
+        .subject-title:hover {
+            background-color: #1b8e3c;
+        }
+
+        .discover-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .discover-button:hover {
+            background-color: #388e3c;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -255,13 +184,6 @@
 
             .left-section, .right-section {
                 width: 100%;
-                box-shadow: none;
-            }
-
-            .back-button {
-                position: relative;
-                top: 0;
-                left: 0;
                 margin-bottom: 20px;
             }
         }
