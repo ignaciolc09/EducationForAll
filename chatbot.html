@@ -18,12 +18,12 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #f4f4f9;
         }
 
         .chatbot-container {
-            width: 400px;
-            height: 500px;
+            width: 420px;
+            height: 550px;
             background-color: white;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -38,29 +38,33 @@
             flex-grow: 1;
             overflow-y: auto;
             margin-bottom: 20px;
+            padding: 10px;
+            height: 100%;
         }
 
         .chatbox p {
-            margin: 10px 0;
+            margin: 8px 0;
         }
 
         .chatbox .bot-message {
             text-align: left;
             background-color: #0f9d58;
             color: white;
-            padding: 10px;
+            padding: 12px;
             border-radius: 10px;
             max-width: 70%;
+            margin-bottom: 10px;
         }
 
         .chatbox .user-message {
             text-align: right;
             background-color: #e0f7fa;
             color: black;
-            padding: 10px;
+            padding: 12px;
             border-radius: 10px;
             max-width: 70%;
             margin-left: auto;
+            margin-bottom: 10px;
         }
 
         .chat-input {
@@ -71,37 +75,52 @@
 
         .chat-input input {
             width: 80%;
-            padding: 10px;
+            padding: 12px;
             border-radius: 10px;
             border: 1px solid #ccc;
             font-size: 16px;
         }
 
         .chat-input button {
-            width: 15%;
-            padding: 10px;
+            width: 18%;
+            padding: 12px;
             background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 10px;
             font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .chat-input button:hover {
             background-color: #0056b3;
+        }
+
+        .chatbot-header {
+            background-color: #0f9d58;
+            padding: 15px;
+            border-radius: 15px 15px 0 0;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
     <div class="chatbot-container">
+        <div class="chatbot-header">
+            Chat with EFA Math Assistant
+        </div>
+
         <div class="chatbox" id="chatbox">
             <p class="bot-message">Hello! How can I assist you with Math today?</p>
         </div>
 
         <div class="chat-input">
-            <input type="text" id="userInput" placeholder="Type your question...">
+            <input type="text" id="userInput" placeholder="Ask me a math question...">
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
@@ -145,6 +164,7 @@
             const division = /(\d+)\s*\/\s*(\d+)/;
             const power = /(\d+)\s*\^\s*(\d+)/;
             const sqrt = /sqrt\((\d+)\)/;
+            const percentage = /(\d+)\s*%\s*of\s*(\d+)/;
 
             let match;
 
@@ -169,23 +189,29 @@
             if (match = input.match(sqrt)) {
                 return Math.sqrt(parseInt(match[1])).toFixed(2);
             }
+            if (match = input.match(percentage)) {
+                return (parseInt(match[1]) * parseInt(match[2])) / 100;
+            }
 
             return null;
         }
 
-        // Expanded bot response dictionary
+        // Expanded bot response dictionary with more dynamic responses
         function getBotResponse(input) {
             input = input.toLowerCase();
 
             const responses = {
                 "hello": "Hi there! How can I help you today?",
-                "bye": "Goodbye! Have a great day!",
-                "help": "You can ask me to solve math problems like '5 + 3', 'sqrt(16)', or '10 * 4'. Try it!",
+                "bye": "Goodbye! Have a great day ahead!",
+                "help": "You can ask me about math problems like addition, subtraction, multiplication, division, square roots, powers, and percentages. Try something like '5 + 3' or 'square root of 16'.",
                 "how are you": "I'm doing great, thank you for asking! How about you?",
-                "what is your name": "I'm your friendly math assistant, here to help you with your studies!",
-                "math help": "I'm here to help with math! Ask me anything from basic arithmetic to more advanced math.",
+                "what is your name": "I am your friendly Math assistant, always ready to help with any math questions.",
+                "math help": "Sure! Ask me anything related to math. I can help with basic arithmetic, algebra, geometry, and more.",
                 "what time is it": getCurrentTime(),
-                "who are you": "I am a chatbot designed to help with mathematics and other useful topics."
+                "who are you": "I am a chatbot designed to help you with math problems and concepts.",
+                "solve": "I can help with solving equations. Just ask me, for example: 'What is 5 * 3' or 'Solve 2x + 3 = 7'.",
+                "thank you": "You're welcome! I'm here to help anytime.",
+                "is pi irrational": "Yes, pi is an irrational number. It cannot be expressed as a fraction and has infinite decimal places."
             };
 
             for (let key in responses) {
@@ -194,7 +220,7 @@
                 }
             }
 
-            return "I'm sorry, I didn't understand that. Can you try asking something else?";
+            return "I'm sorry, I didn't quite understand that. Can you rephrase or ask about something related to math?";
         }
 
         // Function to get current time
