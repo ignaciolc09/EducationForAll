@@ -124,15 +124,30 @@
             background-color: #0056b3;
         }
 
+        /* Mejorar el botón Back to Home */
         .back-home {
             background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
             position: absolute;
             top: 10px;
             right: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .back-home:hover {
             background-color: #218838;
+            transform: scale(1.1);
+            border-color: #218838;
+        }
+
+        .back-home:active {
+            transform: scale(0.95);
         }
 
     </style>
@@ -142,7 +157,7 @@
     <!-- Back to Discover Button -->
     <a href="discover.html" class="back-button">Back to Discover</a>
     
-    <!-- Back to Home Button -->
+    <!-- Back to Home Button (Mejorado) -->
     <a href="index.html" class="back-home">Back to Home</a>
 
     <div class="chatbot-container">
@@ -192,7 +207,6 @@
 
         // Function to perform simple mathematical operations
         function performCalculation(input) {
-            // Regular expressions for detecting operations
             const addition = /(\d+)\s*\+\s*(\d+)/;
             const subtraction = /(\d+)\s*-\s*(\d+)/;
             const multiplication = /(\d+)\s*\*\s*(\d+)/;
@@ -246,22 +260,15 @@
                 "who are you": "I am a chatbot designed to help you with math problems and concepts.",
                 "solve": "I can help with solving equations. Just ask me, for example: 'What is 5 * 3' or 'Solve 2x + 3 = 7'.",
                 "thank you": "You're welcome! I'm here to help anytime.",
-                "is pi irrational": "Yes, pi is an irrational number. It cannot be expressed as a fraction and has infinite decimal places."
+                "is pi irrational": "Yes, pi is an irrational number. It cannot be expressed as a simple fraction."
             };
 
-            for (let key in responses) {
-                if (input.includes(key)) {
-                    return responses[key];
-                }
-            }
-
-            return "I'm sorry, I didn't quite understand that. Can you rephrase or ask about something related to math?";
+            return responses[input] || "I'm sorry, I didn't quite understand that. Can you try asking something else?";
         }
 
-        // Function to get current time
         function getCurrentTime() {
-            const currentTime = new Date();
-            return "The current time is " + currentTime.toLocaleTimeString();
+            const currentDate = new Date();
+            return `The current time is ${currentDate.toLocaleTimeString()}`;
         }
     </script>
 
