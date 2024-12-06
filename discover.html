@@ -12,25 +12,36 @@
             padding: 0;
         }
 
-        .container {
+        .header {
+            background-color: #0f4b5c;
+            color: white;
+            padding: 20px;
             text-align: center;
-            padding: 50px 20px;
         }
 
-        .logo {
-            width: 150px;
-            margin: 0 auto 20px;
-        }
-
-        h1 {
+        .header h1 {
             font-size: 36px;
-            color: #333;
         }
 
-        .cta {
-            font-size: 24px;
-            color: #555;
-            margin: 20px 0;
+        .header p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .back-btn {
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
         }
 
         .subjects {
@@ -38,6 +49,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
+            margin-top: 30px;
         }
 
         .subject {
@@ -48,6 +60,11 @@
             border-radius: 10px;
             text-align: left;
             position: relative;
+        }
+
+        .subject i {
+            font-size: 30px;
+            margin-right: 10px;
         }
 
         .subject-label {
@@ -69,45 +86,21 @@
         .subtopics {
             display: none;
             padding-top: 10px;
+            padding-left: 10px;
         }
 
         .subtopics p {
             margin: 5px 0;
         }
-
-        .back-btn {
-            background-color: #4A90E2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
-
-        .chat-placeholder {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Portada -->
-    <div class="container">
-        <img src="logo.png" alt="EFA Logo" class="logo">
-        <h1>Education For All (EFA)</h1>
-        <p class="cta">What are you going to study?</p>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>EFA - Education For All</h1>
+        <p>What are you going to study today?</p>
         <button class="back-btn" onclick="window.history.back()">Back</button>
-    </div>
-
-    <!-- Chatbot Placeholder -->
-    <div class="chat-placeholder">
-        <p>Aquí voy a poner el chatbot</p>
     </div>
 
     <!-- Discover Section -->
@@ -117,7 +110,7 @@
             <div class="subject">
                 <input type="checkbox" id="math" class="toggle">
                 <label for="math" class="subject-label">
-                    Mathematics
+                    <i class="fas fa-calculator"></i> Mathematics
                 </label>
                 <div class="subtopics">
                     <p>Maths</p>
@@ -130,7 +123,7 @@
             <div class="subject">
                 <input type="checkbox" id="languages" class="toggle">
                 <label for="languages" class="subject-label">
-                    Languages
+                    <i class="fas fa-language"></i> Languages
                 </label>
                 <div class="subtopics">
                     <p>Learn a Language</p>
@@ -139,6 +132,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Include Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 </body>
 </html>
